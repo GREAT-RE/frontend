@@ -1,0 +1,9 @@
+.page {
+    background-color: #afa9a9;
+  }
+
+  .home-content {
+    width: 200px; 
+    height: 200px;
+    background-position: center; 
+  }
