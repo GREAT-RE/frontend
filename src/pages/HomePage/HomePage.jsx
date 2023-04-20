@@ -13,6 +13,17 @@ function HomePage() {
           </div>
         </div>
       </div>
+      <div className="button-container">
+  <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+    List your property
+  </a>
+  <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+    Find more about Lisbon
+  </a>
+  <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+    Offers and promotions
+  </a>
+</div>
     </div>
   );
 }
