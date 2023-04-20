@@ -1,10 +1,14 @@
 import './App.css';
+import PropertyList from "./Pages/PropertyList/PropertyList.jsx"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/property-list" element={<PropertyList />} />
+      </Routes>
+    </Router>
   );
 }
 
