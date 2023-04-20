@@ -1,9 +1,30 @@
 .page {
-    background-color: #afa9a9;
-  }
+  background-color: #afa9a9;
+}
 
-  .home-content {
-    width: 200px; 
-    height: 200px;
-    background-position: center; 
-  }
+.home-content {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.logo-container {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  border-radius: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
