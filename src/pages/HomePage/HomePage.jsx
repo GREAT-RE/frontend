@@ -25,12 +25,12 @@ function HomePage() {
       <div className="button-container">
         <div className="list-property-button">
           <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
-            List your property
+            LIST YOUR PROPERTY
           </a>
         </div>
         <div className="more-about-lisbon-button">
           <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
-            Find more about Lisbon
+            FIND MORE ABOUT LISBON
           </a>
         </div>
         <div className="offers-promotions-button">
