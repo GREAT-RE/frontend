@@ -11,6 +11,12 @@ function HomePage() {
           <div class="text">
             FIND YOUR HOME TO LIVE
           </div>
+          <div className="text2">
+            STUDENT
+          </div>
+          <div className="text3">
+            NOMAD
+          </div>
           <div className="logo-container">
             <img src={logo} alt="Logo" className="logo" />
           </div>

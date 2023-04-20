@@ -29,7 +29,7 @@
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #A9A9A9;
+  background-color: #c3c3c3;
   margin-right: 30px;
   margin-left: 30px;
 }
@@ -59,7 +59,7 @@
 }
 
 .more-about-lisbon-button {
-  background-color: #cdcdcd;
+  background-color: #e1e1e1;
   margin-right: 40px;
   margin-left: 40px;
   margin-top: 20px;
@@ -79,7 +79,7 @@
 }
 
 .more-about-lisbon-button a {
-  background-color: #cdcdcd;
+  background-color: #e1e1e1;
 }
 
 .offers-promotions-button a {
@@ -95,6 +95,26 @@
   color: #fff;
   text-align: center;
   font-size: 55px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.text2 {
+  position: absolute;
+  color: #fff;
+  bottom: 15%;
+  left: 10%;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.text3 {
+  position: absolute;
+  color: #fff;
+  bottom: 15%;
+  right: 10%;
+  font-size: 40px;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
