@@ -1,5 +1,6 @@
 import React from 'react';
 import './HomePage.css';
+import { Link } from 'react-router-dom';
 import homeBackground from "../../assets/homeBackground.jpg";
 import logo from "../../assets/logoHILX.png";
 
@@ -24,9 +25,9 @@ function HomePage() {
       </div>
       <div className="button-container">
         <div className="list-property-button">
-          <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+        <Link to="/property-list">
             LIST YOUR PROPERTY
-          </a>
+        </Link>
         </div>
         <div className="more-about-lisbon-button">
           <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
