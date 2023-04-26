@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage.jsx';
+import HomePage from "./Pages/HomePage/HomePage";
 import './App.css';
 import PropertyList from "./Pages/PropertyList/PropertyList.jsx"
 
