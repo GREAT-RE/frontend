@@ -1,6 +1,6 @@
 import React from 'react'
 import "./PropertyList.css"
-import bikePhoto from "./shutterstock_1000x667.jpg"
+import bikePhoto from "../../assets/bikePic.jpg"
 
 const PropertyList = () => {
   return (

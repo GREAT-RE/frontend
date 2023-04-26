@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
-import homeBackground from "../../assets/homeBackground.jpg";
+import homeBackground from "../../assets/homeBackground.png";
 import logo from "../../assets/logoHILX.png";
 
 function HomePage() {
