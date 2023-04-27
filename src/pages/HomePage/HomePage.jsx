@@ -9,7 +9,7 @@ function HomePage() {
     <div className="page">
       <div className="home-content">
         <div className="image-container" style={{ backgroundImage: `url(${homeBackground})` }}>
-          <div class="text">
+          <div className="text">
             FIND YOUR HOME TO LIVE
           </div>
           <div className="text2">
