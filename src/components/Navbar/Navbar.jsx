@@ -2,6 +2,8 @@ import React from 'react'
 import './navbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logoBlue.jpg'
+import loginLogo from '../../assets/loginIcon.png'
+
 const Navbar = () => {
   return (
     <div className='top-nav'> 
@@ -14,12 +16,12 @@ const Navbar = () => {
     <div className='menu-button'></div>
     </label>
     <ul className="menu">
-    <Link to="/property-list" className="propertyMenu">LIST YOUR PROPERTY</Link>
-      <Link className="promotionsMenu"><li>Offers & promotions</li></Link>
-
-      <Link><li>Login</li></Link>
-      <Link><li>Four</li></Link>
-      <Link><li>Five</li></Link>
+      <div className='menu-items'>
+      <Link to="/property-list" className="propertyMenu">LIST YOUR PROPERTY</Link>
+      <Link className="promotionsMenu"><li>Offers & Promotions</li></Link>
+      <Link className='loginLogo'><img src={loginLogo} alt=""/><li>Login</li></Link>
+      <Link><li>Contact Us</li></Link>
+      </div>
     </ul>
     </div>
   )
