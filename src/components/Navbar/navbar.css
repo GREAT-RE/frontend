@@ -116,9 +116,9 @@
   
   @media (max-width: 700px) {
     .menu-items{
-        display: flex;
-        flex-direction: column;
+      display: none;
     }
+
     .menu-button-container {
       display: flex;
       flex-direction: column;
