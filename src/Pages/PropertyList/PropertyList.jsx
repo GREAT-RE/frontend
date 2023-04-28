@@ -5,10 +5,10 @@ import bikePhoto from "../../assets/bikePic.jpg"
 const PropertyList = () => {
   return (
     <>
-    <div className='photo-container'>
+    <div className='photo-container-lisbon'>
       <img className="bike-img" src={bikePhoto} alt="BikeImg" />
-        <div className='text-container'>
-          <h1 className='textP'>Know how easy is to list your property</h1>
+        <div className='text-container-lisbon'>
+          <h1 className='textL'>Know how easy is to list your property</h1>
         </div>
     </div>
       <div className='propertyButton'>

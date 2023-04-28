@@ -1,0 +1,92 @@
+.photo-container-lisbon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.text-container-lisbon {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  
+.textL {
+    color: #FCB434;
+    font-size: 3rem;
+    line-height: 1.5;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+
+.lisbon-img-cover {
+    width: 1000px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.lisbon-img {
+    width: 400px;
+    height: 300px;
+
+}
+
+.lisbon1 {
+    display:flex;
+    justify-content:center;
+    margin-bottom: 80px;
+}
+
+.lisbon-all-text {
+    margin-left: 20px;
+    width: 800px;
+}
+
+.lisbon2 {
+    display:flex;
+    justify-content:center;
+    flex-direction: row-reverse;
+    margin-bottom: 80px;
+}
+
+.lisbon-learn {
+    margin-top: 60px;
+}
+
+.lisbon-get {
+    color: rgb(255, 115, 0);
+}
+
+.lisbon-learn {
+    color: rgb(255, 115, 0);
+}
+
+@media screen and (max-width:768px) {
+    .lisbon-img {
+        width: 200px;
+        height: 150px;
+    }
+    
+    .lisbon-get {
+        font-size: 12px;
+    }
+    
+    .lisbon-learn {
+        font-size: 12px;
+    }
+
+    .lisbon-title {
+        font-size: 24px;
+    }
+
+    .lisbon-text {
+        font-size: 14px;
+    }
+
+}
