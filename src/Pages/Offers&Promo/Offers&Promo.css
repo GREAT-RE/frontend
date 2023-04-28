@@ -1,0 +1,25 @@
+.offer-promo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* altura da viewport - altura da navbar */
+  }
+  
+  .image-container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - 80px); /* altura da viewport - altura da navbar */
+    margin-bottom: 20px; /* espaço embaixo da imagem */
+  }
+  
+  .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 36px;
+    color: #FCB434;
+    text-shadow: 2px 2px #000;
+    font-family: 'Montserrat';
+  }
+  
