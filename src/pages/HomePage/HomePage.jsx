@@ -1,8 +1,8 @@
 import React from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
-import homeBackground from "../../Assets/homeBackground.png"
-import logo from "../../Assets/logoHILX.png";
+import homeBackground from "../../assets/homeBackground.png"
+import logo from "../../assets/logoHILX.png";
 
 function HomePage() {
   return (
