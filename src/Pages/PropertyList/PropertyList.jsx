@@ -1,12 +1,10 @@
 import React from 'react'
 import "./PropertyList.css"
 import bikePhoto from "../../assets/bikePic.jpg"
-import Navbar from '../../components/Navbar/Navbar'
 
 const PropertyList = () => {
   return (
     <>
-    <Navbar/>
     <div className='photo-container'>
       <img className="bike-img" src={bikePhoto} alt="BikeImg" />
         <div className='text-container'>
