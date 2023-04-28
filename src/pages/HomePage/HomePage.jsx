@@ -35,9 +35,9 @@ function HomePage() {
         </Link>
         </div>
         <div className="offers-promotions-button">
-          <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+          <Link to="/offers-promo">
             Offers and promotions
-          </a>
+          </Link>
         </div>
       </div>
     </div>
