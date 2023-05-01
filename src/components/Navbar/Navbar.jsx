@@ -1,33 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logoBlue.jpg'
-import loginLogo from '../../assets/loginIcon.png'
+import logo from '../../assets/logoBlue.jpg';
+import loginLogo from '../../assets/loginIcon.png';
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const handleMenuItemClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <div className='top-nav'>
-    <div>
-    <Link to="/"><img src={logo} alt="Logo" className="logo" /></Link>
-    </div>
-    <input id="menu-toggle" type="checkbox" />  
-    <label className='menu-button-container' htmlFor="menu-toggle">
-    <div className='menu-button'>
-    </div>
-    </label>
-    <ul className="menu">
-      <div className='menu-items'>
-      <Link to="/property-list" className="propertyMenu">LIST YOUR PROPERTY</Link>
-      <Link to="/offers-promo" className="promotionsMenu"><li>Offers & Promotions</li></Link>
-      <Link className='loginLogo'><img src={loginLogo} alt=""/><li>Login</li></Link>
-      <Link className='loginLogo'><li>Contact Us</li></Link>
+    <div className="top-nav">
+      <div>
+        <Link to="/">
+          <img src={logo} alt="Logo" className="logo" />
+        </Link>
       </div>
-      
-      
-    </ul>
-
+      <input id="menu-toggle" type="checkbox" checked={menuOpen} onChange={handleMenuClick} />
+      <label className="menu-button-container" htmlFor="menu-toggle">
+        <div className="menu-button"></div>
+      </label>
+      <ul className="menu">
+        <li>
+          <Link to="/property-list" className="propertyMenu" onClick={handleMenuItemClick}>
+            List Your Property
+          </Link>
+        </li>
+        <li>
+          <Link to="/offers-promo" className="promotionsMenu" onClick={handleMenuItemClick}>
+            Offers & Promotions
+          </Link>
+        </li>
+        <li>
+          <Link className="loginLogo" onClick={handleMenuItemClick}>
+            <img src={loginLogo} className="logoPic" alt="" />
+            Login
+          </Link>
+        </li>
+        <li>
+          <Link className="loginLogo" onClick={handleMenuItemClick}>
+            Contact Us
+          </Link>
+        </li>
+      </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
