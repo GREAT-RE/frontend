@@ -4,6 +4,7 @@ import HomePage from './../HomePage/HomePage';
 import PropertyList from './../PropertyList/PropertyList';
 import FindLisbon from '../FindLisbon/FindLisbon';
 import OffersPromo from '../Offers&Promo/Offers&Promo';
+import Login from '../LoginPage/LoginPage';
 
 const ContentPage = () => {
   return (
@@ -13,6 +14,7 @@ const ContentPage = () => {
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/find-lisbon" element={<FindLisbon />} />
         <Route exact path="/offers-promo" element={<OffersPromo />} />
+        <Route exact path="/login" element={<Login />} />
       </Routes>
     </div>
   )
