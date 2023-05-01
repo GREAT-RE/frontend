@@ -44,7 +44,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link className="loginLogo" onClick={handleMenuItemClick}>
+          <Link to="/contact-us" className="loginLogo" onClick={handleMenuItemClick}>
             Contact Us
           </Link>
         </li>

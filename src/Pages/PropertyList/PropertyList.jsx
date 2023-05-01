@@ -1,6 +1,7 @@
 import React from 'react'
 import "./PropertyList.css"
 import bikePhoto from "../../assets/bikePic.jpg"
+import { Link } from 'react-router-dom';
 
 const PropertyList = () => {
   return (
@@ -12,7 +13,7 @@ const PropertyList = () => {
         </div>
     </div>
       <div className='propertyButton'>
-        <button type="submit">List for free</button>
+      <Link to="/list-property"><button type="submit">List for free</button></Link>
       </div>
     </>
   )

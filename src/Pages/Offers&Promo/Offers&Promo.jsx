@@ -5,8 +5,8 @@ import './Offers&Promo.css'
 function OfferPromo() {
   return (
     <div className="offer-promo">
-        <div className="image-container" style={{ backgroundImage: `url(${offerIMG})` }}>
-          <div className="text">
+        <div className="image-container-offer" style={{ backgroundImage: `url(${offerIMG})` }}>
+          <div className="textO">
             GET TO KNOW OUR PARTNERS
           </div>
         </div>
