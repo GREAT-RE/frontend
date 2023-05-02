@@ -6,6 +6,7 @@ import FindLisbon from '../FindLisbon/FindLisbon';
 import OffersPromo from '../Offers&Promo/Offers&Promo';
 import ContactUs from '../ContacUs/ContactUs';
 import ListProperty from '../ListProperty/ListProperty';
+import Login from '../LoginPage/LoginPage';
 
 const ContentPage = () => {
   return (
@@ -17,6 +18,7 @@ const ContentPage = () => {
         <Route exact path="/offers-promo" element={<OffersPromo />} />
         <Route exact path="/contact-us" element={<ContactUs />} />
         <Route exact path="/list-property" element={<ListProperty />} />
+        <Route exact path="/login" element={<Login />} />
       </Routes>
     </div>
   )
