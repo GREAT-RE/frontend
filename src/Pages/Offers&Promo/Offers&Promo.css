@@ -34,7 +34,18 @@
   height: 20%; 
 }
 
-.partners-container i {
-  font-size: 24px;
-  color: #000;
+.android-icon {
+  color: #3DDC84;
+}
+
+.youtube-icon {
+  color: #FF0000;
+}
+
+.airbnb-icon {
+  color: #FD5C63;
+}
+
+.circle-icon {
+  color: #000000;
 }
