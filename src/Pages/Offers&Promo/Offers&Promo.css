@@ -31,7 +31,7 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 20%; /* altura da nova div dos ícones */
+  height: 20%; 
 }
 
 .partners-container i {

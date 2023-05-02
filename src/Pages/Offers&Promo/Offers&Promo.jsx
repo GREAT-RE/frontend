@@ -12,10 +12,10 @@ function OfferPromo() {
         </div>
       </div>
       <div className="partners-container">
-        <FaAndroid size={50}/>
-        <FaYoutube size={50}/>
-        <FaAirbnb size={50}/>
-        <FaCircle size={50}/>
+        <FaAndroid size={80}/>
+        <FaYoutube size={80}/>
+        <FaAirbnb size={80}/>
+        <FaCircle size={80}/>
       </div>
     </div>
   );
