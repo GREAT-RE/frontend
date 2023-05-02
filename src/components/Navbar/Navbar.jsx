@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className='menu-items'>
       <Link to="/property-list" className="propertyMenu">LIST YOUR PROPERTY</Link>
       <Link to="/offers-promo" className="promotionsMenu"><li>Offers & Promotions</li></Link>
-      <Link className='loginLogo'><img src={loginLogo} alt=""/><li>Login</li></Link>
+      <Link to="/login" className='loginLogo'><img src={loginLogo} alt=""/><li>Login</li></Link>
       <Link className='loginLogo'><li>Contact Us</li></Link>
       </div>
       

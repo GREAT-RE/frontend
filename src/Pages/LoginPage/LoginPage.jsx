@@ -3,34 +3,114 @@ import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "./LoginPage.css";
+import { Component } from "react";
 
- function Login() {
-  const [login, setLogin] = useState({});
-  const {
-    register,
-    formState: { errors },
-    handleSubmit
-  } = useForm();
+class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentView: "signUp",
+    };
+  }
 
-  const onSubmitLogin= (data) => setLogin(data);
+  changeView = (view) => {
+    this.setState({
+      currentView: view,
+    });
+  };
 
-  return (
-    <form onSubmit={handleSubmit(onSubmitLogin)}>
-      <input
-        {...register("email", { required: "e-mail is missing" })}
-        aria-invalid={errors.email ? "true" : "false"}
-      />
-      {errors.email && <p role="alert">{errors.email?.message}</p>}
+  currentView = () => {
+    switch (this.state.currentView) {
+      case "signUp":
+        return (
+          <form>
+            <h2>Sign In or Register</h2>
+            <fieldset className="fieldset-size">
+              <legend>Create Account</legend>
+              <ul>
+                <li>
+                  <label htmlFor="username">Username:</label>
+                  <input type="text" id="username" required />
+                </li>
+                <li>
+                  <label htmlFor="email">Email:</label>
+                  <input type="email" id="email" required />
+                </li>
+                <li>
+                  <label htmlFor="profile">Profile:</label>
+                  <select id="profile" required>
+                    <option value="">-- Select One --</option>
+                    <option value="student">Student</option>
+                    <option value="landlord">Landlord</option>
+                  </select>
+                </li>
+              </ul>
+            </fieldset>
+            <button className="submit-btn">Submit</button>
+            <button className="account-btn" type="button" onClick={() => this.changeView("logIn")}>
+              Have an Account?
+            </button>
+          </form>
+        );
+      case "logIn":
+        return (
+          <form>
+            <h2>Welcome Back!</h2>
+            <fieldset className="fieldset-size-login">
+              <legend>Log In</legend>
+              <ul>
+                <li>
+                  <label htmlFor="username">Username:</label>
+                  <input type="text" id="username" required />
+                </li>
+                <li>
+                  <label htmlFor="password">Password:</label>
+                  <input type="password" id="password" required />
+                </li>
+                <li className="forgot-password">
+                  <i></i>
+                  <a onClick={() => this.changeView("PWReset")} href="#">
+                    Forgot Password?
+                  </a>
+                </li>
+              </ul>
+            </fieldset>
+            <button className="login-btn" >Login</button>
+            <button type="button" onClick={() => this.changeView("signUp")}>
+              Create an Account
+            </button>
+          </form>
+        );
+      case "PWReset":
+        return (
+          <form className="form">
+            <h2>Reset Password</h2>
+            <fieldset className="fieldset">
+              <legend>Password Reset</legend>
+              <ul>
+                <li>
+                  <em>A reset link will be sent to your inbox!</em>
+                </li>
+                <li>
+                  <label htmlFor="email">Email:</label>
+                  <input type="email" id="email" required />
+                </li>
+              </ul>
+            </fieldset>
+            <button className="reset-btn">Send Reset Link</button>
+            <button type="button" onClick={() => this.changeView("logIn")}>
+              Go Back
+            </button>
+          </form>
+        );
+      default:
+        return null;
+    }
+  };
 
-      <input
-        {...register("password", { required: "password is missing" })}
-        aria-invalid={errors.password ? "true" : "false"}
-      />
-      {errors.password && <p role="alert">{errors.password?.message}</p>}
-
-      <input type="submit" />
-    </form>
-  );
+  render() {
+    return <section id="entry-page">{this.currentView()}</section>;
+  }
 }
 
 export default Login;
