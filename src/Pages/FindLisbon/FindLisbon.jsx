@@ -1,6 +1,6 @@
 import React from 'react'
 import "./FindLisbon.css"
-import aboutLisbon from "../../assets/aboutlisbon1.jpg"
+import aboutLisbon from "../../assets/discoverLX.jpg"
 import aboutLisbon1 from "../../assets/aboutlisbon.jpg"
 import aboutLisbon2 from "../../assets/aboutlisbon2.jpg"
 
