@@ -58,4 +58,5 @@ const ContactUs = () => {
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<ContactUs />, rootElement);
-export default ContactUs
+
+export default ContactUs;
