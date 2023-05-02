@@ -1,6 +1,7 @@
 import React from "react"; 
 import offerIMG from "../../assets/off_promo.jpg";
 import './Offers&Promo.css';
+import { FaAndroid, FaYoutube, FaAirbnb, FaCircle} from 'react-icons/fa';
 
 function OfferPromo() {
   return (
@@ -11,15 +12,13 @@ function OfferPromo() {
         </div>
       </div>
       <div className="partners-container">
-        <i className="fa fa-icon-1"></i>
-        <i className="fa fa-icon-2"></i>
-        <i className="fa fa-icon-3"></i>
-        <i className="fa fa-icon-4"></i>
+        <FaAndroid size={50}/>
+        <FaYoutube size={50}/>
+        <FaAirbnb size={50}/>
+        <FaCircle size={50}/>
       </div>
     </div>
   );
 }
 
 export default OfferPromo;
-
-
