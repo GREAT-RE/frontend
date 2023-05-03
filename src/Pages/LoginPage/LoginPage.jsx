@@ -27,6 +27,16 @@ class Login extends Component {
             <h2>Sign In or Register</h2>
             <fieldset className="fieldset-size">
               <legend>Create Account</legend>
+              <div className="loginRegisterView">
+              <button
+              className="account-btn"
+              type="button"
+              onClick={() => this.changeView("logIn")}
+            >
+              Login
+            </button>
+            <p>Register</p>
+            </div>
               <ul>
                 <li>
                   <label htmlFor="username">Username:</label>
@@ -47,13 +57,7 @@ class Login extends Component {
               </ul>
             </fieldset>
             <button className="submit-btn">Submit</button>
-            <button
-              className="account-btn"
-              type="button"
-              onClick={() => this.changeView("logIn")}
-            >
-              Have an Account?
-            </button>
+
           </form>
         );
       case "logIn":
