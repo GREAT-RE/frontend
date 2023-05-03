@@ -6,7 +6,10 @@ import FindLisbon from '../FindLisbon/FindLisbon';
 import OffersPromo from '../Offers&Promo/Offers&Promo';
 import ContactUs from '../ContacUs/ContactUs';
 import ListProperty from '../ListProperty/ListProperty';
-import Login from '../LoginPage/LoginPage';
+// import Login from '../LoginPage/LoginPage';
+import RegisterPage from '../RegisterPage/RegisterPage'
+import Login from "../../components/Login/Login";
+import SignUp from "../../components/SignUp/SignUp";
 
 const ContentPage = () => {
   return (
@@ -18,7 +21,11 @@ const ContentPage = () => {
         <Route exact path="/offers-promo" element={<OffersPromo />} />
         <Route exact path="/contact-us" element={<ContactUs />} />
         <Route exact path="/list-property" element={<ListProperty />} />
-        <Route exact path="/login" element={<Login />} />
+        {/* <Route exact path="/login" element={<Login />} /> */}
+        <Route path="/register" element={<RegisterPage />}>
+          <Route path="login" element={<Login />} />
+          <Route path="sign-up" element={<SignUp />} />
+        </Route>
       </Routes>
     </div>
   )
