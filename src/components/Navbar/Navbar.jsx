@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/logoBlue.jpg';
 import loginLogo from '../../assets/loginIcon.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
@@ -15,6 +16,9 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
+  if (location.pathname === '/') {
+    return null;
+  }
   return (
     <div className="top-nav">
       <div>
