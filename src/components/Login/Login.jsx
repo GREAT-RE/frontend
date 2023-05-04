@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import {useNavigate} from "react-router-dom"
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import logoLogin from "../../assets/logoHILX.png"
+import "./Login.css"
 
 const Login = () => {
     const [user, setUser] = useState({});
@@ -26,30 +28,34 @@ const Login = () => {
       });
   };
   return (
+    <>
+    <div className="login-form">
      <form onSubmit={handleSubmit(onSubmit)}>
 
-      <label htmlFor="email">Email:</label>
+      <label className='form-names' htmlFor="email">Email:</label>
 
       <input
         type="email"
         name="email"
-        {...register("email", { required: "falta preencher o email" })}
+        {...register("email", { required: "Write your e-mail" })}
         aria-invalid={errors.email ? "true" : "false"}
       />
-      {errors.email && <p role="alert">{errors.email?.message}</p>}
+      {errors.email && <p className='error-message' role="alert">{errors.email?.message}</p>}
 
-      <label htmlFor="password">Password:</label>
+      <label className='form-names' htmlFor="password">Password:</label>
 
       <input
         type="password"
         name="password"
-        {...register("password", { required: "falta preencher o password" })}
+        {...register("password", { required: "Write your password" })}
         aria-invalid={errors.password ? "true" : "false"}
       />
-      {errors.password && <p role="alert">{errors.password?.message}</p>}
+      {errors.password && <p className='error-message' role="alert">{errors.password?.message}</p>}
 
-      <input type="submit" value="Log In" />
+      <input className='contactButton' type="submit" value="Log In" />
     </form>
+    </div>
+    </>
   )
 }
 

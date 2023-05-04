@@ -24,7 +24,7 @@ const ContactUs = () => {
 <form onSubmit={handleSubmit(onSubmit)}>
   <label className='form-names' htmlFor="name">Name</label>
   <input
-        {...register("name", { required: "Write your name" })}
+        {...register("name", { required: "Name is missing" })}
         aria-invalid={errors.name ? "true" : "false"}
         aria-describedby="name-description"
   />
@@ -33,7 +33,7 @@ const ContactUs = () => {
 
   <label className='form-names' htmlFor="email">E-mail</label>
   <input
-    {...register("email", { required: "Write your e-mail" })}
+    {...register("email", { required: "E-mail is missing" })}
     aria-invalid={errors.email ? "true" : "false"}
     aria-describedby="email-description"
   />
@@ -42,7 +42,7 @@ const ContactUs = () => {
 
   <label className='form-names' htmlFor="comment">Write your comment</label>
   <textarea className='comment-section'
-    {...register("comment", { required: "Write your comment" })}
+    {...register("comment", { required: "Comment is missing" })}
     aria-invalid={errors.comment ? "true" : "false"}
     aria-describedby="comment-description"
   />

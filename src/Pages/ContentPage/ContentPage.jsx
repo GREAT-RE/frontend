@@ -15,14 +15,14 @@ const ContentPage = () => {
   return (
     <div>
       <Routes>
-        <Route exact path="/property-list" element={<PropertyList />} />
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/find-lisbon" element={<FindLisbon />} />
-        <Route exact path="/offers-promo" element={<OffersPromo />} />
-        <Route exact path="/contact-us" element={<ContactUs />} />
-        <Route exact path="/list-property" element={<ListProperty />} />
+          <Route exact path="/property-list" element={<PropertyList />} />
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/find-lisbon" element={<FindLisbon />} />
+          <Route exact path="/offers-promo" element={<OffersPromo />} />
+          <Route exact path="/contact-us" element={<ContactUs />} />
+          <Route exact path="/list-property" element={<ListProperty />} />
         {/* <Route exact path="/login" element={<Login />} /> */}
-        <Route path="/register" element={<RegisterPage />}>
+          <Route path="/register" element={<RegisterPage />}>
           <Route path="login" element={<Login />} />
           <Route path="sign-up" element={<SignUp />} />
         </Route>

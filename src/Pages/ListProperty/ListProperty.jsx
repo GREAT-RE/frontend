@@ -24,7 +24,7 @@ const ListProperty = () => {
     <form className='all-forms' onSubmit={handleSubmit(onSubmit)}>
   <label className='form-names' htmlFor="firstname">First name</label>
   <input
-    {...register("firstname", { required: "Write your first name" })}
+    {...register("firstname", { required: "First name is missing" })}
     aria-invalid={errors.firstname ? "true" : "false"}
     aria-describedby="firstname-description"
   />
@@ -33,7 +33,7 @@ const ListProperty = () => {
 
   <label className='form-names' htmlFor="lastname">Last name</label>
   <input
-    {...register("lastname", { required: "Write your last name" })}
+    {...register("lastname", { required: "Last name is missing" })}
     aria-invalid={errors.lastname ? "true" : "false"}
     aria-describedby="lastname-description"
   />
@@ -42,7 +42,7 @@ const ListProperty = () => {
 
   <label className='form-names' htmlFor="phone">Phone</label>
   <input
-    {...register("phone", { required: "Write tour phone number" })}
+    {...register("phone", { required: "Phone number is missing" })}
     aria-invalid={errors.phone ? "true" : "false"}
     aria-describedby="phone-description"
   />
@@ -51,7 +51,7 @@ const ListProperty = () => {
 
   <label className='form-names' htmlFor="email">E-mail</label>
   <input
-    {...register("email", { required: "Write your e-mail" })}
+    {...register("email", { required: "E-mail is missing" })}
     aria-invalid={errors.email ? "true" : "false"}
     aria-describedby="email-description"
   />

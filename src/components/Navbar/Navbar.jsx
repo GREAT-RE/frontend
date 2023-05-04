@@ -43,7 +43,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/login" className="loginLogo" onClick={handleMenuItemClick}>
+          <Link to="/register/login" className="loginLogo" onClick={handleMenuItemClick}>
             <img src={loginLogo} className="logoPic" alt="" />
             Login
           </Link>

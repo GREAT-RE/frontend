@@ -10,7 +10,7 @@ const FindLisbon = () => {
     <div className='photo-container-lisbon'>
       <img className="lisbon-img-cover" src={aboutLisbon} alt="LisbonImg" />
         <div className='text-container-lisbon'>
-          <h1 className='textL'>Discover Lisbon</h1>
+          <h1 className='textL'>DISCOVER LISBON</h1>
         </div>
     </div>
     <br></br>
