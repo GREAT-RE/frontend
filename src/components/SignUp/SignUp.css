@@ -1,0 +1,14 @@
+.fieldset-signup {
+    display: flex;
+    align-items: center;
+    margin: 10px 5px;
+    border-radius: 10px;
+    height: 600px;
+    width: 600px;
+    box-shadow: 6px 3px 8px #0000002d;
+  }
+
+  .signup-form {
+    display: flex;
+    justify-content: center;
+  }
