@@ -16,7 +16,7 @@ function OfferPromo() {
         <a href="https://www.android.com"><FaAndroid size={80} className="android-icon"/></a>
         <a href="https://www.youtube.com"><FaYoutube size={80} className="youtube-icon"/></a>
         <a href="https://www.airbnb.com"><FaAirbnb size={80} className="airbnb-icon"/></a>
-        <a href="https://example.com"><StarIcon size={80} className="circle-icon"/></a>
+        <a href="https://example.com"><img src={StarIcon} alt="star" className="star-icon"/></a>
       </div>
     </div>
   );
