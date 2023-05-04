@@ -1,0 +1,22 @@
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .carouselImage {
+    max-width: 100%;
+    margin: auto;
+  }
+.homeCarousel{
+    width: 100%;
+}
+.carouselText{
+    text-align: center;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color:black !important;
+}
