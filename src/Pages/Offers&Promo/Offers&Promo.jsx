@@ -1,7 +1,8 @@
 import React from "react"; 
 import offerIMG from "../../assets/off_promo.jpg";
 import './Offers&Promo.css';
-import { FaAndroid, FaYoutube, FaAirbnb, FaCircle} from 'react-icons/fa';
+import { FaAndroid, FaYoutube, FaAirbnb } from 'react-icons/fa';
+import StarIcon from "../../assets/star.png";
 
 function OfferPromo() {
   return (
@@ -15,7 +16,7 @@ function OfferPromo() {
         <a href="https://www.android.com"><FaAndroid size={80} className="android-icon"/></a>
         <a href="https://www.youtube.com"><FaYoutube size={80} className="youtube-icon"/></a>
         <a href="https://www.airbnb.com"><FaAirbnb size={80} className="airbnb-icon"/></a>
-        <a href="https://example.com"><FaCircle size={80} className="circle-icon"/></a>
+        <a href="https://example.com"><img src={StarIcon} alt="star" className="star-icon"/></a>
       </div>
     </div>
   );
