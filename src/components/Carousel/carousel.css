@@ -1,0 +1,32 @@
+.slick-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    margin:auto;
+  }
+  
+  .carouselImage {
+    max-width: 100%;
+    margin: auto;
+  }
+.homeCarousel{
+    width: 80%;
+}
+.carouselText{
+    text-align: center;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: #3C4464;
+}
+
+@media (max-width: 800px){
+    .slick-slider {
+        width: 90%;
+    }
+    .slick-prev:before,
+    .slick-next:before {
+        display: none;
+}
+}

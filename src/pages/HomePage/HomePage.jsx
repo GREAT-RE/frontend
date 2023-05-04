@@ -3,6 +3,7 @@ import './HomePage.css';
 import { Link } from 'react-router-dom';
 import homeBackground from "../../assets/homeBackground.png"
 import logo from "../../assets/logoHILX.png";
+import HomeCarousel from '../../components/Carousel/carousel';
 
 function HomePage() {
   return (
@@ -40,6 +41,7 @@ function HomePage() {
           </Link>
         </div>
       </div>
+      <HomeCarousel/>
     </div>
   );
 }
