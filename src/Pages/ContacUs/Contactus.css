@@ -8,12 +8,14 @@
     box-sizing: border-box
   }
   
-  h1 {
-    font-weight: 100;
-    color: #FCB434;;
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgb(79, 98, 148);
+  .form-names {
+    text-align: left;
+    display: block;
+    color: #FCB434;
+    font-size: 16px;
+    font-weight: 200;
+    margin-bottom: 8px;
+    margin-top: 10px;
   }
   
   .form {
@@ -23,11 +25,11 @@
     box-sizing: border-box
   }
   
-  p {
+  .error-message {
     color: #bf1650;
   }
   
-  p::before {
+  .error-message::before {
     display: inline;
     content: "⚠ ";
   }
@@ -43,19 +45,8 @@
     font-size: 14px;
   }
   
-  label {
-    line-height: 2;
-    text-align: left;
-    display: block;
-    margin-bottom: 13px;
-    margin-top: 20px;
-    color: #FCB434;
-    font-size: 14px;
-    font-weight: 200;
-  }
-  
-  button[type="submit"],
-  input[type="submit"] {
+  .contactButton[type="submit"],
+  .contactButton[type="submit"] {
     background: #FCB434;
     color: white;
     text-transform: uppercase;
@@ -67,12 +58,12 @@
     letter-spacing: 10px;
   }
   
-  button[type="submit"]:hover,
-  input[type="submit"]:hover {
+  .contactButton[type="submit"]:hover,
+  .contactButton[type="submit"]:hover {
     background: #FCA434;
   }
   
-  button[type="submit"]:active,
+  .contactButton[type="submit"]:active,
   input[type="button"]:active,
   input[type="submit"]:active {
     transition: 0.3s all;
@@ -89,13 +80,13 @@
     transition: 0.3s all;
   }
   
-  button[type="submit"],
+  .contactButton[type="submit"],
   input[type="button"],
   input[type="submit"] {
     -webkit-appearance: none;
   }
   
-  button[type="button"] {
+  .contactButton[type="button"] {
     display: block;
     appearance: none;
     background: #333;
@@ -114,7 +105,7 @@
     margin-top: 30px;
   }
   
-  button {
+  .contactButton {
     display: block;
     appearance: none;
     margin-top: 40px;
@@ -127,6 +118,10 @@
   
   .comment-section {
     height: 300px;
+    width: 460px;
+    border: 1px solid #EBECF0;
+    padding: 20px;
+    font-size: 16px;
   }
 
   .contactLogo {
@@ -139,4 +134,20 @@
     background-size:cover;
     width: 180px;
     height: 80px;
+  }
+
+  .fieldset-contact {
+    display: flex;
+    align-items: center;
+    margin: 10px 5px;
+    border-radius: 10px;
+    height: 800px;
+    width: 800px;
+    box-shadow: 6px 3px 8px #0000002d;
+  }
+
+  .contact-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
   }

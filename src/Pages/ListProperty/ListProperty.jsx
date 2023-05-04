@@ -19,54 +19,49 @@ const ListProperty = () => {
         <div className="logoC" style={{ backgroundImage: `url(${logoContact})` }}>
         </div>
     </div>
-    <form onSubmit={handleSubmit(onSubmit)}>
-  <label htmlFor="name">Name of the property</label>
+    <div className='property-form'>
+    <fieldset className="fieldset-property">
+    <form className='all-forms' onSubmit={handleSubmit(onSubmit)}>
+  <label className='form-names' htmlFor="firstname">First name</label>
   <input
-    {...register("name", { required: "Write the name of the property" })}
-    aria-invalid={errors.name ? "true" : "false"}
-    aria-describedby="name-description"
+    {...register("firstname", { required: "Write your first name" })}
+    aria-invalid={errors.firstname ? "true" : "false"}
+    aria-describedby="firstname-description"
   />
-  {errors.name && <p role="alert">{errors.name?.message}</p>}
-  <div id="name-description"></div>
+  {errors.firstname && <p className='error-message' role="alert">{errors.firstname?.message}</p>}
+  <div id="firstname-description"></div>
 
-  <label htmlFor="address">Address</label>
+  <label className='form-names' htmlFor="lastname">Last name</label>
   <input
-    {...register("address", { required: "Write the address of the property" })}
-    aria-invalid={errors.address ? "true" : "false"}
-    aria-describedby="address-description"
+    {...register("lastname", { required: "Write your last name" })}
+    aria-invalid={errors.lastname ? "true" : "false"}
+    aria-describedby="lastname-description"
   />
-  {errors.address && <p role="alert">{errors.address?.message}</p>}
-  <div id="address-description"></div>
+  {errors.lastname && <p className='error-message' role="alert">{errors.lastname?.message}</p>}
+  <div id="lastname-description"></div>
 
-  <label htmlFor="price">Price</label>
+  <label className='form-names' htmlFor="phone">Phone</label>
   <input
-    {...register("price", { required: "Write the price of the property" })}
-    aria-invalid={errors.price ? "true" : "false"}
-    aria-describedby="price-description"
+    {...register("phone", { required: "Write tour phone number" })}
+    aria-invalid={errors.phone ? "true" : "false"}
+    aria-describedby="phone-description"
   />
-  {errors.price && <p role="alert">{errors.price?.message}</p>}
-  <div id="price-description"></div>
+  {errors.phone && <p className='error-message' role="alert">{errors.phone?.message}</p>}
+  <div id="phone"></div>
 
-  <label htmlFor="propertyType">Property Type</label>
-  <select {...register("propertyType")}>
-    <option value="house">House</option>
-    <option value="apartment">Apartment</option>
-    <option value="condo">Condo</option>
-    <option value="room">Room</option>
-  </select>
-
-  <label htmlFor="description">Write a description of the property</label>
+  <label className='form-names' htmlFor="email">E-mail</label>
   <input
-    className="description-section"
-    {...register("description", { required: "Write your comment" })}
-    aria-invalid={errors.description ? "true" : "false"}
-    aria-describedby="description"
+    {...register("email", { required: "Write your e-mail" })}
+    aria-invalid={errors.email ? "true" : "false"}
+    aria-describedby="email-description"
   />
-  {errors.description && <p role="alert">{errors.comment?.message}</p>}
-  <div id="description"></div>
+  {errors.email && <p className='error-message' role="alert">{errors.email?.message}</p>}
+  <div id="email-description"></div>
 
-  <input type="submit" value="Submit your property" />
+  <input type="submit" className='contactButton' value="Submit your enquire" />
 </form>
+</fieldset>
+</div>
 <br></br>
 <br></br>
 <br></br>
