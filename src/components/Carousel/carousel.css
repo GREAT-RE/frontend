@@ -1,8 +1,9 @@
-.slick-slide {
+.slick-slider {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 75%;
+    margin:auto;
   }
   
   .carouselImage {
@@ -10,13 +11,22 @@
     margin: auto;
   }
 .homeCarousel{
-    width: 100%;
+    width: 80%;
 }
 .carouselText{
     text-align: center;
 }
-
 .slick-prev:before,
 .slick-next:before {
-    color:black !important;
+  color: #3C4464;
+}
+
+@media (max-width: 800px){
+    .slick-slider {
+        width: 90%;
+    }
+    .slick-prev:before,
+    .slick-next:before {
+        display: none;
+}
 }

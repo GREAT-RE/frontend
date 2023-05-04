@@ -7,13 +7,14 @@ import carouselImage2 from "../../assets/Book early for the best deals.jpg"
 import "./carousel.css"
 
 function HomeCarousel() {
+
     const settings = {
         dots:true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: true
+        arrows: true,
       };
   return (
     <Slider {...settings}>
