@@ -24,7 +24,7 @@ const Navbar = () => {
     <div className="top-nav">
       <div>
         <Link to="/">
-          <img src={logo} alt="Logo" className="logo" />
+          <img src={logo} alt="Logo" className="logoNav" />
         </Link>
       </div>
       <input id="menu-toggle" type="checkbox" checked={menuOpen} onChange={handleMenuClick} />
