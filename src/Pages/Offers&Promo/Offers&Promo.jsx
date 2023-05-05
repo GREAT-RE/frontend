@@ -3,8 +3,14 @@ import offerIMG from "../../assets/off_promo.jpg";
 import './Offers&Promo.css';
 import { FaAndroid, FaYoutube, FaAirbnb } from 'react-icons/fa';
 import StarIcon from "../../assets/star.png";
+import { useEffect } from "react";
 
 function OfferPromo() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="offer-promo">
       <div className="offer-image" style={{ backgroundImage: `url(${offerIMG})` }}>

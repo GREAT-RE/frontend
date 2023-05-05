@@ -2,14 +2,20 @@ import React from 'react'
 import "./PropertyList.css"
 import bikePhoto from "../../assets/bikePic.jpg"
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const PropertyList = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
     <div className='photo-container-lisbon'>
       <img className="bike-img" src={bikePhoto} alt="BikeImg" />
         <div className='text-container-lisbon'>
-          <h1 className='textL'>Know how easy is to list your property</h1>
+          <h1 className='textP'>KNOW HOW EASY IS TO LIST YOUR PROPERTY</h1>
         </div>
     </div>
       <div className='propertyButton'>

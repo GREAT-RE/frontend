@@ -1,10 +1,14 @@
 import React from 'react'
 import "./FindLisbon.css"
+import { useEffect } from 'react'
 import aboutLisbon from "../../assets/discoverLX.jpg"
 import aboutLisbon1 from "../../assets/aboutlisbon.jpg"
 import aboutLisbon2 from "../../assets/aboutlisbon2.jpg"
 
 const FindLisbon = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
     <div className='photo-container-lisbon'>

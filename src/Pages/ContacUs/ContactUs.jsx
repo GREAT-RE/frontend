@@ -48,7 +48,7 @@ const ContactUs = () => {
   />
   {errors.comment && <p className='error-message' role="alert">{errors.comment?.message}</p>}
   <div id="comment-description"></div>
-  <input type="submit" className='contactButton' value="Submit your Comment"/>
+  <input type="submit" className='contactButton' value="Submit"/>
   </form>
   </fieldset>
   </div>
