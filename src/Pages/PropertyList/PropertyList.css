@@ -3,9 +3,11 @@ body {
 }
 
 .bike-img {
-    width: 1000px;
-    height: 300px;
-    object-fit: cover;
+  width: 1450px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
+
 }
 
 .photo-container{
@@ -63,7 +65,11 @@ a {
 
 @media screen and (max-width:768px) {
     .textP {
-        font-size: 42px;
-        width: 80%;
+        font-size: 38px;
+    }
+
+    .bike-img {
+      width: 500px;
+      height: 250px;
     }
 }

@@ -4,30 +4,27 @@
   justify-content: center;
   align-items: center;
   height: 1000px; 
-  margin-top: 20px;
+  margin-top: -45px;
 }
 
 .offer-image {
-  position: relative;
-  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
   background-size: cover;
-  background-position: center;
-  width: 97.6%;
-  height: 100%;  
+  width: 1450px;
+  height: 600px;
   border-radius: 20px;
 }
 
 .offer-text {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100%;
-  font-size: 60px;
   color: #FCB434;
-  text-shadow: 2px 0px #000;
-  font-family: 'Madeline';
+  font-size: 3rem;
+  line-height: 1.5;
+  text-align: center;
+  font-size: 50px;
   font-weight: bold;
-  margin-top: 170px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin-top: 250px;
 }
 
 .partners-container {
@@ -52,4 +49,13 @@
 
 .star-icon {
   color: #000000;
+}
+
+@media screen and (max-width:768px) {
+
+.offer-image {
+  width: 500px;
+  height: 250px;
+}
+
 }

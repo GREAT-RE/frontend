@@ -26,9 +26,10 @@
   }
 
 .lisbon-img-cover {
-    width: 1500px;
-    height: 400px;
+    width: 1450px;
+    height: 600px;
     object-fit: cover;
+    border-radius: 20px;
 }
 
 .lisbon-img {
@@ -71,6 +72,15 @@
     .lisbon-img {
         width: 200px;
         height: 150px;
+    }
+
+    .lisbon-img-cover {
+        width: 500px;
+        height: 250px;
+    }
+
+    .textL {
+        font-size: 38px;
     }
     
     .lisbon-get {
