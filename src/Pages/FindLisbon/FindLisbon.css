@@ -69,6 +69,13 @@
 }
 
 @media screen and (max-width:768px) {
+    .divFindLisbon{
+        width: 98%;
+        margin:1%;
+    }
+    .lisbon1{
+        width:100%
+    }
     .lisbon-img {
         width: 200px;
         height: 150px;
@@ -97,6 +104,32 @@
 
     .lisbon-text {
         font-size: 14px;
+    }
+
+}
+@media screen and (max-width:600px){
+    .lisbon1 {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 5%;
+    }
+    .lisbon2{
+        flex-direction: column;
+        align-items: center;
+    }
+    .lisbon-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .lisbon-all-text{
+        width: 95%;
+        
+    }
+    .lisbon-img-cover{
+        width: 100%;
     }
 
 }

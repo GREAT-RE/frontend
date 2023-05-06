@@ -10,7 +10,7 @@ const FindLisbon = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
+    <div className='divFindLisbon'>
     <div className='photo-container-lisbon'>
       <img className="lisbon-img-cover" src={aboutLisbon} alt="LisbonImg" />
         <div className='text-container-lisbon'>
@@ -40,7 +40,7 @@ const FindLisbon = () => {
         <h4 className='lisbon-learn'>Learn more</h4>
       </div>
     </div>
-    </>
+    </div>
   )
 }
 
