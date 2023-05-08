@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "./Contactus.css"
-import logoContact from "../../assets/logoHILX.png"
+import logoContact from "../../assets/HOMEINLX.png"
 
 const ContactUs = () => {
     const [collectible, setCollectible] = useState({});

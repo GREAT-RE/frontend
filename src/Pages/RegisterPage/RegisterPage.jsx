@@ -1,5 +1,5 @@
 import React from 'react'
-import logoLogin from "../../assets/logoHILX.png"
+import logoLogin from "../../assets/HOMEINLX.png"
 import {useLocation, Link, Outlet} from 'react-router-dom'
 import "./RegisterPage.css"
 // import SignUp from '../../components/SignUp/SignUp'
