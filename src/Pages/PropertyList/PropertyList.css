@@ -3,7 +3,7 @@ body {
 }
 
 .bike-img {
-  width: 1450px;
+  width: 85%;
   height: 600px;
   object-fit: cover;
   border-radius: 20px;
@@ -65,11 +65,20 @@ a {
 
 @media screen and (max-width:768px) {
     .textP {
-        font-size: 38px;
+        font-size: 30px;
     }
 
     .bike-img {
-      width: 500px;
-      height: 250px;
+      width: 95%;
+      height: 100%;
+      margin:5%;
     }
+}
+@media screen and (max-width:500px){
+  .textP{
+    font-size: 20px;
+  }
+  .bike-img{
+    height: 50vh;
+  }
 }
