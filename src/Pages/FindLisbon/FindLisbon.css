@@ -35,7 +35,7 @@
 .lisbon-img {
     width: 400px;
     height: 300px;
-
+    border-radius: 20px;
 }
 
 .lisbon1 {
@@ -58,13 +58,10 @@
 
 .lisbon-learn {
     margin-top: 60px;
-}
-
-.lisbon-get {
     color: rgb(255, 115, 0);
 }
 
-.lisbon-learn {
+.lisbon-get {
     color: rgb(255, 115, 0);
 }
 

@@ -54,8 +54,11 @@
 @media screen and (max-width:768px) {
 
 .offer-image {
-  width: 500px;
-  height: 250px;
+  width: 400px;
+  height: 400px;
+}
+.offer-text {
+  font-size: 2rem;
 }
 
 }
