@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "./ListProperty.css"
-import logoContact from "../../assets/logoHILX.png"
+import logoContact from "../../assets/HOMEINLX.svg"
 
 const ListProperty = () => {
     const [property, setProperty] = useState({});
@@ -23,7 +23,7 @@ const ListProperty = () => {
     <fieldset className="fieldset-property">
     <form className='all-forms' onSubmit={handleSubmit(onSubmit)}>
   <label className='form-names' htmlFor="firstname">First name</label>
-  <input
+  <input className='input-forms'
     {...register("firstname", { required: "First name is missing" })}
     aria-invalid={errors.firstname ? "true" : "false"}
     aria-describedby="firstname-description"
@@ -32,7 +32,7 @@ const ListProperty = () => {
   <div id="firstname-description"></div>
 
   <label className='form-names' htmlFor="lastname">Last name</label>
-  <input
+  <input className='input-forms'
     {...register("lastname", { required: "Last name is missing" })}
     aria-invalid={errors.lastname ? "true" : "false"}
     aria-describedby="lastname-description"
@@ -41,7 +41,7 @@ const ListProperty = () => {
   <div id="lastname-description"></div>
 
   <label className='form-names' htmlFor="phone">Phone</label>
-  <input
+  <input className='input-forms'
     {...register("phone", { required: "Phone number is missing" })}
     aria-invalid={errors.phone ? "true" : "false"}
     aria-describedby="phone-description"
@@ -50,7 +50,7 @@ const ListProperty = () => {
   <div id="phone"></div>
 
   <label className='form-names' htmlFor="email">E-mail</label>
-  <input
+  <input className='input-forms'
     {...register("email", { required: "E-mail is missing" })}
     aria-invalid={errors.email ? "true" : "false"}
     aria-describedby="email-description"
@@ -58,7 +58,7 @@ const ListProperty = () => {
   {errors.email && <p className='error-message' role="alert">{errors.email?.message}</p>}
   <div id="email-description"></div>
 
-  <input type="submit" className='contactButton' value="Submit your enquire" />
+  <input type="submit" className='contactButton' value="Submit" />
 </form>
 </fieldset>
 </div>

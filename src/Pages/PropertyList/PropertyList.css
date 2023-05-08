@@ -3,11 +3,10 @@ body {
 }
 
 .bike-img {
-  width: 75%;
+  width: 1450px;
   height: 600px;
   object-fit: cover;
   border-radius: 20px;
-
 }
 
 .photo-container{

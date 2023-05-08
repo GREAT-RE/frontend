@@ -1,12 +1,6 @@
   body {
   font-family: 'Montserrat', sans-serif;
   }
-
- form {
-    max-width: 500px;
-    margin: 0 auto;
-    box-sizing: border-box
-  }
   
   .form-names {
     text-align: left;
@@ -21,13 +15,6 @@
     
   }
   
-  .form {
-    background: #0e101c;
-    max-width: 400px;
-    margin: 0 auto;
-    box-sizing: border-box
-  }
-  
   .error-message {
     color: #bf1650;
     margin-left: 50px;
@@ -39,7 +26,7 @@
     content: "⚠ ";
   }
   
-  input {
+  .input-forms {
     display: block;
     box-sizing: border-box;
     width: 400px;
@@ -72,45 +59,16 @@
   }
   
   .contactButton[type="submit"]:active,
-  input[type="button"]:active,
-  input[type="submit"]:active {
+  .input-forms[type="button"]:active,
+  .input-forms[type="submit"]:active {
     transition: 0.3s all;
     transform: translateY(3px);
     border: 1px solid transparent;
     opacity: 0.8;
   }
   
-  input:disabled {
-    opacity: 0.4;
-  }
-  
-  input[type="button"]:hover {
+  .input-forms[type="button"]:hover {
     transition: 0.3s all;
-  }
-  
-  .contactButton[type="submit"],
-  input[type="button"],
-  input[type="submit"] {
-    -webkit-appearance: none;
-  }
-  
-  .contactButton[type="button"] {
-    display: block;
-    appearance: none;
-    background: #333;
-    color: white;
-    border: none;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    border-radius: 10px;
-  }
-  
-  pre {
-    color: white;
-  }
-  
-  hr {
-    margin-top: 30px;
   }
   
   .contactButton {
@@ -141,10 +99,10 @@
   }
 
   .logoC {
-    margin-top: 50px;
     background-size:cover;
-    width: 180px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
+    margin-top: 50px;
   }
 
   .fieldset-contact {
@@ -166,4 +124,44 @@
   textarea {
     resize: none;
     font-family: 'Montserrat', sans-serif;
+  }
+
+  .all-forms {
+    display:grid;
+  }
+
+  .contact-form {
+    display: grid;
+    justify-content: center;
+  }
+
+  @media screen and (max-width:768px) {
+    
+    .input-forms {
+      width: 300px;
+    }
+
+    .comment-section {
+      width: 280px;
+    }
+  }
+
+  @media screen and (max-width:425px) {
+
+    .all-forms {
+      width: 280px;
+    }
+
+    .input-forms {
+      width: 180px;
+    }
+
+    .comment-section {
+      width: 160px;
+    }
+
+    .logoC {
+      width: 120px;
+      height: 120px;
+    }
   }

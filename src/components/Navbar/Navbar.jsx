@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './navbar.css';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../../assets/HOMEINLX.png';
+import logo from '../../assets/HOMEINLX.svg';
 import loginLogo from '../../assets/loginIcon.png';
 
 const Navbar = () => {

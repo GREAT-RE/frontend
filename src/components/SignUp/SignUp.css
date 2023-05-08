@@ -9,6 +9,5 @@
   }
 
   .signup-form {
-    display: flex;
-    justify-content: center;
+    display: grid;
   }

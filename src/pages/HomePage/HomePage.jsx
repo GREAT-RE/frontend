@@ -2,7 +2,7 @@ import React from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
 import homeBackground from "../../assets/homeBackground.png"
-import logo from "../../assets/HOMEINLX.png";
+import logo from "../../assets/HOMEINLX.svg";
 import HomeCarousel from '../../components/Carousel/carousel';
 
 function HomePage() {

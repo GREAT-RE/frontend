@@ -29,12 +29,12 @@ const Login = () => {
   };
   return (
     <>
-    <div className="login-form">
-     <form onSubmit={handleSubmit(onSubmit)}>
+    <div>
+     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
 
       <label className='form-names' htmlFor="email">Email:</label>
 
-      <input
+      <input className='input-forms'
         type="email"
         name="email"
         {...register("email", { required: "Write your e-mail" })}
@@ -44,7 +44,7 @@ const Login = () => {
 
       <label className='form-names' htmlFor="password">Password:</label>
 
-      <input
+      <input className='input-forms'
         type="password"
         name="password"
         {...register("password", { required: "Write your password" })}
@@ -52,7 +52,7 @@ const Login = () => {
       />
       {errors.password && <p className='error-message' role="alert">{errors.password?.message}</p>}
 
-      <input className='contactButton' type="submit" value="Log In" />
+      <input className='contactButton' type="submit" value="LogIn" />
     </form>
     </div>
     </>

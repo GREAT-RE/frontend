@@ -31,10 +31,10 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signup-form">
-        <form onSubmit={handleSubmit(onSubmit)}>
+    <div>
+        <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
       <label className='form-names' htmlFor="firstName">First Name:</label>
-      <input
+      <input className='input-forms'
         type="text"
         name="firstName"
         {...register("firstName", { required: "First name is missing" })}
@@ -43,7 +43,7 @@ const SignUp = () => {
       {errors.firstName && <p className='error-message' role="alert">{errors.firstName?.message}</p>}
 
       <label className='form-names' htmlFor="lastName">Last Name:</label>
-      <input
+      <input className='input-forms'
         type="text"
         name="lastName"
         {...register("lastName", { required: "Last name is missing" })}
@@ -53,7 +53,7 @@ const SignUp = () => {
 
       <label className='form-names' htmlFor="email">E-mail:</label>
 
-      <input
+      <input className='input-forms'
         type="email"
         name="email"
         {...register("email", { required: "E-mail is missing" })}
@@ -63,7 +63,7 @@ const SignUp = () => {
 
       <label className='form-names' htmlFor="password">Password:</label>
 
-      <input
+      <input className='input-forms'
         type="password"
         name="password"
         {...register("password", { required: "Password is missing" })}

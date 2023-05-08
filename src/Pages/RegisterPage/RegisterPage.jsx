@@ -1,5 +1,5 @@
 import React from 'react'
-import logoLogin from "../../assets/HOMEINLX.png"
+import logoLogin from "../../assets/HOMEINLX.svg"
 import {useLocation, Link, Outlet} from 'react-router-dom'
 import "./RegisterPage.css"
 // import SignUp from '../../components/SignUp/SignUp'
@@ -19,7 +19,7 @@ const RegisterPage = () => {
       <div className="login-signin">
         <fieldset className="fieldset-login">
           <div className="register-buttons">
-          <Link className={location.pathname === '/register/login' ? 'login-button active' : 'login-button'} to="/register/login">LOG IN</Link>
+          <Link className={location.pathname === '/register/login' ? 'login-button active' : 'login-button'} to="/register/login">LOGIN</Link>
           <Link className={location.pathname === '/register/sign-up' ? 'signin-button active' : 'signin-button'} to="/register/sign-up">REGISTER</Link>
           </div>
           <Outlet />
