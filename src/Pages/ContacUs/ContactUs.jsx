@@ -16,7 +16,7 @@ const ContactUs = () => {
   return (
     <>
     <div className='contactLogo'>
-        <div className="logoC" style={{ backgroundImage: `url(${logoContact})` }}>
+        <div className="logoC" style={{ backgroundImage: `url(${logoContact})`, width: '180px', height: '140px' }}>
         </div>
     </div>
     <div className='contact-form'>
