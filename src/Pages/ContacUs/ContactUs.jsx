@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "./Contactus.css"
-import logoContact from "../../assets/logoHILX.png"
+import logoContact from "../../assets/HOMEINLX.svg"
 
 const ContactUs = () => {
     const [collectible, setCollectible] = useState({});
@@ -21,9 +21,9 @@ const ContactUs = () => {
     </div>
     <div className='contact-form'>
     <fieldset className="fieldset-contact">
-<form onSubmit={handleSubmit(onSubmit)}>
+<form className='all-forms' onSubmit={handleSubmit(onSubmit)}>
   <label className='form-names' htmlFor="name">Name</label>
-  <input
+  <input className='input-forms'
         {...register("name", { required: "Name is missing" })}
         aria-invalid={errors.name ? "true" : "false"}
         aria-describedby="name-description"
@@ -32,7 +32,7 @@ const ContactUs = () => {
   <div id="name-description"></div>
 
   <label className='form-names' htmlFor="email">E-mail</label>
-  <input
+  <input className='input-forms'
     {...register("email", { required: "E-mail is missing" })}
     aria-invalid={errors.email ? "true" : "false"}
     aria-describedby="email-description"

@@ -12,19 +12,21 @@ function OfferPromo() {
   }, []);
 
   return (
+    <>
     <div className="offer-promo">
-      <div className="offer-image" style={{ backgroundImage: `url(${offerIMG})` }}>
-        <div className="offer-text">
-          GET TO KNOW OUR PARTNERS
+     <img className="offer-image" src={offerIMG} alt="Offer Image" />
+        <div className="offer-text-container">
+          <h1 className="textO">GET TO KNOW OUR PARTNERS</h1>
         </div>
-      </div>
+    </div>
       <div className="partners-container">
         <a href="https://www.android.com"><FaAndroid size={80} className="android-icon"/></a>
         <a href="https://www.youtube.com"><FaYoutube size={80} className="youtube-icon"/></a>
         <a href="https://www.airbnb.com"><FaAirbnb size={80} className="airbnb-icon"/></a>
         <a href="https://example.com"><img src={StarIcon} alt="star" className="star-icon"/></a>
       </div>
-    </div>
+      </>
+    
   );
 }
 
