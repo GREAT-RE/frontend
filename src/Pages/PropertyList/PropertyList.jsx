@@ -1,6 +1,6 @@
 import React from 'react'
 import "./PropertyList.css"
-import bikePhoto from "../../assets/bikePic.jpg"
+import bikePhoto from "../../assets/propertylist.jpg"
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
