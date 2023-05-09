@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import feelAtHome from '../../assets/Feel at Home.jpg';
 import './SearchProperty.css';
 import popularImg1 from "../../assets/Popular property.jpg"
@@ -7,6 +7,11 @@ import popularImg3 from "../../assets/Popular property 2.jpg"
 import { Link } from 'react-router-dom';
 
 const SearchProperty = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [selectedUniversity, setSelectedUniversity] = useState('1');
   const [selectDate, setSelectDate] = useState('');
   const [selectRoomType, setSelectRoomType] = useState('');

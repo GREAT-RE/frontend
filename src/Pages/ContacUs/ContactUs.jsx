@@ -22,14 +22,23 @@ const ContactUs = () => {
     <div className='contact-form'>
     <fieldset className="fieldset-contact">
 <form className='all-forms' onSubmit={handleSubmit(onSubmit)}>
-  <label className='form-names' htmlFor="name">Name</label>
+  <label className='form-names' htmlFor="firstname">First Name</label>
   <input className='input-forms'
-        {...register("name", { required: "Name is missing" })}
-        aria-invalid={errors.name ? "true" : "false"}
-        aria-describedby="name-description"
+        {...register("firstname", { required: "First name is missing" })}
+        aria-invalid={errors.firstname ? "true" : "false"}
+        aria-describedby="first-name-description"
   />
-  {errors.email && <p className='error-message' role="alert">{errors.name?.message}</p>}
-  <div id="name-description"></div>
+  {errors.firstname && <p className='error-message' role="alert">{errors.firstname?.message}</p>}
+  <div id="first-name-description"></div>
+
+  <label className='form-names' htmlFor="lastname">Last Name</label>
+  <input className='input-forms'
+        {...register("lastname", { required: "Last name is missing" })}
+        aria-invalid={errors.lastname ? "true" : "false"}
+        aria-describedby="last-name-description"
+  />
+  {errors.lastname && <p className='error-message' role="alert">{errors.lastname?.message}</p>}
+  <div id="last-name-description"></div>
 
   <label className='form-names' htmlFor="email">E-mail</label>
   <input className='input-forms'
