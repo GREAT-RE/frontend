@@ -29,6 +29,7 @@
 .menuHeader {
   grid-row: 1 / 2;
   grid-column: 1 / 6;
+  color:  #3C4464;
 }
 
 .customSelect {
@@ -138,6 +139,76 @@
   padding: 0;
   margin: 0;
   border-radius: 5px;
+}
+
+.popular-text {
+  color:  #3C4464;
+}
+
+.popular-container {
+  display: flex;
+  justify-content:  center;
+  margin-top: 20px;
+}
+
+.popular-card-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.popular-card {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: inline;
+  background-color: rgb(238, 235, 235);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.popular-all-cards {
+  display: flex;
+  justify-content: space-around;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.card-title {
+  font-size: 18px;
+  color:  #3C4464;
+}
+
+.card-text {
+  color:  #3C4464;
+}
+
+.card-price {
+  color: red;
+}
+
+.popular-button {
+  display:flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.popular-button button {
+  font-size: 1.5rem;
+  padding: 10px 200px;
+  background-color: #FCB434;
+  color:  #3C4464;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.popular-button button:hover {
+  background-color: #FCA434;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {

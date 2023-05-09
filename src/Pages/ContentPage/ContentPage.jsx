@@ -15,6 +15,7 @@ import RuaRosa from '../FindLisbon/RuaRosa/RuaRosa';
 import Fabrica from "../FindLisbon/Fabrica/Fabrica"
 import Ruinas from '../FindLisbon/Ruinas/Ruinas';
 import SearchProperty from '../SearchProperty/SearchProperty';
+import CardIndividual from '../SearchProperty/CardIndividual/CardIndividual';
 
 const ContentPage = () => {
   return (
@@ -31,6 +32,7 @@ const ContentPage = () => {
           <Route exact path="/contact-us" element={<ContactUs />} />
           <Route exact path="/list-property" element={<ListProperty />} />
           <Route exact path="/search-property" element={<SearchProperty/>}/>
+          <Route exact path="/card-individual" element={<CardIndividual/>}/>
         {/* <Route exact path="/login" element={<Login />} /> */}
           <Route path="/register" element={<RegisterPage />}>
           <Route path="login" element={<Login />} />
