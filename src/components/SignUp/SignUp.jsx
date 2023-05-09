@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom"
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import "./SignUp.css"
+import CheckboxSignup from "../CheckboxSignup/CheckboxSignup";
 
 
 const SignUp = () => {
@@ -73,7 +74,10 @@ const SignUp = () => {
 
       <input className='contactButton' type="submit" value="Register" />
         </form>
+        <CheckboxSignup />
     </div>
+
+    
   );
 };
 

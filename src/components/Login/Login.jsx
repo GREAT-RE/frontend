@@ -55,6 +55,10 @@ const Login = () => {
       <input className='contactButton' type="submit" value="LogIn" />
     </form>
     </div>
+
+    <p>Forgot your <a href="#">Password?</a></p>
+
+  
     </>
   )
 }
