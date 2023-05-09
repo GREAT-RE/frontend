@@ -13,9 +13,11 @@ function HomePage() {
           <div className="text">
             FIND YOUR HOME TO LIVE
           </div>
+          <Link to ="/search-property">
           <div className="text2">
             STUDENT
           </div>
+          </Link>
           <div className="text3">
             NOMAD
           </div>
