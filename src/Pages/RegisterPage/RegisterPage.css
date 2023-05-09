@@ -36,12 +36,14 @@
     padding: 10px;
     padding-left: 80px;
     padding-right: 80px;
+    color: #3C4464;
   }
 
   .signin-button {
     padding: 10px;
     padding-left: 80px;
     padding-right: 80px;
+    color: #3C4464;
   }
 
   .login-button:hover {
