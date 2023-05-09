@@ -3,7 +3,7 @@ import feelAtHome from '../../assets/Feel at Home.jpg';
 import './SearchProperty.css';
 
 const SearchProperty = () => {
-  const [selectedUniversity, setSelectedUniversity] = useState('a');
+  const [selectedUniversity, setSelectedUniversity] = useState('1');
   const [selectDate, setSelectDate] = useState('');
   const [selectRoomType, setSelectRoomType] = useState('');
   const [selectPropertyType, setSelectPropertyType] = useState('');
@@ -34,11 +34,13 @@ const SearchProperty = () => {
       <img className='feelHome' src={feelAtHome} alt='feel' />
       <div className='optionsMenu'>
         <h1 className='menuHeader'>Feel at home</h1>
-        <select id='dropdownMenu' value={selectedUniversity} onChange={handleUniversityChange}>
-          <option value='1'>University 1</option>
-          <option value='2'>University 2</option>
-          <option value='3'>University 3</option>
-        </select>
+        <div className='customSelect'>
+          <select value={selectedUniversity} onChange={handleUniversityChange}>
+            <option value='1'>University 1</option>
+            <option value='2'>University 2</option>
+            <option value='3'>University 3</option>
+          </select>
+        </div>
         <input id='moveInOut' placeholder='Move-in/Move-out date' value={selectDate} onChange={handleDateChange} />
         <div className='menuRow'>
           <input id='roomType' placeholder='Room type' value={selectRoomType} onChange={handleRoomChange} />
