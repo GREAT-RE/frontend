@@ -6,8 +6,11 @@
 }
 
 .feelHome {
-  border-radius: 10px;
   margin-top: 3%;
+  width: 1450px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .optionsMenu {
@@ -80,6 +83,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  border-radius: 5px;
 }
 
 .menuRow {
@@ -100,6 +104,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  border-radius: 5px;
 }
 
 #propertyType {
@@ -110,6 +115,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  border-radius: 5px;
 }
 
 #priceChange {
@@ -120,6 +126,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  border-radius: 5px;
 }
 
 #extrasChange {
@@ -130,9 +137,43 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 1024px) {
   .feelHome {
     width: 85%;
   }}
+
+  @media screen and (max-width: 768px) {
+
+    .menuRow {
+      display:list-item;
+      list-style: none;
+      height: 100px;
+      margin-top: -150px;
+      width: 150px;
+      
+    }
+
+    #roomType,
+    #propertyType,
+    #priceChange,
+    #extrasChange {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .optionsMenu {
+      height: 300px;
+      width: 70%;
+    }
+
+    .customSelect {
+      margin-bottom: 100px;
+    }
+
+    #moveInOut {
+      margin-bottom: 100px;
+    }
+  }

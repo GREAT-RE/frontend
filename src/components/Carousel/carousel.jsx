@@ -7,24 +7,28 @@ import carouselImage2 from "../../assets/Book early for the best deals.jpg"
 import "./carousel.css"
 
 function HomeCarousel() {
+  const settings = {
+    dots:true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+  };
 
-    const settings = {
-        dots:true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-      };
   return (
     <Slider {...settings}>
-      <div>
-        <h3 className="carouselText">Book now & get a voucher to shop at Restaurant</h3>
-        <img src={carouselImage1} className="carouselImage" alt="car1"/>
+      <div className="carousel-container">
+        <div className="carousel-content">
+          <h3 className="carouselText">Book now & get a voucher to shop at Restaurant</h3>
+          <img src={carouselImage1} className="carouselImage" alt="car1"/>
+        </div>
       </div>
-      <div>
-        <h3 className="carouselText">Book early for the best deals</h3>
-        <img src={carouselImage2} className="carouselImage"alt="car2"/>
+      <div className="carousel-container">
+        <div className="carousel-content">
+          <h3 className="carouselText">Book early for the best deals</h3>
+          <img src={carouselImage2} className="carouselImage"alt="car2"/>
+        </div>
       </div>
     </Slider>
   );
