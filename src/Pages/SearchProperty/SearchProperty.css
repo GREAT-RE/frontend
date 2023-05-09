@@ -1,0 +1,109 @@
+.searchPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .feelHome{
+    border-radius: 10px;
+    margin-top: 3%;
+  }
+  
+  .optionsMenu {
+    background-color: white;
+    width: 40%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    margin-top: -10%;
+    border-radius: 10px;
+  }
+  
+  .menuHeader {
+    grid-row: 1 / 2;
+    grid-column: 1 / 6;
+  }
+  
+  #dropdownMenu {
+    grid-row: 2 / 3;
+    grid-column: 1 / 4;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 50%;
+    height:40px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #moveInOut {
+    grid-row: 2 / 3;
+    grid-column: 3 / 6;
+    border: 1px solid black;
+    width: 50%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menuRow {
+    grid-row: 3 / 4;
+    grid-column: 1 / 6;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 40px;
+    gap: 10px;
+  }
+  
+  #roomType {
+    text-align: center;
+    grid-column: 1 / 2;
+    border: 1px solid black;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #propertyType {
+    text-align: center;
+    grid-column: 2 / 3;
+    border: 1px solid black;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+ #priceChange {
+    text-align: center;
+    grid-column: 3 / 4;
+    border: 1px solid black;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+        
+  #extrasChange {
+    text-align: center;
+    grid-column: 4 / 5;
+    border: 1px solid black;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (max-width:1024px){
+    .feelHome{
+        width: 85%;
+    }
+    .optionsMenu{
+        width: 80%;
+        margin-top: -15%;
+    }
+}
