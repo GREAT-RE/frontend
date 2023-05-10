@@ -10,6 +10,8 @@ const PropertyCard = ({ listing }) => {
     
       return (
         listing ? (
+          <>
+ 
             <div>
             <img className='popular-card-image' src={picture_url} alt='Pop1' />
             <h2 className='card-title'>{name}</h2>
@@ -18,6 +20,7 @@ const PropertyCard = ({ listing }) => {
             <p>{number_of_reviews}</p>
             <p>{review_scores_rating}</p>
           </div>
+          </>
         ) : null
       );
     };
