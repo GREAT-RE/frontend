@@ -42,7 +42,7 @@
   
   .contactButton[type="submit"],
   .contactButton[type="submit"] {
-    background: #FCB434;
+    background: #3C4464;
     color: white;
     text-transform: uppercase;
     border: none;
@@ -51,11 +51,13 @@
     font-size: 16px;
     font-weight: 100;
     letter-spacing: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
   }
   
   .contactButton[type="submit"]:hover,
   .contactButton[type="submit"]:hover {
-    background: #FCA434;
+    background: #363d5a;
   }
   
   .contactButton[type="submit"]:active,
