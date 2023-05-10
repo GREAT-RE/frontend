@@ -68,21 +68,12 @@
   font-size: 32px;
 }
 
-.android-icon {
-  width: 30px;
-}
-
-.youtube-icon {
-  width: 30px;
-}
-
-.airbnb-icon {
-  width: 30px;
-}
-
-.star-icon {
-  width: 30px;
-}
+.android-icon,
+  .youtube-icon,
+  .airbnb-icon,
+  .star-icon {
+    font-size: 24px;
+  }
 
 }
 

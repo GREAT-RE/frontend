@@ -10,7 +10,6 @@ import Android from "../../assets/android.png"
 function OfferPromo() {
 
   useEffect(() => {
-    window.scrollTo(0, 0);
   }, []);
 
   return (
