@@ -8,7 +8,8 @@ const CheckboxSignup = () => {
       <form>
         <label className="checkbox-label" >
           <input className="terms" type="checkbox" name="terms" value="true" />
-          By creating an account you are agreeing to accept the <br></br> 
+          By creating an account you are agreeing to accept the 
+          <br />
           <a href="#">Terms and conditions</a> and <a href="#">Privacy policy</a>
         </label>
 
