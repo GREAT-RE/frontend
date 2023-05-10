@@ -23,7 +23,7 @@
   }
 
   .checkbox-label a {
-    color: #000000;
+    color: #FCB434;
     text-decoration: none;
   }
   
@@ -34,12 +34,38 @@
   .checkbox-text {
     white-space: nowrap;
     margin-top: 20px;
+    margin-left: 10px;
+  }
+
+  .checkbox-text2 {
+    margin-left: 10px;
   }
   
+
   .terms-link,
   .privacy-link {
     display: inline;
   }
+
+  .signASK {
+    color: #FCB434;
+  }
+
+  .signASK:hover {
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width:768px) {
+    .checkbox-text,
+    .checkbox-text2 {
+      font-size: 12px;
+    }
+
+    .checkbox-signup-container p {
+      font-size: 12px;
+    }
+  }
+  
 
  
 
