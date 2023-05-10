@@ -1,15 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import feelAtHome from '../../assets/Feel at Home.jpg';
 import './SearchProperty.css';
-import popularImg1 from "../../assets/Popular property.jpg"
-import popularImg2 from "../../assets/Popular property 1.jpg"
-import popularImg3 from "../../assets/Popular property 2.jpg"
-import { Link } from 'react-router-dom';
+
+import api from "../../services/api";
+import PropertyCard from "../../components/PropertyCard/PropertyCard"
+import {useLocation, Link, Outlet} from 'react-router-dom'
 
 const SearchProperty = () => {
 
+  // const [listings, setListings] = useState()
+
+
+  // const getProperties= () => {
+  //   api
+  //   .get("/listing")
+  //   .then((response) => {
+  //     setListings(response.data)
+  //     // const totalData = response.data.data;
+  //   })
+  // }
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    // getProperties()
   }, []);
 
   const [selectedUniversity, setSelectedUniversity] = useState('1');
@@ -60,34 +73,8 @@ const SearchProperty = () => {
         </div>
       </div>
     </div>
-      <div className='popular-container'>
-        <h1 className='popular-text'>
-          POPULAR PROPERTIES
-        </h1>
-      </div>
-    <div className='popular-all-cards'>
+    <Outlet />
 
-    <Link className='popular-card' to="/card-individual">
-        <img className='popular-card-image' src={popularImg1} alt='Pop1' />
-        <h2 className='card-title'>Nido Living - Campo Pequeno</h2>
-        <p className='card-text'>From <span className='card-price'>550€</span> / Month</p>  
-    </Link>
-
-      <div className='popular-card'>
-        <img className='popular-card-image' src={popularImg2} alt='Pop1' />
-        <h2 className='card-title'>Livensa Living - Campo Grande</h2>
-        <p className='card-text'>From <span className='card-price'>650€</span> / Month</p>
-      </div>
-
-      <div className='popular-card'>
-        <img className='popular-card-image' src={popularImg3} alt='Pop1' />
-        <h2 className='card-title'>Home2Students - Entrecampos</h2>
-        <p className='card-text'>From <span className='card-price'>500€</span> / Month</p>
-      </div>
-    </div>
-    <div className='popular-button'>
-      <button type="submit">View all properties</button>
-    </div>
   </>
   );
 };

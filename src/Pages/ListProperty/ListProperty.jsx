@@ -1,5 +1,3 @@
-import React from 'react'
-import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "./ListProperty.css"
@@ -69,6 +67,4 @@ const ListProperty = () => {
   );
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<ListProperty />, rootElement);
 export default ListProperty
