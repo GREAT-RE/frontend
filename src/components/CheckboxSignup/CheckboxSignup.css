@@ -3,6 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .checkbox-label {
@@ -14,6 +16,24 @@
 
   p {
     text-align: center;
+  }
+
+  .checkbox-label a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .checkbox-label a:hover {
+    text-decoration: underline;
+  }
+
+  .checkbox-text {
+    white-space: nowrap;
+  }
+  
+  .terms-link,
+  .privacy-link {
+    display: inline;
   }
 
  
