@@ -1,26 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import feelAtHome from '../../assets/Feel at Home.jpg';
-import './SearchProperty.css';
-import popularImg1 from "../../assets/Popular property.jpg"
-import popularImg2 from "../../assets/Popular property 1.jpg"
-import popularImg3 from "../../assets/Popular property 2.jpg"
-import { Link } from 'react-router-dom';
+import React, { useContext, useState, useEffect } from "react";
+import feelAtHome from "../../assets/Feel at Home.jpg";
+import "./SearchProperty.css";
+
+import api from "../../services/api";
+import PropertyCard from "../../components/PropertyCard/PropertyCard";
+import { useLocation, Link, Outlet, useNavigate } from "react-router-dom";
+import ListingContext from "../../context/listingContext";
 
 const SearchProperty = () => {
+  // const [listings, setListings] = useState()
+
+  const { universities } = useContext(ListingContext);
+
+  const navigate = useNavigate()
+
+  // const getProperties= () => {
+  //   api
+  //   .get("/listing")
+  //   .then((response) => {
+  //     setListings(response.data)
+  //     // const totalData = response.data.data;
+  //   })
+  // }
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // getProperties()
   }, []);
 
-  const [selectedUniversity, setSelectedUniversity] = useState('1');
-  const [selectDate, setSelectDate] = useState('');
-  const [selectRoomType, setSelectRoomType] = useState('');
-  const [selectPropertyType, setSelectPropertyType] = useState('');
-  const [selectPrice, setSelectPrice] = useState('');
-  const [selectExtras, setSelectExtras] = useState('');
+  const [selectedUniversity, setSelectedUniversity] = useState("");
+  const [selectDate, setSelectDate] = useState("");
+  const [selectRoomType, setSelectRoomType] = useState("");
+  const [selectPropertyType, setSelectPropertyType] = useState("");
+  const [selectPrice, setSelectPrice] = useState("");
+  const [selectExtras, setSelectExtras] = useState("");
 
   const handleUniversityChange = (event) => {
+    console.log(event.target.value);
     setSelectedUniversity(event.target.value);
+    api
+      .get(`/listing/universities/${event.target.value}`)
+      .then((response) => {
+        navigate("/properties/list")
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
   const handleDateChange = (event) => {
     setSelectDate(event.target.value);
@@ -38,59 +64,67 @@ const SearchProperty = () => {
     setSelectExtras(event.target.value);
   };
 
+  console.log(universities);
+
   return (
-  <>
-    <div className='searchPage'>
-      <img className='feelHome' src={feelAtHome} alt='feel' />
-      <div className='optionsMenu'>
-        <h1 className='menuHeader'>Feel at home</h1>
-        <div className='customSelect'>
-          <select value={selectedUniversity} onChange={handleUniversityChange}>
-            <option value='1'>University 1</option>
+    <>
+      <div className="searchPage">
+        <img className="feelHome" src={feelAtHome} alt="feel" />
+        <div className="optionsMenu">
+          <h1 className="menuHeader">Feel at home</h1>
+          <div className="customSelect">
+            <select
+              value={selectedUniversity}
+              onChange={handleUniversityChange}
+            >
+              {/* <option value='1'>University 1</option>
             <option value='2'>University 2</option>
-            <option value='3'>University 3</option>
-          </select>
+            <option value='3'>University 3</option> */}
+              <option disabled hidden selected value="">
+                Select a University
+              </option>
+              {universities.map((university) => (
+                <option value={university.id}>{university.name}</option>
+              ))}
+            </select>
+          </div>
+          <input
+            id="moveInOut"
+            placeholder="Move-in/Move-out date"
+            value={selectDate}
+            onChange={handleDateChange}
+          />
+          <div className="menuRow">
+            <input
+              id="roomType"
+              placeholder="Room type"
+              value={selectRoomType}
+              onChange={handleRoomChange}
+            />
+            <input
+              id="propertyType"
+              placeholder="Property type"
+              value={selectPropertyType}
+              onChange={handlePropertyChange}
+            />
+            <input
+              id="priceChange"
+              placeholder="Price range"
+              value={selectPrice}
+              onChange={handlePriceChange}
+            />
+            <input
+              id="extrasChange"
+              placeholder="Extras"
+              value={selectExtras}
+              onChange={handleExtrasChange}
+            />
+          </div>
         </div>
-        <input id='moveInOut' placeholder='Move-in/Move-out date' value={selectDate} onChange={handleDateChange} />
-        <div className='menuRow'>
-          <input id='roomType' placeholder='Room type' value={selectRoomType} onChange={handleRoomChange} />
-          <input id='propertyType' placeholder='Property type' value={selectPropertyType} onChange={handlePropertyChange} />
-          <input id='priceChange' placeholder='Price range' value={selectPrice} onChange={handlePriceChange} />
-          <input id='extrasChange' placeholder='Extras' value={selectExtras} onChange={handleExtrasChange} />
-        </div>
       </div>
-    </div>
-      <div className='popular-container'>
-        <h1 className='popular-text'>
-          POPULAR PROPERTIES
-        </h1>
-      </div>
-    <div className='popular-all-cards'>
-
-    <Link className='popular-card' to="/card-individual">
-        <img className='popular-card-image' src={popularImg1} alt='Pop1' />
-        <h2 className='card-title'>Nido Living - Campo Pequeno</h2>
-        <p className='card-text'>From <span className='card-price'>550€</span> / Month</p>  
-    </Link>
-
-      <div className='popular-card'>
-        <img className='popular-card-image' src={popularImg2} alt='Pop1' />
-        <h2 className='card-title'>Livensa Living - Campo Grande</h2>
-        <p className='card-text'>From <span className='card-price'>650€</span> / Month</p>
-      </div>
-
-      <div className='popular-card'>
-        <img className='popular-card-image' src={popularImg3} alt='Pop1' />
-        <h2 className='card-title'>Home2Students - Entrecampos</h2>
-        <p className='card-text'>From <span className='card-price'>500€</span> / Month</p>
-      </div>
-    </div>
-    <div className='popular-button'>
-      <button type="submit">View all properties</button>
-    </div>
-  </>
+      <Outlet />
+    </>
   );
 };
 
 export default SearchProperty;
-
