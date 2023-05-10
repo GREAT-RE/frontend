@@ -5,6 +5,18 @@ const CheckboxSignup = () => {
   return (
     <div className="checkbox-signup-container">
 
+
+      <form>
+        <label className="checkbox-label" >
+          <input className="terms" type="checkbox" name="terms" value="true" />
+          By creating an account you are agreeing to accept the 
+          <br />
+          <a href="#">Terms and conditions</a> and <a href="#">Privacy policy</a>
+        </label>
+
+        <label className="checkbox-label">
+          <input  classname=""type="checkbox" name="newsletter" value="true" />
+
   <form>
   <label className="checkbox-label">
     <input className="terms" type="checkbox" name="terms" value="true" />
@@ -17,6 +29,7 @@ const CheckboxSignup = () => {
         <label className="checkbox-label2">
           <input  className="recEmails"type="checkbox" name="newsletter" value="true" />
           <span className="checkbox-text2">
+
           I'd like to receive e-mails and promotions from Home in LX.
           </span>
         </label>
