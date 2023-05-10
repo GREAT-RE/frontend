@@ -56,7 +56,7 @@ const Login = () => {
     </form>
     </div>
 
-    <p>Forgot your <a href="#">Password?</a></p>
+    <p>Forgot your <span className="passASK"><a href="#">Password?</a></span></p>
 
   
     </>
