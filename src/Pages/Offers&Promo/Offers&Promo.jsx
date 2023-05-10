@@ -1,9 +1,11 @@
 import React from "react"; 
 import offerIMG from "../../assets/off_promo.jpg";
 import './Offers&Promo.css';
-import { FaAndroid, FaYoutube, FaAirbnb } from 'react-icons/fa';
+import { FaAirbnb } from 'react-icons/fa';
 import StarIcon from "../../assets/star.png";
 import { useEffect } from "react";
+import Youtube from "../../assets/youtube.png";
+import Android from "../../assets/android.png"
 
 function OfferPromo() {
 
@@ -20,10 +22,10 @@ function OfferPromo() {
         </div>
     </div>
       <div className="partners-container">
-        <a href="https://www.android.com"><FaAndroid size={80} className="android-icon"/></a>
-        <a href="https://www.youtube.com"><FaYoutube size={80} className="youtube-icon"/></a>
-        <a href="https://www.airbnb.com"><FaAirbnb size={80} className="airbnb-icon"/></a>
-        <a href="https://example.com"><img src={StarIcon} alt="star" className="star-icon"/></a>
+        <a href="https://www.android.com"><img src={Android} alt="android" className="android-icon" style={{ width: '150px', height: '150px' }}/></a>
+        <a href="https://www.youtube.com"><img src={Youtube} alt="youtube" className="youtube-icon" style={{ width: '150px', height: '150px' }}/></a>
+        <a href="https://www.airbnb.com"><FaAirbnb size={150} className="airbnb-icon"/></a>
+        <a href="https://example.com"><img src={StarIcon} alt="star" className="star-icon" style={{ width: '150px', height: '150px' }}/></a>
       </div>
       </>
     
