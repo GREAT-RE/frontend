@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import feelAtHome from "../../assets/Feel at Home.jpg";
 import "./SearchProperty.css";
+import Slider from "@mui/material/Slider";
+import Box from "@mui/material/Box";
 
 import api from "../../services/api";
 import PropertyCard from "../../components/PropertyCard/PropertyCard";
@@ -12,59 +14,78 @@ const SearchProperty = () => {
 
   const { universities } = useContext(ListingContext);
 
-  const navigate = useNavigate()
-
-  // const getProperties= () => {
-  //   api
-  //   .get("/listing")
-  //   .then((response) => {
-  //     setListings(response.data)
-  //     // const totalData = response.data.data;
-  //   })
-  // }
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // getProperties()
   }, []);
 
   const [selectedUniversity, setSelectedUniversity] = useState("");
-  const [selectDate, setSelectDate] = useState("");
   const [selectRoomType, setSelectRoomType] = useState("");
-  const [selectPropertyType, setSelectPropertyType] = useState("");
+
   const [selectPrice, setSelectPrice] = useState("");
   const [selectExtras, setSelectExtras] = useState("");
 
+  // const [value, setValue] = React.useState([20, 37]);
+
+  const [firstValue, setFirstValue] = useState(20);
+  const [secondValue, setSecondValue] = useState(1000);
+
+  const handleChange = (event, newValue) => {
+    event.preventDefault();
+    setFirstValue(newValue[0]);
+    setSecondValue(newValue[1]);
+  };
+
+  // const handleChangeFirst = (event) => {
+  //   if (event.target.value > 20) {
+  //     if(firstValue < secondValue) {
+  //       setFirstValue(event.target.value);
+  //     }
+  //   }
+  // };
+
+  // const handleChangeSecond = (event) => {
+  //   if (1000 > event.target.value) {
+  //     if(firstValue < secondValue) {
+  //     setSecondValue(event.target.value);
+  //     }
+  //   }
+  // };
+
+  console.log(firstValue, secondValue);
+
   const handleUniversityChange = (event) => {
-    console.log(event.target.value);
     setSelectedUniversity(event.target.value);
     api
       .get(`/listing/universities/${event.target.value}`)
       .then((response) => {
-        navigate("/properties/list")
+        navigate("/properties/list");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleRoomChange = (event) => {
+    setSelectRoomType(event.target.value);
+    api
+      .get(`/listing?room_type=${event.target.value}`)
+      .then((response) => {
+        navigate("/properties/list");
         console.log(response);
       })
       .catch((error) => {
         console.error(error);
       });
   };
-  const handleDateChange = (event) => {
-    setSelectDate(event.target.value);
-  };
-  const handleRoomChange = (event) => {
-    setSelectRoomType(event.target.value);
-  };
-  const handlePropertyChange = (event) => {
-    setSelectPropertyType(event.target.value);
-  };
+
   const handlePriceChange = (event) => {
     setSelectPrice(event.target.value);
   };
   const handleExtrasChange = (event) => {
     setSelectExtras(event.target.value);
   };
-
-  console.log(universities);
 
   return (
     <>
@@ -77,48 +98,70 @@ const SearchProperty = () => {
               value={selectedUniversity}
               onChange={handleUniversityChange}
             >
-              {/* <option value='1'>University 1</option>
-            <option value='2'>University 2</option>
-            <option value='3'>University 3</option> */}
-              <option disabled hidden selected value="">
+              <option disabled hidden value="">
                 Select a University
               </option>
               {universities.map((university) => (
-                <option value={university.id}>{university.name}</option>
+                <option key={university.id} value={university.id}>
+                  {university.name}
+                </option>
               ))}
             </select>
           </div>
-          <input
+          <Box sx={{ width: 300 }}>
+              <Slider
+                getAriaLabel={() => "Price range"}
+                value={[firstValue, secondValue]}
+                step={1}
+                min={20}
+                max={1000}
+                onChange={handleChange}
+                valueLabelDisplay="auto"
+                // getAriaValueText={valuetext}
+              />
+              <div className="price-range-container">
+                <p>{firstValue}€</p>
+                <p>{secondValue}€</p>
+              </div>
+            </Box>
+          {/* <input
             id="moveInOut"
             placeholder="Move-in/Move-out date"
             value={selectDate}
             onChange={handleDateChange}
-          />
+          /> */}
           <div className="menuRow">
-            <input
+            <select
               id="roomType"
-              placeholder="Room type"
               value={selectRoomType}
               onChange={handleRoomChange}
-            />
-            <input
+            >
+              <option disabled hidden value="">
+                Select room type
+              </option>
+              <option value="Entire home/apt">Entire Home</option>
+              <option value="Private room">Private Room</option>
+            </select>
+            {/* <input
               id="propertyType"
               placeholder="Property type"
               value={selectPropertyType}
               onChange={handlePropertyChange}
-            />
-            <input
+            /> */}
+            {/* <input
               id="priceChange"
               placeholder="Price range"
               value={selectPrice}
               onChange={handlePriceChange}
-            />
+            /> */}
+          
             <input
               id="extrasChange"
               placeholder="Extras"
               value={selectExtras}
               onChange={handleExtrasChange}
             />
+            
           </div>
         </div>
       </div>

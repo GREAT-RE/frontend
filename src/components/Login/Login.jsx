@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import {useNavigate} from "react-router-dom"
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import logoLogin from "../../assets/logoHILX.png"
 import "./Login.css"
+import api from './../../services/api';
 
 const Login = () => {
     const [user, setUser] = useState({});
@@ -17,11 +17,12 @@ const Login = () => {
       const navigate = useNavigate()
 
   const onSubmit = (data) => {
-    axios
-      .post("http://localhost:5000/auth/login", data)
+    api
+      .post("/auth/login", data)
       .then((response) => {
         setUser(response.data.user)
         localStorage.setItem("user_token_greater", response.data.token)
+        navigate("/")
       })
       .catch((error) => {
         console.error(error);
@@ -56,7 +57,7 @@ const Login = () => {
     </form>
     </div>
 
-    <p>Forgot your <span className="passASK"><a href="#">Password?</a></span></p>
+    {/* <p>Forgot your <span className="passASK"><Link to="">Password?</Link></span></p> */}
 
   
     </>
