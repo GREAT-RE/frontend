@@ -19,10 +19,12 @@ import CardIndividual from "../SearchProperty/CardIndividual/CardIndividual";
 import Popular from "../../components/Popular/Popular"
 import Properties from "../Properties/Properties";
 import {ListingContextProvider} from "../../context/listingContext"
+import {AuthProvider} from "../../context/AuthContext"
 
 const ContentPage = () => {
   return (
     <div>
+      <AuthProvider>
       <ListingContextProvider>
         <Routes>
           <Route exact path="/property-list" element={<PropertyList />} />
@@ -48,6 +50,7 @@ const ContentPage = () => {
           </Route>
         </Routes>
       </ListingContextProvider>
+      </AuthProvider>
     </div>
   );
 };

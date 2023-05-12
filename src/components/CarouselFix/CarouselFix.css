@@ -40,8 +40,12 @@
     justify-content: center ;
   }
   
-  @media screen and (max-width:700px) {
-  
+  @media screen and (max-width:770px) {
+    .slick-prev:before,
+    .slick-next:before {
+      display: none;
+    }
+    
     .carouselText{
       font-size: 32px;
       margin-top: -10px;

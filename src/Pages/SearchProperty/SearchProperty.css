@@ -211,6 +211,12 @@
   cursor: pointer;
 }
 
+.price-range-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 1024px) {
   .feelHome {
     width: 85%;
