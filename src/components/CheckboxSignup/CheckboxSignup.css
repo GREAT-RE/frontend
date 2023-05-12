@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     max-width: 400px;
-
   }
 
   .checkbox-label,
@@ -41,14 +40,10 @@
     margin-left: 20px;
   }
   
-  .termsConditions {
-    margin-left: 40px;
-  }
-
-  .terms-link,
-  .privacy-link,
-  .and {
+    
+  .terms-link {
     display: inline;
+    margin-left: 40px;
   }
 
   .signASK {

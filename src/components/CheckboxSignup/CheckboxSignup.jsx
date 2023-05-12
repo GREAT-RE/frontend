@@ -10,7 +10,6 @@ const CheckboxSignup = () => {
           <span className="checkbox-text">
             By creating an account you are agreeing to accept the
             <br />
-            <span className="termsConditions">
             <a href="https://example.com" className="terms-link">
               Terms and Conditions
             </a>
@@ -19,7 +18,6 @@ const CheckboxSignup = () => {
               Privacy Policy
             </a>
             <br />
-            </span>
           </span>
         </label>
         <label className="checkbox-label2">
