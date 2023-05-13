@@ -3,17 +3,39 @@ import feelAtHome from "../../assets/Feel at Home.jpg";
 import "./SearchProperty.css";
 import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
-
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 import api from "../../services/api";
-import PropertyCard from "../../components/PropertyCard/PropertyCard";
 import { useLocation, Link, Outlet, useNavigate } from "react-router-dom";
 import ListingContext from "../../context/listingContext";
 
 const SearchProperty = () => {
-  // const [listings, setListings] = useState()
+
+  const [open, setOpen] = useState(false);  
+  
+  const toggleCheckboxList = () => {
+    setOpen(!open);
+  };
+
+  //  const [checkedItems, setCheckedItems] = useState([]);
+  let checkedResults = [];
+
+   const handleCheckboxChange = (event) => {
+    // console.log(event.target.checked)
+    // console.log(event.target.name)
+    if(event.target.checked){
+      checkedResults.push(event.target.name);
+    } else {
+      const index = checkedResults.indexOf(event.target.name);
+      if (index > -1) { 
+        checkedResults.splice(index, 1); 
+      }
+    }
+    // console.log(checkedResults)
+  };
 
   const { universities } = useContext(ListingContext);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,12 +44,7 @@ const SearchProperty = () => {
 
   const [selectedUniversity, setSelectedUniversity] = useState("");
   const [selectRoomType, setSelectRoomType] = useState("");
-
-  const [selectPrice, setSelectPrice] = useState("");
   const [selectExtras, setSelectExtras] = useState("");
-
-  // const [value, setValue] = React.useState([20, 37]);
-
   const [firstValue, setFirstValue] = useState(20);
   const [secondValue, setSecondValue] = useState(1000);
 
@@ -37,23 +54,7 @@ const SearchProperty = () => {
     setSecondValue(newValue[1]);
   };
 
-  // const handleChangeFirst = (event) => {
-  //   if (event.target.value > 20) {
-  //     if(firstValue < secondValue) {
-  //       setFirstValue(event.target.value);
-  //     }
-  //   }
-  // };
-
-  // const handleChangeSecond = (event) => {
-  //   if (1000 > event.target.value) {
-  //     if(firstValue < secondValue) {
-  //     setSecondValue(event.target.value);
-  //     }
-  //   }
-  // };
-
-  console.log(firstValue, secondValue);
+  // console.log(firstValue, secondValue);
 
   const handleUniversityChange = (event) => {
     setSelectedUniversity(event.target.value);
@@ -78,10 +79,6 @@ const SearchProperty = () => {
       .catch((error) => {
         console.error(error);
       });
-  };
-
-  const handlePriceChange = (event) => {
-    setSelectPrice(event.target.value);
   };
   const handleExtrasChange = (event) => {
     setSelectExtras(event.target.value);
@@ -117,19 +114,12 @@ const SearchProperty = () => {
                 max={1000}
                 onChange={handleChange}
                 valueLabelDisplay="auto"
-                // getAriaValueText={valuetext}
               />
               <div className="price-range-container">
                 <p>{firstValue}€</p>
                 <p>{secondValue}€</p>
               </div>
             </Box>
-          {/* <input
-            id="moveInOut"
-            placeholder="Move-in/Move-out date"
-            value={selectDate}
-            onChange={handleDateChange}
-          /> */}
           <div className="menuRow">
             <select
               id="roomType"
@@ -142,26 +132,26 @@ const SearchProperty = () => {
               <option value="Entire home/apt">Entire Home</option>
               <option value="Private room">Private Room</option>
             </select>
-            {/* <input
-              id="propertyType"
-              placeholder="Property type"
-              value={selectPropertyType}
-              onChange={handlePropertyChange}
-            /> */}
-            {/* <input
-              id="priceChange"
-              placeholder="Price range"
-              value={selectPrice}
-              onChange={handlePriceChange}
-            /> */}
-          
             <input
               id="extrasChange"
               placeholder="Extras"
               value={selectExtras}
               onChange={handleExtrasChange}
             />
-            
+            <div>
+            <FormGroup>
+              <FormControlLabel control={<Checkbox />} label="Wifi" name="Wifi" value="Wifi"/>
+              <FormControlLabel control={<Checkbox />} label="Kitchen" name="Kitchen" value="Kitchen" />
+              <FormControlLabel control={<Checkbox />} label="Washer" name="Washer"  value="Washer"/>
+              <FormControlLabel control={<Checkbox />} label="Microwave" name="Microwave" value="Microwave"/>
+              <FormControlLabel control={<Checkbox />} label="Refrigerator" name="Refrigerator" value="Refrigerator"/>
+              <FormControlLabel control={<Checkbox />} label="Oven"  name="Oven" value="Oven"/>
+              <FormControlLabel control={<Checkbox />} label="Stove"  name="Stove" value="Stove"onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Cable TV"name="Cable TV" value="Cable TV" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Heating"name="Heating"  value="Heating" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Air conditioning" name="Air conditioning" value="Air conditioning" onChange={handleCheckboxChange}/>
+            </FormGroup>
+            </div>
           </div>
         </div>
       </div>
