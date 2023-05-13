@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 400px;
   }
 
   .checkbox-label,
@@ -33,17 +32,20 @@
   .checkbox-text {
     white-space: nowrap;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
   }
 
   .checkbox-text2 {
-    margin-left: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
   }
   
     
   .terms-link {
     display: inline;
-    margin-left: 40px;
+    margin-left: 50px;
   }
 
   .signASK {
