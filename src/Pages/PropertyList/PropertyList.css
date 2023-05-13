@@ -42,7 +42,7 @@ body {
     margin-bottom: 60px;
   }
 
-  .propertyButton button {
+  .propertyButton div {
     font-size: 1.5rem;
     padding: 10px 150px;
     background-color: #FCB434;
@@ -53,7 +53,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.propertyButton button:hover {
+.propertyButton div:hover {
   background-color: #FCA434;
   cursor: pointer;
 }

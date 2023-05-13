@@ -8,7 +8,7 @@ import CheckboxSignup from './components/CheckboxSignup/CheckboxSignup';
 function App() {
   return (
       <div>
-        <Navbar/>
+        {/* <Navbar/> */}
         <ContentPage/>
        
       </div>
