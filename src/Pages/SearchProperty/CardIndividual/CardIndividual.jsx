@@ -26,28 +26,47 @@ const CardIndividual = () => {
   }, [id]);
 
   return (singleProperty?
-    <>
-      <div className="cardI-all">
-        <div className="card-left">
+  <>
+    <div className="cardI-all">
+      <div className="card-left">
           <h1 className="cardI-title">{singleProperty.name}</h1>
           <img className="cardI-image" src={singleProperty.picture_url} alt="CardI" />
+          <h1 className="cardI-description-title">
+            Description:
+          </h1>
+          <p className="card-listing-description">{singleProperty.description.replace(/<br\s*\/?>/gi, '').replace(/<(\/)?b>/gi, '')}</p>
+          <p className="cardI-view">Address: View Map</p>
+          <p className="cardI-view">Distances:</p>
+        <div className="cardI-facilities">
+          <h1 className="cardI-facilities-title">Facilities</h1>
+          <div className="cardI-facilites-extras">
+            <p className="cardI-facilities-item">OLÁ</p>
+            <p className="cardI-facilities-item">OLÁ</p>
+            <p className="cardI-facilities-item">OLÁ</p>
+            <p className="cardI-facilities-item">OLÁ</p>
+            <p className="cardI-facilities-item">OLÁ</p>
+            <p className="cardI-facilities-item">OLÁ</p>
+            <p className="cardI-facilities-item">OLÁ</p>
+          </div>
         </div>
-        <div className="card-right">
+      </div>
+      <div className="card-right">
           <p className="cardI-price-text">
             From <span className="cardI-price">{singleProperty.price_in_eur}€</span> / Month
           </p>
           <div className="cardI-button">
             <button type="submit">Enquire</button>
           </div>
-          <p className="cardI-text">
-            Popular!<br></br>24 students saved this property to their wishlist
+          <p className="cardI-reviews">
+           This property has received {singleProperty.number_of_reviews} reviews!
           </p>
-        </div>
+
       </div>
-      <Link className="cardI-back-button" to="/search-property">
+    </div>
+      <Link className="cardI-back-button" to="/properties/popular">
         <button type="submit">Go Back</button>
       </Link>
-    </>:null
+  </>:null
   );
 };
 

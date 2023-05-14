@@ -55,8 +55,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-
-.propertyButton button:hover {
+.propertyButton div:hover {
   background-color: #3C4464;
   cursor: pointer;
 }
