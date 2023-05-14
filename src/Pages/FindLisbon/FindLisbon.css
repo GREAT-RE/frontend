@@ -80,8 +80,9 @@
     }
 
     .lisbon-img-cover {
-        width: 500px;
-        height: 250px;
+        width: 95%;
+        height: 100%;
+        margin: 5%;
     }
 
     .textL {

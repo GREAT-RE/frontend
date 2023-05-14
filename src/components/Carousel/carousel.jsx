@@ -13,21 +13,26 @@ function HomeCarousel() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
   };
 
   return (
-    <Slider {...settings}>
+<Slider {...settings}>
       <div className="carousel-container">
         <div className="carousel-content">
-          <h3 className="carouselText">Book now & get a voucher to shop at Restaurant</h3>
-          <img src={carouselImage1} className="carouselImage" alt="car1"/>
+          <div className="carousel-text-container">
+            <h3 className="carousel-text">Book now & get a voucher to shop at Restaurant</h3>
+          </div>
+          <img src={carouselImage1} className="carousel-image" alt="car1"/>
         </div>
       </div>
       <div className="carousel-container">
         <div className="carousel-content">
-          <h3 className="carouselText">Book early for the best deals</h3>
-          <img src={carouselImage2} className="carouselImage"alt="car2"/>
+          <div className="carousel-text-container">
+            <h3 className="carousel-text">Book early for the best deals</h3>
+          </div>
+          <img src={carouselImage2} className="carousel-image"alt="car2"/>
         </div>
       </div>
     </Slider>

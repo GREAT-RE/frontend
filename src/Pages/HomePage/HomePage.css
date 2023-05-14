@@ -135,8 +135,8 @@
 }
 
 .text2:hover {
-  background-color: #FCB434;
-  text-decoration: none;
+  text-decoration:underline;
+  text-decoration-color: #FCB434;
   border-radius: 20px;
   padding: 10px;
   transform: scale(1.2);

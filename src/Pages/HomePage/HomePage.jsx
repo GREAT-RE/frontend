@@ -3,7 +3,7 @@ import './HomePage.css';
 import { Link } from 'react-router-dom';
 import homeBackground from "../../assets/homeBackground.png"
 import logo from "../../assets/HOMEINLX.svg";
-import HomeCarouselFix from '../../components/CarouselFix/CarouselFix';
+import HomeCarousel from "../../components/Carousel/carousel"
 
 function HomePage() {
   return (
@@ -43,7 +43,7 @@ function HomePage() {
           </Link>
         </div>
       </div>
-      <HomeCarouselFix/>
+      <HomeCarousel/>
     </div>
   );
 }
