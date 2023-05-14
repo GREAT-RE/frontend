@@ -98,6 +98,7 @@ const SignUp = () => {
           </p>
         )}
 
+<div className="checkbox-all">
         <label className="checkbox-label">
           <input
             className="terms"
@@ -109,7 +110,6 @@ const SignUp = () => {
             })}
             aria-invalid={errors.privacy_policies ? "true" : "false"}
           />
-
           <span className="checkbox-text">
             By creating an account you are agreeing to accept the
             <br />
@@ -140,15 +140,15 @@ const SignUp = () => {
             I'd like to receive e-mails and promotions from Home in LX.
           </span>
         </label>
-
-        <p>
+        <p className="have-account">
           Already have an account?{" "}
           <Link to="/register/login" className="signASK">
-            Sign up
+            Login
           </Link>
         </p>
+        </div>
         <input className="contactButton" type="submit" value="Register" />
-      </form>
+        </form>
     </div>
   );
 };

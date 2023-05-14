@@ -21,10 +21,10 @@ function OfferPromo() {
         </div>
     </div>
       <div className="partners-container">
-        <a href="https://www.android.com"><img src={Android} alt="android" className="android-icon" style={{ width: '150px', height: '150px' }}/></a>
-        <a href="https://www.youtube.com"><img src={Youtube} alt="youtube" className="youtube-icon" style={{ width: '150px', height: '150px' }}/></a>
+        <a href="https://www.android.com"><img src={Android} alt="android" className="android-icon"/></a>
+        <a href="https://www.youtube.com"><img src={Youtube} alt="youtube" className="youtube-icon"/></a>
         <a href="https://www.airbnb.com"><FaAirbnb size={150} className="airbnb-icon"/></a>
-        <a href="https://example.com"><img src={StarIcon} alt="star" className="star-icon" style={{ width: '150px', height: '150px' }}/></a>
+        <a href="https://example.com"><img src={StarIcon} alt="star" className="star-icon"/></a>
       </div>
       </>
     

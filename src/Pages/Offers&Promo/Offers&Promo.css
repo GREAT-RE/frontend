@@ -42,37 +42,32 @@
   margin-bottom: 100px ;
 }
 
-.android-icon {
-  color: #000000;
-}
-
-.youtube-icon {
-  color: #000000;
-}
-
-.airbnb-icon {
- color: #000000;
-}
-
-.star-icon {
-  color: #000000;
-}
+.android-icon,
+  .youtube-icon,
+  .airbnb-icon,
+  .star-icon {
+    width: 150px;
+    height: 150px;
+  }
 
 @media screen and (max-width:768px) {
 
 .offer-image {
-  width: 500px;
-  height: 250px;
+  width: 95%;
+  height: 100%;
+  margin: 5%;
 }
+
 .textO {
-  font-size: 32px;
+  font-size: 38px;
 }
 
 .android-icon,
   .youtube-icon,
   .airbnb-icon,
   .star-icon {
-    font-size: 24px;
+    width: 50px;
+    height: 50px;
   }
 
 }
