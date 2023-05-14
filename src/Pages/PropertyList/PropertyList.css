@@ -42,28 +42,22 @@ body {
     margin-bottom: 60px;
   }
 
-<<<<<<< HEAD
-  .propertyButton button {
-=======
+
+
   .propertyButton div {
     font-size: 1.5rem;
     padding: 10px 150px;
     background-color: #FCB434;
     color:  #3C4464;
     border: none;
->>>>>>> 352a3e84734b2a1fdb54ed28e4882e44b13dcc65
     border-radius: 4px;
     transition: all 0.3s ease;
     font-family: 'Montserrat', sans-serif;
 }
 
-<<<<<<< HEAD
+
 .propertyButton button:hover {
   background-color: #3C4464;
-=======
-.propertyButton div:hover {
-  background-color: #FCA434;
->>>>>>> 352a3e84734b2a1fdb54ed28e4882e44b13dcc65
   cursor: pointer;
 }
 
