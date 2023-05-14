@@ -1,3 +1,9 @@
+.extrasCheckbox{
+  background-color: white;
+}
+.extrasCheckboxButton{
+  background-color: white;
+}
 .searchPage {
   display: flex;
   flex-direction: column;

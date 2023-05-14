@@ -10,6 +10,7 @@
 
   .signup-form {
     display: grid;
+    justify-content: center;
   }
 
   .checkbox-signup-container {
@@ -25,19 +26,10 @@
   .checkbox-label2 {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    margin-right: 40px;
-    margin-left: 40px;
-    margin-bottom: 20px;
-  }
-
-  p {
-    text-align: center;
   }
 
   .checkbox-label a {
-    color: #FCB434;
+    color: #3C4464;
     text-decoration: none;
   }
   
@@ -45,38 +37,48 @@
     text-decoration: underline;
   }
 
-  .checkbox-text {
-    white-space: nowrap;
-    margin-top: 20px;
-    margin-left: 10px;
-  }
-
-  .checkbox-text2 {
-    margin-left: 10px;
-  }
-  
-
   .terms-link,
   .privacy-link {
     display: inline;
   }
 
   .signASK {
-    color: #FCB434;
+    color: #3C4464;
   }
 
   .signASK:hover {
     text-decoration: underline;
   }
 
+  .checkbox-all {
+    display: grid;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+    gap: 20px;
+    justify-content: center;
+    width: 80%;
+    line-height: 1.5;
+  }
+
+  .checkbox-text,
+  .checkbox-text2 {
+    margin-left: 10px;
+  }
+
   @media screen and (max-width:768px) {
     .checkbox-text,
     .checkbox-text2 {
-      font-size: 12px;
+      font-size: 16px;
     }
 
     .checkbox-signup-container p {
-      font-size: 12px;
+      font-size: 16px;
+    }
+
+    .checkbox-all {
+      width: 70%;
     }
   }
   

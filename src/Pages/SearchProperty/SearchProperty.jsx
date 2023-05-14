@@ -1,29 +1,19 @@
 import React, { useContext, useState, useEffect } from "react";
 import feelAtHome from "../../assets/Feel at Home.jpg";
 import "./SearchProperty.css";
-import Slider from "@mui/material/Slider";
-import Box from "@mui/material/Box";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+import { Box, FormGroup, FormControlLabel, Checkbox, Button, Slider } from "@mui/material";
 import api from "../../services/api";
 import { useLocation, Link, Outlet, useNavigate } from "react-router-dom";
 import ListingContext from "../../context/listingContext";
 
 const SearchProperty = () => {
 
-  const [open, setOpen] = useState(false);  
-  
+  const [open, setOpen] = useState(false);
   const toggleCheckboxList = () => {
     setOpen(!open);
   };
-
-  //  const [checkedItems, setCheckedItems] = useState([]);
   let checkedResults = [];
-
-   const handleCheckboxChange = (event) => {
-    // console.log(event.target.checked)
-    // console.log(event.target.name)
+  const handleCheckboxChange = (event) => {
     if(event.target.checked){
       checkedResults.push(event.target.name);
     } else {
@@ -32,8 +22,8 @@ const SearchProperty = () => {
         checkedResults.splice(index, 1); 
       }
     }
-    // console.log(checkedResults)
   };
+ 
 
   const { universities } = useContext(ListingContext);
   const navigate = useNavigate();
@@ -44,7 +34,6 @@ const SearchProperty = () => {
 
   const [selectedUniversity, setSelectedUniversity] = useState("");
   const [selectRoomType, setSelectRoomType] = useState("");
-  const [selectExtras, setSelectExtras] = useState("");
   const [firstValue, setFirstValue] = useState(20);
   const [secondValue, setSecondValue] = useState(1000);
 
@@ -53,8 +42,6 @@ const SearchProperty = () => {
     setFirstValue(newValue[0]);
     setSecondValue(newValue[1]);
   };
-
-  // console.log(firstValue, secondValue);
 
   const handleUniversityChange = (event) => {
     setSelectedUniversity(event.target.value);
@@ -79,9 +66,6 @@ const SearchProperty = () => {
       .catch((error) => {
         console.error(error);
       });
-  };
-  const handleExtrasChange = (event) => {
-    setSelectExtras(event.target.value);
   };
 
   return (
@@ -132,32 +116,27 @@ const SearchProperty = () => {
               <option value="Entire home/apt">Entire Home</option>
               <option value="Private room">Private Room</option>
             </select>
-            <input
-              id="extrasChange"
-              placeholder="Extras"
-              value={selectExtras}
-              onChange={handleExtrasChange}
-            />
-            <div>
-            <FormGroup>
-              <FormControlLabel control={<Checkbox />} label="Wifi" name="Wifi" value="Wifi"/>
-              <FormControlLabel control={<Checkbox />} label="Kitchen" name="Kitchen" value="Kitchen" />
-              <FormControlLabel control={<Checkbox />} label="Washer" name="Washer"  value="Washer"/>
-              <FormControlLabel control={<Checkbox />} label="Microwave" name="Microwave" value="Microwave"/>
-              <FormControlLabel control={<Checkbox />} label="Refrigerator" name="Refrigerator" value="Refrigerator"/>
-              <FormControlLabel control={<Checkbox />} label="Oven"  name="Oven" value="Oven"/>
+            <Button className="extrasCheckboxButton" onClick={toggleCheckboxList}>Select Extras</Button>
+          {open && (
+            <FormGroup className="extrasCheckbox">
+              <FormControlLabel control={<Checkbox />} label="Wifi" name="Wifi" value="Wifi" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Kitchen" name="Kitchen" value="Kitchen" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Washer" name="Washer"  value="Washer" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Microwave" name="Microwave" value="Microwave" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Refrigerator" name="Refrigerator" value="Refrigerator" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Oven"  name="Oven" value="Oven" onChange={handleCheckboxChange}/>
               <FormControlLabel control={<Checkbox />} label="Stove"  name="Stove" value="Stove"onChange={handleCheckboxChange}/>
               <FormControlLabel control={<Checkbox />} label="Cable TV"name="Cable TV" value="Cable TV" onChange={handleCheckboxChange}/>
               <FormControlLabel control={<Checkbox />} label="Heating"name="Heating"  value="Heating" onChange={handleCheckboxChange}/>
               <FormControlLabel control={<Checkbox />} label="Air conditioning" name="Air conditioning" value="Air conditioning" onChange={handleCheckboxChange}/>
             </FormGroup>
+              )}
             </div>
           </div>
         </div>
-      </div>
       <Outlet />
     </>
-  );
+  ); 
 };
 
 export default SearchProperty;
