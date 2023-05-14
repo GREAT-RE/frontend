@@ -18,22 +18,14 @@ function HomeCarousel() {
   };
 
   return (
-<Slider {...settings}>
-      <div className="carousel-container">
-        <div className="carousel-content">
-          <div className="carousel-text-container">
-            <h3 className="carousel-text">Book now & get a voucher to shop at Restaurant</h3>
-          </div>
-          <img src={carouselImage1} className="carousel-image" alt="car1"/>
-        </div>
+    <Slider {...settings}>
+      <div>
+        <h3 className="carouselText">Book now & get a voucher to shop at Restaurant</h3>
+        <img src={carouselImage1} className="carouselImage" alt="car1"/>
       </div>
-      <div className="carousel-container">
-        <div className="carousel-content">
-          <div className="carousel-text-container">
-            <h3 className="carousel-text">Book early for the best deals</h3>
-          </div>
-          <img src={carouselImage2} className="carousel-image"alt="car2"/>
-        </div>
+      <div>
+        <h3 className="carouselText">Book early for the best deals and offers</h3>
+        <img src={carouselImage2} className="carouselImage"alt="car2"/>
       </div>
     </Slider>
   );

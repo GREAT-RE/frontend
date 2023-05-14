@@ -20,7 +20,8 @@ import Popular from "../../components/Popular/Popular"
 import Properties from "../Properties/Properties";
 import {ListingContextProvider} from "../../context/listingContext"
 import {AuthProvider} from "../../context/AuthContext"
-import MapListingDetails from "../../components/MapListingDetails/MapListingDetails";
+import SearchListingMap from "../../components/MapListingDetails/SearchListingMap/SearchListingMap";
+import MapListing from "../../components/MapListingDetails/MapListing";
 
 const ContentPage = () => {
   return (
@@ -29,7 +30,8 @@ const ContentPage = () => {
       <ListingContextProvider>
         <Routes>
           //!!!!! DELETE AFTER TEST
-          <Route path="/map-test-route" element={<MapListingDetails />} />
+          <Route path="/map-test-route" element={<SearchListingMap />} />
+          <Route path="/map-test-route-details" element={<MapListing />} />
 
 
           <Route path="/property-list" element={<PropertyList />} />
