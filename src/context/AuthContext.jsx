@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
         console.error(error.message)
         setAuth(false);
         localStorage.removeItem("user_token_greater")
-        navigate("/register/login")
+        // navigate("/register/login")
       });
   }, []);
 

@@ -20,6 +20,7 @@ import Popular from "../../components/Popular/Popular"
 import Properties from "../Properties/Properties";
 import {ListingContextProvider} from "../../context/listingContext"
 import {AuthProvider} from "../../context/AuthContext"
+import MapListingDetails from "../../components/MapListingDetails/MapListingDetails";
 
 const ContentPage = () => {
   return (
@@ -27,18 +28,22 @@ const ContentPage = () => {
       <AuthProvider>
       <ListingContextProvider>
         <Routes>
-          <Route exact path="/property-list" element={<PropertyList />} />
-          <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/find-lisbon" element={<FindLisbon />} />
-          <Route exact path="/rua-augusta" element={<RuaAugusta />} />
-          <Route exact path="/rua-rosa" element={<RuaRosa />} />
-          <Route exact path="/fabrica" element={<Fabrica />} />
-          <Route exact path="/ruinas" element={<Ruinas />} />
-          <Route exact path="/offers-promo" element={<OffersPromo />} />
-          <Route exact path="/contact-us" element={<ContactUs />} />
-          <Route exact path="/list-property" element={<ListProperty />} />
+          //!!!!! DELETE AFTER TEST
+          <Route path="/map-test-route" element={<MapListingDetails />} />
+
+
+          <Route path="/property-list" element={<PropertyList />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/find-lisbon" element={<FindLisbon />} />
+          <Route path="/rua-augusta" element={<RuaAugusta />} />
+          <Route path="/rua-rosa" element={<RuaRosa />} />
+          <Route path="/fabrica" element={<Fabrica />} />
+          <Route path="/ruinas" element={<Ruinas />} />
+          <Route path="/offers-promo" element={<OffersPromo />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/list-property" element={<ListProperty />} />
           {/* <Route exact path="/search-property" element={<SearchProperty />} /> */}
-          <Route exact path="/listing/:id" element={<CardIndividual />} />
+          <Route path="/listing/:id" element={<CardIndividual />} />
           {/* <Route exact path="/login" element={<Login />} /> */}
           <Route path="/register" element={<RegisterPage />}>
             <Route path="login" element={<Login />} />
