@@ -20,6 +20,7 @@ const PropertyList = () => {
     </div>
       <div className='propertyButton'>
       <Link to="/list-property"><button type="submit" className='contactButton'>List for free</button></Link>
+      {/* <Link to="/list-property"><div>List for free</div></Link> */}
       </div>
     </>
   )

@@ -42,8 +42,13 @@ body {
     margin-bottom: 60px;
   }
 
-
   .propertyButton button {
+
+    font-size: 1.5rem;
+    padding: 10px 150px;
+    background-color: #FCB434;
+    color:  #3C4464;
+    border: none;
     border-radius: 4px;
     transition: all 0.3s ease;
     font-family: 'Montserrat', sans-serif;
