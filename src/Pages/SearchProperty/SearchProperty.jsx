@@ -8,10 +8,10 @@ import ListingContext from "../../context/listingContext";
 
 const SearchProperty = () => {
 
-  const [open, setOpen] = useState(false);
-  const toggleCheckboxList = () => {
-    setOpen(!open);
-  };
+  // const [open, setOpen] = useState(false);
+  // const toggleCheckboxList = () => {
+  //   setOpen(!open);
+  // };
   let checkedResults = [];
   const handleCheckboxChange = (event) => {
     if(event.target.checked){
@@ -24,6 +24,7 @@ const SearchProperty = () => {
     }
   };
  
+
 
   const { universities } = useContext(ListingContext);
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const SearchProperty = () => {
     event.preventDefault();
     setFirstValue(newValue[0]);
     setSecondValue(newValue[1]);
+    console.log(newValue)
   };
 
   const handleUniversityChange = (event) => {
@@ -66,7 +68,41 @@ const SearchProperty = () => {
       .catch((error) => {
         console.error(error);
       });
+      console.log(event.target.value)
   };
+  // if(selectedUniversity !=="")
+  // api
+  // .get(`/listing/universities/${selectedUniversity}`)
+  // .then((response) => if {(checkedResults.length > 0 && handleRoomChange !="") api.get(`/listing?room_type=${handleRoomChange.event.target.value}&&min_price=${newValue[0]}&&max_price=${newValue[1]}`&&amenities=[...checkedValues])
+  // else if (checkedResults.length === 0 && handleRoomChange !=""){api.get(`/listing?room_type=${handleRoomChange.event.target.value}&&min_price=${newValue[0]}&&max_price=${newValue[1]}
+  // else if (checkedResults.length > 0 && handleRoomChange =""){api.get(`/listing?min_price=${newValue[0]}&&max_price=${newValue[1]&&amenities=[...checkedValues]}
+
+
+  // const search = () => {
+  //   let query = "";
+  //   query += `min_price=${firstValue}&max_price=${secondValue}&`;
+  //   if (selectRoomType !== "") {
+  //     query += `room_type=${selectRoomType}&`;
+  //   }
+  //   if (checkedResults.length > 0) {
+  //     query += `amenities=${checkedResults.join()}&`;
+  //   }
+  //   if (selectedUniversity !== "") {
+  //     api.get(`/listing/universities/${selectedUniversity}?${query}`)
+  //       .then((response) => {
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   } else {
+  //     api.get(`/listing?${query}`)
+  //       .then((response) => {
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   }
+  // };
 
   return (
     <>
@@ -74,6 +110,8 @@ const SearchProperty = () => {
         <img className="feelHome" src={feelAtHome} alt="feel" />
         <div className="optionsMenu">
           <h1 className="menuHeader">Feel at home</h1>
+          <div className="searchOrientation">
+          <div className="leftColumn">
           <div className="customSelect">
             <select
               value={selectedUniversity}
@@ -88,8 +126,38 @@ const SearchProperty = () => {
                 </option>
               ))}
             </select>
+            </div>
+            <select
+              id="roomType"
+              value={selectRoomType}
+              onChange={handleRoomChange}
+            >
+              <option disabled hidden value="">
+                Select room type
+              </option>
+              <option value="Entire home/apt">Entire Home</option>
+              <option value="Private room">Private Room</option>
+            </select>
+            <input type="date" className="moveInMoveOut" min="2018-01-01" max="2024-12-31" />
           </div>
-          <Box sx={{ width: 300 }}>
+
+            {/* <Button className="extrasCheckboxButton" onClick={toggleCheckboxList}>Select Extras</Button> */}
+          {/* {open && ( */}
+            <FormGroup className="extrasCheckbox">
+              <FormControlLabel control={<Checkbox />} label="Wifi" name="Wifi" value="Wifi" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Kitchen" name="Kitchen" value="Kitchen" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Washer" name="Washer"  value="Washer" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Microwave" name="Microwave" value="Microwave" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Refrigerator" name="Refrigerator" value="Refrigerator" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Oven"  name="Oven" value="Oven" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Stove"  name="Stove" value="Stove"onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Cable TV"name="Cable TV" value="Cable TV" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Heating"name="Heating"  value="Heating" onChange={handleCheckboxChange}/>
+              <FormControlLabel control={<Checkbox />} label="Air conditioning" name="Air conditioning" value="Air conditioning" onChange={handleCheckboxChange}/>
+            </FormGroup>
+              {/* )} */}
+              </div>
+            <Box sx={{ width: 300 }}>
               <Slider
                 getAriaLabel={() => "Price range"}
                 value={[firstValue, secondValue]}
@@ -104,34 +172,7 @@ const SearchProperty = () => {
                 <p>{secondValue}€</p>
               </div>
             </Box>
-          <div className="menuRow">
-            <select
-              id="roomType"
-              value={selectRoomType}
-              onChange={handleRoomChange}
-            >
-              <option disabled hidden value="">
-                Select room type
-              </option>
-              <option value="Entire home/apt">Entire Home</option>
-              <option value="Private room">Private Room</option>
-            </select>
-            <Button className="extrasCheckboxButton" onClick={toggleCheckboxList}>Select Extras</Button>
-          {open && (
-            <FormGroup className="extrasCheckbox">
-              <FormControlLabel control={<Checkbox />} label="Wifi" name="Wifi" value="Wifi" onChange={handleCheckboxChange}/>
-              <FormControlLabel control={<Checkbox />} label="Kitchen" name="Kitchen" value="Kitchen" onChange={handleCheckboxChange}/>
-              <FormControlLabel control={<Checkbox />} label="Washer" name="Washer"  value="Washer" onChange={handleCheckboxChange}/>
-              <FormControlLabel control={<Checkbox />} label="Microwave" name="Microwave" value="Microwave" onChange={handleCheckboxChange}/>
-              <FormControlLabel control={<Checkbox />} label="Refrigerator" name="Refrigerator" value="Refrigerator" onChange={handleCheckboxChange}/>
-              <FormControlLabel control={<Checkbox />} label="Oven"  name="Oven" value="Oven" onChange={handleCheckboxChange}/>
-              <FormControlLabel control={<Checkbox />} label="Stove"  name="Stove" value="Stove"onChange={handleCheckboxChange}/>
-              <FormControlLabel control={<Checkbox />} label="Cable TV"name="Cable TV" value="Cable TV" onChange={handleCheckboxChange}/>
-              <FormControlLabel control={<Checkbox />} label="Heating"name="Heating"  value="Heating" onChange={handleCheckboxChange}/>
-              <FormControlLabel control={<Checkbox />} label="Air conditioning" name="Air conditioning" value="Air conditioning" onChange={handleCheckboxChange}/>
-            </FormGroup>
-              )}
-            </div>
+          
           </div>
         </div>
       <Outlet />
