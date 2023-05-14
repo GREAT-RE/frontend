@@ -40,7 +40,7 @@
   }
 
   .card-listing-title-text {
-    width: 40%;
+    width: 70%;
     margin-left: 10px;
   }
 
@@ -50,7 +50,6 @@
     justify-items: right;
     margin-right: 20px;
     margin-bottom: 20px;
-    margin-left: 200px;
   }
 
   .card-listing-link {
@@ -91,6 +90,12 @@
 
   .review-score-number {
     font-size: 36px;
+  }
+
+  @media screen and (max-width:1350px) {
+    .card-listing-link {
+        width: 100%;
+    }
   }
 
   @media screen and (max-width:1024px) {

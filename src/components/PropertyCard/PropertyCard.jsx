@@ -10,7 +10,6 @@ const PropertyCard = ({ listing }) => {
       
     
       return (
-        
           listing ? (
             <>
               <div className="card-listing-all">
@@ -26,7 +25,7 @@ const PropertyCard = ({ listing }) => {
                   <p className="card-universities-distance">Universidade Lusófona is {distance_2} km's away</p>
                   <p className="card-universities-distance">Universidade de Lisboa is {distance_1} km's away</p>
                   <p className="card-universities-distance">Universidade Católica is {distance_1} km's away</p>
-                  <p className="card-universities-distance">ISCTE - Instituto Universitário de Lisboa is {distance_1} km's away</p>
+                  <p className="card-universities-distance">ISCTE - Instituto Uni. de Lisboa is {distance_1} km's away</p>
                   </div>
                 </div>
                 <div className="card-listing-price-rating">
