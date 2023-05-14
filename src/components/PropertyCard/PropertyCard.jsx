@@ -1,4 +1,5 @@
 import React from "react";
+import "./PropertyCard.css"
 
 const PropertyCard = ({ listing }) => {
 
@@ -9,20 +10,35 @@ const PropertyCard = ({ listing }) => {
       
     
       return (
-        listing ? (
-          <>
- 
-            <div>
-            <img className='popular-card-image' src={picture_url} alt='Pop1' />
-            <h2 className='card-title'>{name}</h2>
-            <p>{description}</p>
-            <p className='card-text'>From <span className='card-price'>{price_in_eur}</span> / Month</p>
-            <p>{number_of_reviews}</p>
-            <p>{review_scores_rating}</p>
-          </div>
-          </>
-        ) : null
-      );
+        
+          listing ? (
+            <>
+              <div className="card-listing-all">
+                <img className='card-listing-image' src={picture_url} alt='Pop1' />
+                <div className="card-listing-title-text">
+                  <h2 className='card-listing-title'>{name}</h2>
+                  <p className="card-listing-description">{description.substr(0, 200).replace(/<br\s*\/?>/gi, '').replace(/<(\/)?b>/gi, '')}...</p>
+                <div className="extras-images">
+                  <h1>Extras Imagens</h1>
+                </div>
+                <div className="card-universities">
+                  <p className="card-universities-distance">Instituto Superior Técnico is {distance_1} km's away</p>
+                  <p className="card-universities-distance">Universidade Lusófona is {distance_2} km's away</p>
+                  <p className="card-universities-distance">Universidade de Lisboa is {distance_1} km's away</p>
+                  <p className="card-universities-distance">Universidade Católica is {distance_1} km's away</p>
+                  <p className="card-universities-distance">ISCTE - Instituto Universitário de Lisboa is {distance_1} km's away</p>
+                  </div>
+                </div>
+                <div className="card-listing-price-rating">
+                  <p className='card-listing-text-price'>From <span className='card-listing-price'>{price_in_eur}</span> / Month</p>
+                  <p className="card-review">Number of reviews: <span className="review-score-number">{number_of_reviews}</span></p>
+                  <p className="card-review">Review Score:<span className="review-score-number">{review_scores_rating}</span></p>
+                  <button type="submit" className='uselessButton'>View more</button>
+                </div>
+              </div>
+            </>
+          ) : null
+        );
     };
     
     export default PropertyCard;

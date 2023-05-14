@@ -13,7 +13,7 @@ function HomePage() {
           <div className="text">
             FIND YOUR HOME TO LIVE
           </div>
-          <Link to ="/properties">
+          <Link to ="/properties/popular">
           <div className="text2">
             STUDENT
           </div>

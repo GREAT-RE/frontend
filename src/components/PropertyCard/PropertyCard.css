@@ -1,0 +1,138 @@
+.card-listing-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+.card-listing-title {
+    font-size: 24px;
+    color:  #3C4464;
+  }
+  
+  .card-listing-text-price {
+    color:  #3C4464;
+ 
+  }
+  
+  .card-listing-price {
+    color: red;
+    font-size: 36px;
+  }
+
+  .card-listing-all {
+    display:flex;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #fdfdfd;
+    margin-left: 50px;
+    margin-bottom: 10px;
+  }
+
+  .card-review {
+    font-size: 14px;
+    color: rgb(61, 59, 59);;
+  }
+
+  .card-listing-description {
+    color: #3C4464;
+  }
+
+  .card-listing-title-text {
+    width: 40%;
+    margin-left: 10px;
+  }
+
+  .card-listing-price-rating {
+    display:grid;
+    align-content: space-between;
+    justify-items: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+  }
+
+  .card-listing-link {
+    display: flex;
+    width: 65%;
+  }
+
+  .uselessButton[type="submit"],
+  .uselessButton[type="submit"] {
+    background: #3C4464;
+    color: #FCB434;
+    text-transform: uppercase;
+    border: none;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 5px;
+    border-radius: 10px;
+  }
+
+  .uselessButton[type="submit"]:hover,
+  .uselessButton[type="submit"]:hover {
+    background: #363d5a;
+  }
+  
+  .uselessButton[type="submit"]:active {
+    transition: 0.3s all;
+    transform: translateY(3px);
+    border: 1px solid transparent;
+    opacity: 0.8;
+  }
+
+  .card-universities {
+    line-height: 1px;
+    font-size: 14px;
+    color: rgb(61, 59, 59);
+  }
+
+  .review-score-number {
+    font-size: 36px;
+  }
+
+  @media screen and (max-width:1024px) {
+
+    .card-listing-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .card-listing-price-rating {
+        margin-left: 50px;
+    }
+
+    .card-listing-all {
+        margin-left: 10px;
+        width: 95%;
+    }
+
+    .card-listing-title-text {
+        width: 350px;
+    }
+
+    .card-listing-title {
+        font-size: 18px;
+    }
+
+    .card-listing-description {
+        font-size: 14px;
+    }
+
+    .extras-images h1{
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .uselessButton[type="submit"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .card-universities {
+        font-size: 12px;
+    }
+
+  }
