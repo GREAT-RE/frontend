@@ -19,11 +19,10 @@ const PropertyList = () => {
         </div>
     </div>
       <div className='propertyButton'>
-<<<<<<< HEAD
+
       <Link to="/list-property"><button type="submit" className='contactButton'>List for free</button></Link>
-=======
-      <Link to="/list-property"><div>List for free</div></Link>
->>>>>>> 352a3e84734b2a1fdb54ed28e4882e44b13dcc65
+
+      {/* <Link to="/list-property"><div>List for free</div></Link> */}
       </div>
     </>
   )
