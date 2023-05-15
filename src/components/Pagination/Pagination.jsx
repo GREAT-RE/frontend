@@ -1,20 +1,15 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import ReactPaginate from "react-paginate";
 import ListingContext from "../../context/listingContext";
 import "./Pagination.css"
 const Pagination = ({ setPageNumber, listingPerPage }) => {
   const { listings, listingsFilter } = useContext(ListingContext);
-// const [pageCount, setPageCount] = useState(Math.ceil(listings.length / listingPerPage))
+  
   const pageCount = Math.ceil(listings && listingsFilter.length === 0 ? listings.length / listingPerPage: listingsFilter.length / listingPerPage);
   
   const pageChange = ({ selected }) => {
-    console.log(selected)
     setPageNumber(selected);
   };
-
-  // useEffect(()=>{
-  //   Math.ceil(listingsFilter.length / listingPerPage);
-  // },[listingsFilter, listingPerPage])
 
   return (
     <div>

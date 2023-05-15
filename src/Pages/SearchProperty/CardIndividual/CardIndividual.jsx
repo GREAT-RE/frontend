@@ -16,7 +16,6 @@ const CardIndividual = () => {
     api
       .get(`/listing/${id}`)
       .then((response) => {
-        // console.log(response.data[0])
         setSrc(response.data[0].picture_url)
         setSingleProperty(response.data[0]);
       })
@@ -36,10 +35,9 @@ const CardIndividual = () => {
           <h1 className="cardI-title">{singleProperty.name}</h1>
           <img
             className="cardI-image"
-            // src={singleProperty.picture_url}
             src={src}
             onError={() => setSrc(imagePlaceholder)}
-            alt="CardI"
+            alt={singleProperty.name}
           />
           <h1 className="cardI-description-title">Description:</h1>
           <p className="card-listing-description">
