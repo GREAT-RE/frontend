@@ -8,7 +8,7 @@ import UniversityCard from "./UniversityCard";
 import UniversityPoint from "./UniversityPoint";
 
 const MapPoint = (props) => {
-  console.log(props);
+  // console.log(props);
   const [opened, setIsOpened] = useState(false);
 
   //   const getAddresses = (cards) => {
@@ -16,8 +16,8 @@ const MapPoint = (props) => {
   //  };
 
   const handleOnOpen = (id) => {
-    if (!props.university) {
-      console.log(id);
+    if (!props.universityTrue) {
+      // console.log(id);
       props.setCardSelected(id);
       [props.apartment]
         .filter((apartment) => apartment.id === id)
@@ -60,9 +60,10 @@ const MapPoint = (props) => {
     };
   }, [containerRef]);
 
+  // console.log(props.data)
   return (
     <div ref={containerRef}>
-      {props.university ? (
+      {props.universityTrue ? (
         opened ? (
           <UniversityCard data={props.data} handleClose={handleOnClose} />
         ) : (

@@ -36,7 +36,7 @@ const SearchProperty = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [selectedUniversity, setSelectedUniversity] = useState("");
+  // const [selectedUniversity, setSelectedUniversity] = useState("");
   const [selectRoomType, setSelectRoomType] = useState("");
   const [firstValue, setFirstValue] = useState(20);
   const [secondValue, setSecondValue] = useState(1000);
@@ -51,7 +51,9 @@ const SearchProperty = () => {
   };
 
   const handleUniversityChange = (event) => {
-    setSelectedUniversity(event.target.value);
+    setUniversitiesSelected(event.target.value);
+    // console.log(event.target.value)
+    // localStorage.setItem("selectedUniversity", event.target.value)
     api
       .get(`/listing/universities/${event.target.value}`)
       .then((response) => {
@@ -98,14 +100,14 @@ const SearchProperty = () => {
     // }
     // console.log(checkedResults);
     // console.log(selectedUniversity);
-    if (selectedUniversity !== "") {
+    if (universitiesSelected !== "") {
       // api
       //   .get(`/listing/universities/${selectedUniversity}`)
       //   .then((response) => {
       //     let tempData = response.data;
           if (Object.keys(checkedResults).length > 0) {
             api
-              .post("/listing", {data:checkedResults, universities:selectedUniversity})
+              .post("/listing", {data:checkedResults, universities:universitiesSelected})
               .then((response) => {
                 setListingsFilter(response.data);
                 // console.log(response.data);
@@ -221,10 +223,10 @@ const SearchProperty = () => {
             <div className="leftColumn">
               <div className="customSelect">
                 <select
-                  value={selectedUniversity}
+                  value={universitiesSelected}
                   onChange={handleUniversityChange}
                 >
-                  <option disabled hidden value="">
+                  <option hidden value="">
                     Select a University
                   </option>
                   {universities.map((university) => (
