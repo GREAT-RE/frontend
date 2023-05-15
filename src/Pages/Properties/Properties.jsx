@@ -3,7 +3,9 @@ import PropertyCard from "../../components/PropertyCard/PropertyCard";
 import ListingContext from "../../context/listingContext";
 import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
-import "./Properties.css"
+import "./Properties.css";
+
+import imageConnectGoogleMaps from "../../assets/map-sidebar-image.png";
 
 const Properties = () => {
   const { listings } = useContext(ListingContext);
@@ -14,26 +16,57 @@ const Properties = () => {
 
   const pagesVisited = pageNumber * listingPerPage;
 
-  const displayListings = listings && listings.slice(
-    pagesVisited,
-    pagesVisited + listingPerPage
-  );
+  const displayListings =
+    listings && listings.slice(pagesVisited, pagesVisited + listingPerPage);
 
   return (
-    <div>
-      {listings && displayListings
-        ? displayListings.map((listing) => (
-            <Link className="card-listing-link" key={listing.listing_id} to={`/listing/${listing.listing_id}`}>
-              <PropertyCard listing={listing} />
-            </Link>
-          ))
-        : null}
-      <div className="pagination-all">
-      <Pagination
-        listingPerPage={listingPerPage}
-        setPageNumber={setPageNumber}
-      />
+    <div className="listings-map-main-container">
+      <div className="cards-map-container">
+      <div className="listings-cards-container">
+        {listings && displayListings
+          ? displayListings.map((listing) => {
+              let tempArray = [
+                listing.distance_1,
+                listing.distance_2,
+                listing.distance_3,
+                listing.distance_4,
+                listing.distance_5,
+              ];
+              let minNumber = tempArray.reduce(
+                (accumulatedValue, currentValue, index) =>
+                  Math.min(accumulatedValue, currentValue)
+              );
+
+              return (
+              
+                  <PropertyCard listing={listing} minNumber={minNumber} />
+
+              );
+            })
+          : null}
+      
       </div>
+      <div className="map-listings-container">
+        {/* <h1>MAP TEST</h1> */}
+        <Link className="transparent-layer-map" to="/properties/map-list">
+          <div>View Map</div>
+        </Link>
+        <div className="image-container-maps">
+        <img
+          className="image-connect-google-maps"
+          src={imageConnectGoogleMaps}
+          alt="connect-google-maps"
+        />
+        </div>
+      </div>
+      </div>
+
+      <div className="pagination-all">
+          <Pagination
+            listingPerPage={listingPerPage}
+            setPageNumber={setPageNumber}
+          />
+        </div>
     </div>
   );
 };

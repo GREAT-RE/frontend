@@ -26,8 +26,8 @@
     border: 1px solid black;
     border-radius: 10px;
     background-color: #fdfdfd;
-    margin-left: 50px;
-    margin-bottom: 10px;
+    width: 100%;
+    margin: 0 auto 20px auto;
   }
 
   .card-review {
@@ -54,7 +54,7 @@
 
   .card-listing-link {
     display: flex;
-    width: 65%;
+    width: 90%;
   }
 
   .uselessButton[type="submit"],
@@ -68,11 +68,15 @@
     font-weight: 100;
     letter-spacing: 5px;
     border-radius: 10px;
+    cursor: pointer;
+
   }
 
   .uselessButton[type="submit"]:hover,
   .uselessButton[type="submit"]:hover {
-    background: #363d5a;
+    background: #273159;
+    cursor: pointer;
+
   }
   
   .uselessButton[type="submit"]:active {
@@ -80,13 +84,22 @@
     transform: translateY(3px);
     border: 1px solid transparent;
     opacity: 0.8;
+    cursor: pointer;
+
   }
 
   .card-universities {
     line-height: 1px;
     font-size: 14px;
     color: rgb(61, 59, 59);
+    height: 100%;
+    margin-top: 50px;
   }
+
+  /* .card-universities-distance::after{
+    content: "\a";
+    white-space: pre;
+  } */
 
   .review-score-number {
     font-size: 36px;

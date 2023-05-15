@@ -69,10 +69,11 @@ const MapPoint = (props) => {
         //   ) :
         opened ? (
           <ApartmentCard
-            image={props.apartment.picture_url}
-            name={props.apartment.name}
-            description={props.apartment.description}
-            rent={props.apartment.price_in_eur}
+          data={props.apartment}
+            // image={props.apartment.picture_url}
+            // name={props.apartment.name}
+            // description={props.apartment.description}
+            // rent={props.apartment.price_in_eur}
             handleClose={handleOnClose}
           />
         ) : (

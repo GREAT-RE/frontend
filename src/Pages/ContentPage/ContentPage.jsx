@@ -29,11 +29,6 @@ const ContentPage = () => {
       <AuthProvider>
       <ListingContextProvider>
         <Routes>
-          //!!!!! DELETE AFTER TEST
-          <Route path="/map-test-route" element={<SearchListingMap />} />
-          <Route path="/map-test-route-details" element={<MapListing />} />
-
-
           <Route path="/property-list" element={<PropertyList />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/find-lisbon" element={<FindLisbon />} />
@@ -54,6 +49,8 @@ const ContentPage = () => {
           <Route path="/properties" element={<SearchProperty />}>
             <Route path="popular" element={<Popular />} />
             <Route path="list" element={<Properties />} />
+          <Route path="map-list" element={<SearchListingMap />} />
+
           </Route>
         </Routes>
       </ListingContextProvider>

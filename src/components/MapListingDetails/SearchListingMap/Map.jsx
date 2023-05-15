@@ -141,9 +141,8 @@ function Map({ center, zoom }) {
       listings &&
         listings.length > 0 &&
         listings
-          .filter((listing, index) => index < 20)
+          .filter((listing, index) => index < 100)
           .map((listing) => results.push(listing));
-      //   console.log(results);
       setCards(results);
     }
   };

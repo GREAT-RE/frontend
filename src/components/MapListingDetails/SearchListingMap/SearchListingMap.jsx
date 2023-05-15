@@ -24,7 +24,7 @@ function SearchListingMap() {
 
   return (
     <div className="search-map">
-      <h1>MAP LISTING SEARCH</h1>
+      {/* <h1>MAP LISTING SEARCH</h1> */}
       <Wrapper apiKey={process.env.REACT_APP_GOOGLE_API_KEY} render={render}>
         <Map center={centerLisbon} zoom={13} />
       </Wrapper>

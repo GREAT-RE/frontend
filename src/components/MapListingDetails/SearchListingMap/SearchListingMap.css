@@ -15,7 +15,11 @@
   .header-side-bar-listing-map{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+    margin-left: 20px;
+    width: 100%;
   }
 
   .card-side-bar-map{
@@ -26,6 +30,7 @@
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+    background-color: #FAFAFA;
 
   }
 
@@ -63,4 +68,9 @@
     color:#E6956C;
     font-size: 30px;
     font-weight: bold;
+  }
+
+  .line-selected-card{
+    width: 120%;
+    border: 1px solid lightgray;
   }

@@ -34,8 +34,8 @@ const CardIndividual = () => {
           <h1 className="cardI-description-title">
             Description:
           </h1>
-          <p className="card-listing-description">{singleProperty.description.replace(/<br\s*\/?>/gi, '').replace(/<(\/)?b>/gi, '')}</p>
-          <p className="cardI-view">Address: View Map</p>
+          <p className="card-listing-description">{singleProperty.description.replace(/<br\s*\/?>/gi, '\n').replace(/<(\/)?b>/gi, '\n')}</p>
+          <p className="cardI-view">Address: {singleProperty.formatted_address}</p>
           <p className="cardI-view">Distances:</p>
         <div className="cardI-facilities">
           <h1 className="cardI-facilities-title">Facilities</h1>

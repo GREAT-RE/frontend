@@ -17,6 +17,7 @@ const SideCardsList = ({ listings, cards, card }) => {
       </div>
       <div>
         {card ? <SideCard card={card} /> : null}
+        <hr className="line-selected-card"/>
         <ListOfListings cards={cards} />
       </div>
     </div>
