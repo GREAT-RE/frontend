@@ -40,7 +40,7 @@
   }
 
   .card-listing-title-text {
-    width: 70%;
+    width: 55%;
     margin-left: 10px;
   }
 
@@ -59,8 +59,8 @@
 
   .uselessButton[type="submit"],
   .uselessButton[type="submit"] {
-    background: #3C4464;
-    color: #FCB434;
+    background: #FCB434;
+    color: #3C4464;
     text-transform: uppercase;
     border: none;
     padding: 20px;
@@ -74,7 +74,7 @@
 
   .uselessButton[type="submit"]:hover,
   .uselessButton[type="submit"]:hover {
-    background: #273159;
+    background: #FCA434;
     cursor: pointer;
 
   }
@@ -105,7 +105,17 @@
     font-size: 36px;
   }
 
-  @media screen and (max-width:1350px) {
+  .card-universities-distance {
+    display: flex;
+    line-height: 1;
+  }
+
+  @media screen and (max-width:1023px) {
+
+    .map-listings-container{
+      display: none;
+    }
+
     .card-listing-link {
         width: 100%;
     }
@@ -144,7 +154,7 @@
         margin-bottom: 40px;
     }
 
-    .uselessButton[type="submit"] {
+    .uselessButton {
         padding: 10px;
         font-size: 14px;
     }
