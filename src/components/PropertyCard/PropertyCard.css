@@ -5,6 +5,9 @@
     border-radius: 10px;
     margin: 10px;
   }
+  .extras-images{
+    height: 40px;
+  }
 
 .card-listing-title {
     font-size: 24px;

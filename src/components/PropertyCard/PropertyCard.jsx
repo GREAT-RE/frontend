@@ -2,8 +2,36 @@ import React, { useEffect } from "react";
 import "./PropertyCard.css";
 import { HiLocationMarker } from "react-icons/hi";
 import {Link} from "react-router-dom"
+import AC from "../../assets/amenity-icons/air-conditioner.svg"
+import wifi from "../../assets/amenity-icons/wifi.svg"
+import cableTv from "../../assets/amenity-icons/cable-tv.svg"
+import heating from "../../assets/amenity-icons/heating.svg"
+import kitchen from "../../assets/amenity-icons/kitchen.svg"
+import microwave from "../../assets/amenity-icons/microwave.svg"
+import oven from "../../assets/amenity-icons/oven.svg"
+import refrigerator from "../../assets/amenity-icons/refrigerator.svg"
+import stove from "../../assets/amenity-icons/stove.svg"
+import washer from "../../assets/amenity-icons/washer.svg"
 
 const PropertyCard = ({ listing, minNumber }) => {
+  const amenitiesToDisplay = ["Wifi", "Air conditioning", "Cable TV", "Heating", "Kitchen", "Microwave", "Oven","Refrigerator","Stove","Washer"];
+  const extraImages = {
+    Wifi: wifi,
+    "Air conditioning": AC,
+    "Cable TV": cableTv,
+    Heating: heating,
+    Kitchen: kitchen,
+    Microwave:microwave,
+    Oven:oven,
+    Refrigerator:refrigerator,
+    Stove:stove,
+    Washer:washer,
+  }
+  const extraImage = Object.fromEntries(
+    Object.entries(extraImages)
+      .filter(([key]) => amenitiesToDisplay.includes(key))
+  );
+  
   const {
     id,
     picture_url,
@@ -40,7 +68,19 @@ const PropertyCard = ({ listing, minNumber }) => {
       <div >
         <img className="card-listing-image" src={picture_url} alt="Pop1" />
         <div className="extras-images">
-          <h1>Extra Images</h1>
+        {Array.isArray(amenities) && amenities.length > 0 ?
+  amenities.map((amenity) => {
+    return amenitiesToDisplay.includes(amenity.trim()) ? (
+      <img
+        key={amenity}
+        className="amenity-image"
+        src={extraImage[amenity.trim()]}
+        alt={amenity.trim()}
+      />
+    ) : null;
+  })
+  : null
+}
         </div>
       </div>
       <div className="card-listing-title-text">
