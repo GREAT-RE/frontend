@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import { HiLocationMarker } from "react-icons/hi";
+import imagePlaceholder from "../../../assets/placeholder-image.png"
 
 const SideCard = ({ card }) => {
   let tempArray = [
@@ -16,11 +17,14 @@ const SideCard = ({ card }) => {
     ([key, value]) => value === minNumber
   );
 
+    
+  const [src, setSrc] = useState(card.picture_url);
+
   return (
     <div>
       <div className="card-side-bar-map" key={card.id}>
         <div className="card-image-container-side-bar-map">
-          <img src={card.picture_url} alt={card.name} />
+          <img src={src} onError={() => setSrc(imagePlaceholder)}  alt={card.name} />
         </div>
         <div className="card-text-container-side-bar-map">
           <h4 className="card-title-side-bar-map">{card.name}</h4>

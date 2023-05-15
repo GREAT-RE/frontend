@@ -7,11 +7,13 @@ export default ListingContext;
 
 export const ListingContextProvider = ({ children }) => {
   const [listings, setListings] = useState([]);
+  const [listingsFilter, setListingsFilter] = useState([]);
   const [universities, setUniversities] = useState([]);
+  const [universitiesSelected, setUniversitiesSelected] = useState();
 
   const getProperties = () => {
     api
-      .get("/listing")
+      .post("/listing")
       .then((response) => {
         setListings(response.data);
       })
@@ -33,13 +35,17 @@ export const ListingContextProvider = ({ children }) => {
 
   useEffect(() => {
     getProperties();
-    getUniversities()
+    getUniversities();
   }, []);
   return (
     <ListingContext.Provider
       value={{
         listings,
-        universities
+        universities,
+        listingsFilter,
+        setListingsFilter,
+        universitiesSelected,
+        setUniversitiesSelected,
       }}
     >
       {children}

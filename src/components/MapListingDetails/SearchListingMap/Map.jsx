@@ -8,33 +8,33 @@ import SideCard from "./SideCard";
 import ListingContext from "../../../context/listingContext";
 import SideCardsList from "./SideCardsList";
 
-// const markers = [
-//   {
-//     name: "Instituto Superior Técnico",
-//     lat: 38.735,
-//     lng: -9.137,
-//   },
-//   {
-//     name: "Universidade de Lisboa",
-//     lat: 38.752,
-//     lng: -9.156,
-//   },
-//   {
-//     name: "Universidade Lusófona",
-//     lat: 38.758,
-//     lng: -9.153,
-//   },
-//   {
-//     name: "Universidade Católica",
-//     lat: 38.754,
-//     lng: -9.166,
-//   },
-//   {
-//     name: "ISCTE - Instituto Universitário de Lisboa",
-//     lat: 38.748,
-//     lng: -9.153,
-//   },
-// ];
+const markers = [
+  {
+    name: "Instituto Superior Técnico",
+    lat: 38.735,
+    lng: -9.137,
+  },
+  {
+    name: "Universidade de Lisboa",
+    lat: 38.752,
+    lng: -9.156,
+  },
+  {
+    name: "Universidade Lusófona",
+    lat: 38.758,
+    lng: -9.153,
+  },
+  {
+    name: "Universidade Católica",
+    lat: 38.754,
+    lng: -9.166,
+  },
+  {
+    name: "ISCTE - Instituto Universitário de Lisboa",
+    lat: 38.748,
+    lng: -9.153,
+  },
+];
 
 // const homes = [
 //   {
@@ -124,10 +124,11 @@ const useStyles = createUseStyles({
 
 function Map({ center, zoom }) {
   const { listings } = useContext(ListingContext);
-
+  
+  const classes = useStyles();
+  
   const ref = useRef(null);
   const [map, setMap] = useState(null);
-  const classes = useStyles();
   const [card, setCard] = useState();
   const [cardSelected, setCardSelected] = useState();
   const [cards, setCards] = useState();
@@ -179,7 +180,7 @@ function Map({ center, zoom }) {
       <SideCardsList listings={listings} cards={cards} card={card} />
       </div>
       <div ref={ref} id="map" className={classes.map}>
-        {/* {markers.map((marker, index) => (
+        {markers.map((marker, index) => (
         //   console.log(marker) &&
           <OverlayContainer
             map={map}
@@ -191,7 +192,7 @@ function Map({ center, zoom }) {
           >
             <MapPoint university={true} data={marker} />
           </OverlayContainer>
-        ))} */}
+        ))}
         {cards
           ? cards.map((apartment, index) => (
               <OverlayContainer

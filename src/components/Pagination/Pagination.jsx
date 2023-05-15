@@ -3,9 +3,10 @@ import ReactPaginate from "react-paginate";
 import ListingContext from "../../context/listingContext";
 import "./Pagination.css"
 const Pagination = ({ setPageNumber, listingPerPage }) => {
-  const { listings } = useContext(ListingContext);
+  const { listings, listingsFilter } = useContext(ListingContext);
 
-  const pageCount = Math.ceil(listings.length / listingPerPage);
+  const pageCount = Math.ceil( listings && listingsFilter.length === 0 ? listings.length / listingPerPage: listingsFilter.length / listingPerPage);
+  
   const pageChange = ({ selected }) => {
     setPageNumber(selected);
   };
