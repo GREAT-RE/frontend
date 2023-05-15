@@ -24,7 +24,7 @@ const Properties = () => {
         ? listings.slice(pagesVisited, pagesVisited + listingPerPage)
         : listingsFilter.slice(pagesVisited, pagesVisited + listingPerPage)
     );
-  }, [listings, listingsFilter]);
+  }, [listings, listingsFilter, pagesVisited]);
 
   return (
     <div className="listings-map-main-container">
