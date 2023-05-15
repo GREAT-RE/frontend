@@ -30,6 +30,7 @@ const Properties = () => {
     <div className="listings-map-main-container">
       <div className="cards-map-container">
         <div className="listings-cards-container">
+      <p className="header-side-bar-listing-map">{listingsFilter.length ? listingsFilter.length :listings.length } Properties</p>
           {listings && displayListings
             ? displayListings.map((listing) => {
                 let tempArray = [
@@ -55,7 +56,6 @@ const Properties = () => {
             : null}
         </div>
         <div className="map-listings-container">
-          {/* <h1>MAP TEST</h1> */}
           <Link className="transparent-layer-map" to="/properties/map-list">
             <div>View Map</div>
           </Link>

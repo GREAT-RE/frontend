@@ -184,7 +184,7 @@ function Map({ center, zoom }) {
         .then((response) => {
           let result = [];
           response.data
-            .filter((data, index) => index < 20)
+            .filter((data, index) => index < 200)
             .map((data) => result.push(data));
             // console.log(result)
           setCards(result);

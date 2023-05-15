@@ -14,6 +14,8 @@ import stove from "../../assets/amenity-icons/stove.svg";
 import washer from "../../assets/amenity-icons/washer.svg";
 import imagePlaceholder from "../../assets/placeholder-image.png";
 
+import favouriteIcon from "../../assets/favourite.icon.svg"
+
 const PropertyCard = ({ listing, minNumber }) => {
   const amenitiesToDisplay = [
     "Wifi",
@@ -146,6 +148,9 @@ const PropertyCard = ({ listing, minNumber }) => {
         </div>
       </div>
       <div className="card-listing-price-rating">
+        <div className="card-listing-rating">
+        <img src={favouriteIcon} alt="favourite-icon" style={{height:"20px", width:"20px"}} />
+        </div>
         <p className="card-listing-text-price">
           From <span className="card-listing-price">€ {price_in_eur}</span> /
           Month
