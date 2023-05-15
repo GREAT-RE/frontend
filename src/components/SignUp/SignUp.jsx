@@ -98,57 +98,57 @@ const SignUp = () => {
           </p>
         )}
 
-<div className="checkbox-all">
-        <label className="checkbox-label">
-          <input
-            className="terms"
-            type="checkbox"
-            name="privacy_policies"
-            // value={true}
-            {...register("privacy_policies", {
-              required: "Privacy and Policies mandatory",
-            })}
-            aria-invalid={errors.privacy_policies ? "true" : "false"}
-          />
-          <span className="checkbox-text">
-            By creating an account you are agreeing to accept the
-            <br />
-            <a href="https://example.com" className="terms-link">
-              Terms and Conditions
-            </a>
-            <span className="and"> and </span>
-            <a href="https://example.com" className="privacy-link">
-              Privacy Policy
-            </a>
-            <br />
-            {errors.privacy_policies && (
-              <p className="error-message" role="alert">
-                {errors.privacy_policies?.message}
-              </p>
-            )}
-          </span>
-        </label>
-        <label className="checkbox-label2">
-          <input
-            className="recEmails"
-            type="checkbox"
-            name="newsletter"
-            // value={false}
-            {...register("newsletter")}
-          />
-          <span className="checkbox-text2">
-            I'd like to receive e-mails and promotions from Home in LX.
-          </span>
-        </label>
-        <p className="have-account">
-          Already have an account?{" "}
-          <Link to="/register/login" className="signASK">
-            Login
-          </Link>
-        </p>
+        <div className="checkbox-all">
+          <label className="checkbox-label">
+            <input
+              className="terms"
+              type="checkbox"
+              name="privacy_policies"
+              // value={true}
+              {...register("privacy_policies", {
+                required: "Privacy and Policies mandatory",
+              })}
+              aria-invalid={errors.privacy_policies ? "true" : "false"}
+            />
+            <span className="checkbox-text">
+              By creating an account you are agreeing to accept the
+              <br />
+              <a href="https://example.com" className="terms-link">
+                Terms and Conditions
+              </a>
+              <span className="and"> and </span>
+              <a href="https://example.com" className="privacy-link">
+                Privacy Policy
+              </a>
+              <br />
+              {errors.privacy_policies && (
+                <p className="error-message" role="alert">
+                  {errors.privacy_policies?.message}
+                </p>
+              )}
+            </span>
+          </label>
+          <label className="checkbox-label2">
+            <input
+              className="recEmails"
+              type="checkbox"
+              name="newsletter"
+              // value={false}
+              {...register("newsletter")}
+            />
+            <span className="checkbox-text2">
+              I'd like to receive e-mails and promotions from Home in LX.
+            </span>
+          </label>
+          <p className="have-account">
+            Already have an account?&nbsp;{" "}
+            <Link to="/register/login" className="signASK">
+              Login
+            </Link>
+          </p>
         </div>
         <input className="contactButton" type="submit" value="Register" />
-        </form>
+      </form>
     </div>
   );
 };
