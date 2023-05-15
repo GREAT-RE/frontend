@@ -51,7 +51,7 @@ const SearchProperty = () => {
     event.preventDefault();
     setFirstValue(newValue[0]);
     setSecondValue(newValue[1]);
-    console.log(newValue);
+    // console.log(newValue);
   };
 
   const handleUniversityChange = (event) => {
@@ -67,17 +67,17 @@ const SearchProperty = () => {
   };
 
   const handleRoomChange = (event) => {
+    // console.log(event.target.value);
     setSelectRoomType(event.target.value);
     api
       .get(`/listing?room_type=${event.target.value}`)
       .then((response) => {
         navigate("/properties/list");
-        console.log(response);
+        // console.log(response);
       })
       .catch((error) => {
         console.error(error);
       });
-    console.log(event.target.value);
   };
   // if(selectedUniversity !=="")
   // api

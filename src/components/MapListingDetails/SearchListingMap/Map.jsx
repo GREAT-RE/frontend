@@ -116,7 +116,8 @@ const useStyles = createUseStyles({
     justifyContent:"center",
     marginRight:"20px",
     overflow: "auto",
-    height:"80vh"
+    height:"80vh",
+    overflowX: "hidden",
 
   }
 });
@@ -135,7 +136,7 @@ function Map({ center, zoom }) {
     let results = [];
     // console.log(listings)
     if (card && listings && listings.length > 0) {
-      console.log(card);
+      // console.log(card);
       // listings.
     } else {
       listings &&
