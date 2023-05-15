@@ -125,9 +125,14 @@ const ListingDetailsMap = ({ data }) => {
 
   function clearRoute() {
     setDirectionsResponseDriving(null);
+    setDirectionsResponseWalking(null);
+    setDirectionsResponseTransport(null);
     setDistanceDriving("");
-    setDuration("");
-    originRef.current.value = "";
+    setDistanceWalking("");
+    setDistanceTransports("");
+    setDurationDriving("");
+    setDurationWalking("");
+    setDurationTransports("");
     destinationRef.current.value = "";
   }
   
