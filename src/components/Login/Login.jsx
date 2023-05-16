@@ -20,6 +20,7 @@ const Login = () => {
     api
       .post("/auth/login", data)
       .then((response) => {
+        console.log(response)
         setUser(response.data.user)
         localStorage.setItem("user_token_greater", response.data.token)
         navigate("/")

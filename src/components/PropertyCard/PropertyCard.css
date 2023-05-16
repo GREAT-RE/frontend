@@ -116,7 +116,12 @@
     margin-right: -40px;
     background-color: #fdfdfd;
     border-radius: 30px;
-    border: 1px solid lightgray;
+    border: 1px solid black;
+  }
+
+  .button-disabled{
+    border: 1px solid #dfdfdf;
+    background-color: #e2e2e2;
   }
 
   .review-score-number {
