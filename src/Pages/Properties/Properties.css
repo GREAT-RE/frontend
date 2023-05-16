@@ -6,6 +6,7 @@
 
 
 .listings-map-main-container{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,6 +35,14 @@
 .map-listings-container{
     width: 30%;
     padding: 0 30px;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    margin-left: 16px;
+    margin-top: 50px;
+    display: flex;
+    justify-items: center;
+
 }
 
 .map-listings-container a{
@@ -54,7 +63,7 @@
     opacity: 0.7;
 }
 .transparent-layer-map{
-    position: relative;
+    position: absolute;
     text-transform: uppercase;
     display: flex;
     justify-content: center;
@@ -78,3 +87,4 @@
 .transparent-layer-map:hover {
     background-color:#248db0;
   }
+

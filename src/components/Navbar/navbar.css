@@ -122,7 +122,21 @@
     transform: rotate(-405deg);
   }
   
-  @media (max-width: 800px) {
+  .findLisbon {
+    margin:0;
+    padding: .5rem;
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEE5EE;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+
+  }
+
+  @media (max-width: 1200px) {
     .logoNav {
       height: 7rem;
       width: 7rem;
@@ -158,6 +172,21 @@
     background-color: transparent;
     text-decoration: none;
     color:#FCB434;
+ }
+
+ .findLisbon{
+  border: none;
+    margin:0;
+    padding: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color:#FCB434;
+    text-decoration: none;
+    text-transform: none;
+
  }
  .loginLogo{
   color:#FCB434;
