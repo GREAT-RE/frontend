@@ -107,7 +107,7 @@ const PropertyCard = ({ listing, minNumber }) => {
   const [message, setMessage] = useState("");
 
   const addWishList = (listId) => {
-    // console.log(user)
+    console.log(user)
     if (user && user.id) {
       let data = {
         studId: user.id,
@@ -124,12 +124,13 @@ const PropertyCard = ({ listing, minNumber }) => {
   };
 
   useEffect(() =>{
+    if (user && user.id) {
     api
     .get(`/interest/${user.id}`)
     .then((response) => setInterest(response.data))
     .catch((error) => {
       console.error(error);
-    });
+    })}
   },[message])
 
   return listing ? (
@@ -202,12 +203,12 @@ const PropertyCard = ({ listing, minNumber }) => {
         >
           <img
             src={
-              interest.find((item) => item.listId === listing_id)
+              interest && interest.find((item) => item.listId === listing_id)
                 ? imageHeart
                 : favouriteIcon
             }
             alt="favourite-icon"
-            className={ interest.find((item) => item.listId === listing_id) ? "heartFull": "addHeart"}
+            className={ interest && interest.find((item) => item.listId === listing_id) ? "heartFull": "addHeart"}
           />
         </button>
       <div className={price_in_eur.length > 2 ? "card-listing-price-rating": "card-listing-price-ratingV2"}>

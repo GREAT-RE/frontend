@@ -7,17 +7,30 @@ import ListingDetailsMap from "../../../components/MapListingDetails/ListingDeta
 import MapListing from "../../../components/MapListingDetails/MapListing";
 import { ChakraProvider, theme } from "@chakra-ui/react";
 import imagePlaceholder from "../../../assets/placeholder-image.png";
+import airConditioner from "../../../assets/amenity-icons/air-conditioner.svg";
+import wifi from "../../../assets/amenity-icons/wifi.svg";
+import cableTv from "../../../assets/amenity-icons/cable-tv.svg";
+import heating from "../../../assets/amenity-icons/heating.svg";
+import kitchen from "../../../assets/amenity-icons/kitchen.svg";
+import microwave from "../../../assets/amenity-icons/microwave.svg";
+import oven from "../../../assets/amenity-icons/oven.svg";
+import refrigerator from "../../../assets/amenity-icons/refrigerator.svg";
+import stove from "../../../assets/amenity-icons/stove.svg";
+import washer from "../../../assets/amenity-icons/washer.svg";
 
 
 const CardIndividual = () => {
   const [singleProperty, setSingleProperty] = useState();
   const [src, setSrc] = useState();
+  const [amenities, setAmenities] = useState();
+  const [amenitiesDisplay, setAmenitiesDisplay] = useState();
   const { id } = useParams();
 
   const getSingleProperty = () => {
     api
       .get(`/listing/${id}`)
       .then((response) => {
+        setAmenities(response.data[0].amenities);
         setSrc(response.data[0].picture_url)
         setSingleProperty(response.data[0]);
       })
@@ -25,11 +38,76 @@ const CardIndividual = () => {
         console.error(error);
       });
   };
+  const amenitiesToDisplay = [
+    "Wifi",
+    "Air conditioning",
+    "Cable TV",
+    "Heating",
+    "Kitchen",
+    "Microwave",
+    "Oven",
+    "Refrigerator",
+    "Stove",
+    "Washer",
+  ];
+  const extraImages = {
+    Wifi: wifi,
+    "Air conditioning": airConditioner,
+    "Cable TV": cableTv,
+    Heating: heating,
+    Kitchen: kitchen,
+    Microwave: microwave,
+    Oven: oven,
+    Refrigerator: refrigerator,
+    Stove: stove,
+    Washer: washer,
+  };
+  console.log(singleProperty)
 
+  // const amenitiesArray = singleProperty.amenities
+  //   ? singleProperty.amenities.split(",").map((amenity) => amenity.replace(/"/g, "").trim())
+  //   : [];
+
+  // const extraImageArray = amenitiesToDisplay
+  //   .map((amenity) => {
+  //     if (amenitiesArray.includes(amenity)) {
+  //       return extraImages[amenity];
+  //     } else {
+  //       return null;
+  //     }
+  //   })
+  //   .filter((amenity) => amenity !== null);
+  let extraImageArray =[]
+  const getAmenities = ()=>{
+    if(amenities){
+      console.log("object");
+      const amenitiesArray = amenities
+    ? amenities.split(",").map((amenity) => amenity.replace(/"/g, "").trim())
+    : [];
+
+   extraImageArray = amenitiesToDisplay
+    .map((amenity) => {
+      if (amenitiesArray.includes(amenity)) {
+        return extraImages[amenity];
+      } else {
+        return null;
+      }
+    })
+    .filter((amenity) => amenity !== null);
+    setAmenitiesDisplay(extraImageArray)
+    } else {
+      console.log("THING");
+    }
+  }
   useEffect(() => {
     getSingleProperty();
   }, [id]);
 
+  useEffect(() => {
+    getAmenities()
+    console.log(extraImageArray);
+  }, [amenities]);
+  
   return singleProperty ? (
     <>
       <div className="cardI-all">
@@ -48,19 +126,20 @@ const CardIndividual = () => {
               .replace(/<(\/)?b>/gi, "\n")}
           </p>
           <p className="cardI-view">
-            Address: {singleProperty.formatted_address}
+           <h1 className="cardI-description-title">Address:</h1>  {singleProperty.formatted_address}
           </p>
-          <p className="cardI-view">Distances:</p>
           <div className="cardI-facilities">
-            <h1 className="cardI-facilities-title">Facilities</h1>
+            <h1 className="cardI-description-title">Facilities</h1>
             <div className="cardI-facilites-extras">
-              <p className="cardI-facilities-item">OLÁ</p>
-              <p className="cardI-facilities-item">OLÁ</p>
-              <p className="cardI-facilities-item">OLÁ</p>
-              <p className="cardI-facilities-item">OLÁ</p>
-              <p className="cardI-facilities-item">OLÁ</p>
-              <p className="cardI-facilities-item">OLÁ</p>
-              <p className="cardI-facilities-item">OLÁ</p>
+            {amenitiesDisplay && amenitiesDisplay.length>0 ? amenitiesDisplay.map((image, index) => (
+          <img
+            className="amenity-icon-individual"
+            src={image}
+            style={{width:"40px", height:"40px"}}
+            alt={amenitiesToDisplay[index]}
+            key={index}
+          />
+        )) : null}
             </div>
           </div>
         </div>
