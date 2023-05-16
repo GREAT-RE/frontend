@@ -6,6 +6,8 @@ import {
   useLoadScript,
 } from "@react-google-maps/api";
 
+import university_icon_pin from "../../../assets/google-icons/university-pin-icon.svg"
+
 const styles = createUseStyles({
   root: {
     // background: "lightgrey",
@@ -31,11 +33,11 @@ const UniversityPoint = (props) => {
   const classes = styles();
   // console.log("university", props)
   return (
-    <div className={classes.root} onClick={onClick}>
-      <img src={icons.library.icon} alt={name} />
+    <div className={classes.root} onClick={()=>props.onClick(props.id)}>
+      <img src={university_icon_pin} alt={name} style={{height:"40px", width:"40px"}} />
     {/* <Marker
       // key={id}
-      icon={icons.library.icon}
+      icon={university_icon_pin}
         label={name}
       position={{ lat, lng }}
       onClick={onClick}

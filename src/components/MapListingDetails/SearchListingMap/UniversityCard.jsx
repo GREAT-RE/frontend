@@ -13,15 +13,33 @@ import { createUseStyles } from "react-jss";
 // import CloseIcon from "@material-ui/icons/Close"
 
 const useStyles = createUseStyles({
+  //   root: {
+  //     maxWidth: 230,
+  //     position: "relative",
+  //     zIndex: 1001,
+  //     background:"#fafafa"
+  //   },
+  //   media: {
+  //     height: 100,
+  //   },
+  //   close: {
+  //     position: "absolute",
+  //     left: 0,
+  //     top: 0,
+  //     zIndex: 1001,
+  //     background: "white",
+  //     width: "25px",
+  //     height: "25px",
+  //   },
+  // });
+
   root: {
-    maxWidth: 230,
+    maxWidth: 250,
     position: "relative",
     zIndex: 1001,
-    background:"lightgray"
+    background: "white",
   },
-  media: {
-    height: 100,
-  },
+
   close: {
     position: "absolute",
     left: 0,
@@ -31,16 +49,29 @@ const useStyles = createUseStyles({
     width: "25px",
     height: "25px",
   },
+
+  card: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  title: {
+    fontSize: "18px",
+    fontWeight: "900",
+    padding: "10px",
+    margin: "0",
+  }
 });
 
 export default function UniversityCard(props) {
-    // console.log("card", props)
-  const {name} = props.data
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <h3> {name}</h3>
-      <p>MORE DUMMY DATA</p>
+      <div className={classes.card} key={props.data.id}>
+        <h3 className={classes.title}> {props.data.name}</h3>
+      </div>
     </div>
   );
 }

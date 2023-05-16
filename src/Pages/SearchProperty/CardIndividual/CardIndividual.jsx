@@ -6,17 +6,17 @@ import api from "../../../services/api";
 import ListingDetailsMap from "../../../components/MapListingDetails/ListingDetailsMap/ListingDetailsMap";
 import MapListing from "../../../components/MapListingDetails/MapListing";
 import { ChakraProvider, theme } from "@chakra-ui/react";
-
+import imagePlaceholder from "../../../assets/placeholder-image.png";
 const CardIndividual = () => {
   const [singleProperty, setSingleProperty] = useState();
-
+  const [src, setSrc] = useState();
   const { id } = useParams();
 
   const getSingleProperty = () => {
     api
       .get(`/listing/${id}`)
       .then((response) => {
-        // console.log(response.data[0])
+        setSrc(response.data[0].picture_url)
         setSingleProperty(response.data[0]);
       })
       .catch((error) => {
@@ -35,8 +35,9 @@ const CardIndividual = () => {
           <h1 className="cardI-title">{singleProperty.name}</h1>
           <img
             className="cardI-image"
-            src={singleProperty.picture_url}
-            alt="CardI"
+            src={src}
+            onError={() => setSrc(imagePlaceholder)}
+            alt={singleProperty.name}
           />
           <h1 className="cardI-description-title">Description:</h1>
           <p className="card-listing-description">
