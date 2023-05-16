@@ -53,7 +53,11 @@ const Navbar = () => {
             onClick={handleMenuItemClick}
           >
             OFFERS & PROMOTIONS
-          </Link>
+        <Link to="/find-lisbon"
+        className='findLisbon'
+        onClick={handleMenuItemClick}>
+            Find more about Lisbon
+        </Link>
         </li>
         <li>
           <Link

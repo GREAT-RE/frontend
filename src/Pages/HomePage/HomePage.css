@@ -121,7 +121,6 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 4000);
   border: 10px solid transparent;
   padding: 10px;
-  transition: transform 0.3s;
 }
 
 .text3 {
@@ -149,8 +148,6 @@
   text-decoration: underline;
   text-decoration-color: #FCB434;
   border-radius: 20px;
-  padding: 10px;
-  transform: scale(1.2);
 }
 
 

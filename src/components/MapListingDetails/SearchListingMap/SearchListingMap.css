@@ -74,3 +74,8 @@
     width: 120%;
     border: 1px solid lightgray;
   }
+
+  .sideBar-0-2-3 {
+    margin-right: 0px !important;
+    width: 40% !important;
+  }

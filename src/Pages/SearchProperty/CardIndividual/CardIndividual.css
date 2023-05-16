@@ -1,9 +1,24 @@
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 .cardI-all {
     display:flex;
     flex-direction: row;
     justify-content: space-around;
     width: 70%;
     margin: 0 auto;
+}
+
+.cardI-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cardI-description-title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 24px;
 }
 
 .card-left {
@@ -22,6 +37,12 @@
     margin-right: 100px;
 }
 
+.cardI-view {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .cardI-image {
     width: 700px;
     height: 500px;
@@ -32,6 +53,7 @@
 .card-listing-description {
   width: 90%;
   line-height: 1.5;
+  margin-bottom: 30px;
 }
 
 .cardI-button {
@@ -45,8 +67,8 @@
   .cardI-button button {
     font-size: 1.5rem;
     padding: 10px 30px;
-    background-color: #3C4464;
-    color:  #FCB434;
+    background-color: #FCB434;
+    color: #3C4464;
     border: none;
     border-radius: 4px;
     transition: all 0.3s ease;
@@ -54,7 +76,7 @@
   }
   
   .cardI-button button:hover {
-    background-color: #3C4464;
+    background-color: #FCA434;
     cursor: pointer;
   }
 
@@ -76,8 +98,8 @@
   .cardI-back-button button {
     font-size: 1.5rem;
     padding: 10px 20px;
-    background-color: #3C4464;
-    color:  #FCB434;
+    background-color: #FCB434;
+    color:  #3C4464;
     border: none;
     border-radius: 4px;
     transition: all 0.3s ease;
@@ -85,8 +107,15 @@
   }
   
   .cardI-back-button button:hover {
-    background-color: #3C4464;
+    background-color: #FCA434;
     cursor: pointer;
+  }
+
+  .cardI-google {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+
   }
 
   @media screen and (max-width:1025px) {
