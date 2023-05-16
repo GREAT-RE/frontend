@@ -80,7 +80,7 @@ const CardIndividual = () => {
         </div>
       </div>
 
-      <div>
+      <div className="cardI-google">
         <ChakraProvider theme={theme}>
           <ListingDetailsMap data={singleProperty} />
         </ChakraProvider>
