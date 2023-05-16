@@ -200,6 +200,13 @@
   margin-top: 20px;
 }
 
+.popuplar-div-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .popular-card-image {
   width: 300px;
   height: 300px;

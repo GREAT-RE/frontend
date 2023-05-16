@@ -1,15 +1,13 @@
-import React from "react";
-
-const PopularCard = ({ popular }) => {
+import React from 'react'
+const PopularCard = ({popular}) => {
   return (
-    <>
-      <img className="popcardimage" src={popular.picture_url} alt="Pop1" />
-      <h2 className="popcardtitle">{popular.name}</h2>
-      <p className="cardtext">
-        From <span className="cardprice">{popular.price_in_eur}€</span> / Month
-      </p>
-    </>
-  );
-};
-
-export default PopularCard;
+    <div className='popuplar-div-container'>
+      <img className="popular-card-image" src={popular.picture_url} alt="Pop1" />
+          <h2 className="card-title">{popular.name}</h2>
+          <p className="card-text">
+            From <span className="card-price">{popular.price_in_eur}€</span> / Month
+          </p>
+    </div>
+  )
+}
+export default PopularCard

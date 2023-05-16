@@ -17,14 +17,34 @@ import oven from "../../../assets/amenity-icons/oven.svg";
 import refrigerator from "../../../assets/amenity-icons/refrigerator.svg";
 import stove from "../../../assets/amenity-icons/stove.svg";
 import washer from "../../../assets/amenity-icons/washer.svg";
-
+import axios from "axios";
 
 const CardIndividual = () => {
   const [singleProperty, setSingleProperty] = useState();
   const [src, setSrc] = useState();
   const [amenities, setAmenities] = useState();
+  const [address, setAddress] = useState();
   const [amenitiesDisplay, setAmenitiesDisplay] = useState();
   const { id } = useParams();
+
+  const getAddress = ()=>{
+    if(singleProperty){
+      axios
+          .get(
+            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${singleProperty.lat},${singleProperty.lng}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+          )
+          .then(
+            (results) =>
+              api
+                .put(`/listing/${singleProperty.id}`, {
+                  formatted_address:
+                  results.data.results[0].formatted_address,
+                })
+                .then((response) => console.log(response))
+            //   (response.data.results[0].formatted_address)
+          )
+    }
+  }
 
   const getSingleProperty = () => {
     api
@@ -33,6 +53,22 @@ const CardIndividual = () => {
         setAmenities(response.data[0].amenities);
         setSrc(response.data[0].picture_url)
         setSingleProperty(response.data[0]);
+        axios
+        .get(
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${response.data[0].lat},${response.data[0].lng}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+        )
+        .then(
+          (results) =>{
+            setAddress(results.data.results[0].formatted_address)
+            api
+              .put(`/listing/${response.data[0].id}`, {
+                formatted_address:
+                results.data.results[0].formatted_address,
+              })
+              .then((response) => console.log(response))
+          //   (response.data.results[0].formatted_address)
+          }
+        )
       })
       .catch((error) => {
         console.error(error);
@@ -104,8 +140,16 @@ const CardIndividual = () => {
   }, [id]);
 
   useEffect(() => {
+    getAddress();
+  }, []);
+
+  useEffect(() => {
+    getAddress();
+  }, [singleProperty]);
+
+  useEffect(() => {
     getAmenities()
-    console.log(extraImageArray);
+    // console.log(extraImageArray);
   }, [amenities]);
   
   return singleProperty ? (
@@ -126,7 +170,7 @@ const CardIndividual = () => {
               .replace(/<(\/)?b>/gi, "\n")}
           </p>
           <p className="cardI-view">
-           <h1 className="cardI-description-title">Address:</h1>  {singleProperty.formatted_address}
+           <h1 className="cardI-description-title">Address:</h1>  {singleProperty.formatted_address? singleProperty.formatted_address : address}
           </p>
           <div className="cardI-facilities">
             <h1 className="cardI-description-title">Facilities</h1>
