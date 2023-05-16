@@ -255,7 +255,6 @@ const SearchProperty = () => {
               /> */}
               <div>
                 {/* <h2 className="filter-title">Date</h2> */}
-                {console.log(startDate)}
                 <div className="calendars-container">
                   <DatePicker
                     selected={startDate}

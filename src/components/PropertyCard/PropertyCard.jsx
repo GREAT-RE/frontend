@@ -194,9 +194,7 @@ const PropertyCard = ({ listing, minNumber }) => {
           )}
         </div>
       </div>
-      <div className="card-listing-price-rating">
         <button
-          // disabled={!user ? true : false}
           className={
             user ? "card-listing-rating" : "card-listing-rating button-disabled"
           }
@@ -212,6 +210,7 @@ const PropertyCard = ({ listing, minNumber }) => {
             className={ interest.find((item) => item.listId === listing_id) ? "heartFull": "addHeart"}
           />
         </button>
+      <div className={price_in_eur.length > 2 ? "card-listing-price-rating": "card-listing-price-ratingV2"}>
         <p className="card-listing-text-price">
           From <span className="card-listing-price">€ {price_in_eur}</span> /
           Month
