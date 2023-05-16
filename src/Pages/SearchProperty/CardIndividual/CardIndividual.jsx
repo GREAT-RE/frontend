@@ -7,6 +7,8 @@ import ListingDetailsMap from "../../../components/MapListingDetails/ListingDeta
 import MapListing from "../../../components/MapListingDetails/MapListing";
 import { ChakraProvider, theme } from "@chakra-ui/react";
 import imagePlaceholder from "../../../assets/placeholder-image.png";
+
+
 const CardIndividual = () => {
   const [singleProperty, setSingleProperty] = useState();
   const [src, setSrc] = useState();
