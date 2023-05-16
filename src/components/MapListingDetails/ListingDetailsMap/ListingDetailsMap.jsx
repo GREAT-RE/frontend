@@ -49,9 +49,12 @@ const ListingDetailsMap = ({ data }) => {
   const { universities } = useContext(ListingContext);
 
   const [map, setMap] = useState(/** @type google.maps.Map */ (null));
-  const [directionsResponseDriving, setDirectionsResponseDriving] = useState(null);
-  const [directionsResponseWalking, setDirectionsResponseWalking] = useState(null);
-  const [directionsResponseTransport, setDirectionsResponseTransport] = useState(null);
+  const [directionsResponseDriving, setDirectionsResponseDriving] =
+    useState(null);
+  const [directionsResponseWalking, setDirectionsResponseWalking] =
+    useState(null);
+  const [directionsResponseTransport, setDirectionsResponseTransport] =
+    useState(null);
   const [distanceWalking, setDistanceWalking] = useState("");
   const [durationWalking, setDurationWalking] = useState("");
   const [distanceDriving, setDistanceDriving] = useState("");
@@ -88,7 +91,6 @@ const ListingDetailsMap = ({ data }) => {
       destination: destinationRef.current.value,
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
-      
     });
     const resultsWALKING = await directionsService.route({
       //   origin: originRef.current.value,
@@ -96,11 +98,11 @@ const ListingDetailsMap = ({ data }) => {
       destination: destinationRef.current.value,
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.WALKING,
-    //   polylineOptions: new google.maps.DirectionsPolyline({
-    //     strokeColor: '#FF0000',
-    //     strokeOpacity: 1.0,
-    //     strokeWeight: 10
-    //     })
+      //   polylineOptions: new google.maps.DirectionsPolyline({
+      //     strokeColor: '#FF0000',
+      //     strokeOpacity: 1.0,
+      //     strokeWeight: 10
+      //     })
     });
     const resultsTRANSPORTS = await directionsService.route({
       //   origin: originRef.current.value,
@@ -114,7 +116,7 @@ const ListingDetailsMap = ({ data }) => {
     // console.log(resultsDRIVING);
     setDirectionsResponseDriving(resultsDRIVING);
     setDirectionsResponseWalking(resultsWALKING);
-    setDirectionsResponseTransport(resultsTRANSPORTS)
+    setDirectionsResponseTransport(resultsTRANSPORTS);
     setDistanceDriving(resultsDRIVING.routes[0].legs[0].distance.text);
     setDurationDriving(resultsDRIVING.routes[0].legs[0].duration.text);
     setDistanceWalking(resultsWALKING.routes[0].legs[0].distance.text);
@@ -135,18 +137,17 @@ const ListingDetailsMap = ({ data }) => {
     setDurationTransports("");
     destinationRef.current.value = "";
   }
-  
 
-    // var polylineOptionsActual = new google.maps.Polyline({
-    //     strokeColor: '#FF0000',
-    //     strokeOpacity: 1.0,
-    //     strokeWeight: 10
-    //     });
-    //     var polylineOptionsActual = new google.maps.Polyline({
-    //         strokeColor: '#FF0000',
-    //         strokeOpacity: 1.0,
-    //         strokeWeight: 10
-    //         });
+  // var polylineOptionsActual = new google.maps.Polyline({
+  //     strokeColor: '#FF0000',
+  //     strokeOpacity: 1.0,
+  //     strokeWeight: 10
+  //     });
+  //     var polylineOptionsActual = new google.maps.Polyline({
+  //         strokeColor: '#FF0000',
+  //         strokeOpacity: 1.0,
+  //         strokeWeight: 10
+  //         });
 
   return (
     <Flex
@@ -173,13 +174,13 @@ const ListingDetailsMap = ({ data }) => {
           {/* <Marker position={center} /> */}
           {directionsResponseDriving && (
             <DirectionsRenderer directions={directionsResponseDriving} />
-            )}
-            {directionsResponseWalking && (
+          )}
+          {directionsResponseWalking && (
             <DirectionsRenderer directions={directionsResponseWalking} />
-            )}
-              {directionsResponseTransport && (
+          )}
+          {directionsResponseTransport && (
             <DirectionsRenderer directions={directionsResponseTransport} />
-            )}
+          )}
         </GoogleMap>
       </Box>
       <Box
@@ -236,57 +237,59 @@ const ListingDetailsMap = ({ data }) => {
             />
           </ButtonGroup>
         </HStack>
-        {directionsResponseDriving && directionsResponseTransport && directionsResponseWalking && (
-          <HStack
-            className="container-distances"
-            spacing={4}
-            mt={4}
-            justifyContent="space-between"
-          >
-            <Box display="flex" flexDirection="row">
-              <img
-                src={walkingIcon}
-                style={{ height: "50px", width: "50px", marginRight:"10px" }}
-                alt="walking-icon"
-              />
-              <Box>
-                <Text>{distanceWalking} </Text>
-                <Text>{durationWalking} </Text>
+        {directionsResponseDriving &&
+          directionsResponseTransport &&
+          directionsResponseWalking && (
+            <HStack
+              className="container-distances"
+              spacing={4}
+              mt={4}
+              justifyContent="space-between"
+            >
+              <Box display="flex" flexDirection="row">
+                <img
+                  src={walkingIcon}
+                  style={{ height: "50px", width: "50px", marginRight: "10px" }}
+                  alt="walking-icon"
+                />
+                <Box>
+                  <Text>{distanceWalking} </Text>
+                  <Text>{durationWalking} </Text>
+                </Box>
               </Box>
-            </Box>
-            <Box display="flex" flexDirection="row">
-              <img
-                src={busIcon}
-                style={{ height: "50px", width: "50px", marginRight:"10px" }}
-                alt="transports-icon"
-              />
-              <Box>
-                <Text>{distanceTransports} </Text>
-                <Text>{durationTransports} </Text>
+              <Box display="flex" flexDirection="row">
+                <img
+                  src={busIcon}
+                  style={{ height: "50px", width: "50px", marginRight: "10px" }}
+                  alt="transports-icon"
+                />
+                <Box>
+                  <Text>{distanceTransports} </Text>
+                  <Text>{durationTransports} </Text>
+                </Box>
               </Box>
-            </Box>
-            <Box display="flex" flexDirection="row">
-              <img
-                src={carIcon}
-                style={{ height: "50px", width: "50px", marginRight:"10px" }}
-                alt="car-icon"
-              />
-              <Box>
-                <Text>{distanceDriving} </Text>
-                <Text>{durationDriving} </Text>
+              <Box display="flex" flexDirection="row">
+                <img
+                  src={carIcon}
+                  style={{ height: "50px", width: "50px", marginRight: "10px" }}
+                  alt="car-icon"
+                />
+                <Box>
+                  <Text>{distanceDriving} </Text>
+                  <Text>{durationDriving} </Text>
+                </Box>
               </Box>
-            </Box>
-            <IconButton
-              aria-label="center back"
-              icon={<FaLocationArrow />}
-              isRound
-              onClick={() => {
-                map.panTo(centerLisbon);
-                map.setZoom(13);
-              }}
-            />
-          </HStack>
-        )}
+              <IconButton
+                aria-label="center back"
+                icon={<FaLocationArrow />}
+                isRound
+                onClick={() => {
+                  map.panTo(centerLisbon);
+                  map.setZoom(13);
+                }}
+              />
+            </HStack>
+          )}
       </Box>
     </Flex>
   );
