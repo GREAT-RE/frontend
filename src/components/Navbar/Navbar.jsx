@@ -57,15 +57,6 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            to="/find-lisbon"
-            className="findLisbon"
-            onClick={handleMenuItemClick}
-          >
-            Find more about Lisbon
-          </Link>
-        </li>
-        <li>
-          <Link
             to="/offers-promo"
             className="promotionsMenu"
             onClick={handleMenuItemClick}
