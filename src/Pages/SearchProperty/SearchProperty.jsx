@@ -21,26 +21,22 @@ const SearchProperty = () => {
   // const toggleCheckboxList = () => {
   //   setOpen(!open);
   // };
-  let checkedResults = [];
-  const handleCheckboxChange = (event) => {
-    if (event.target.checked) {
-      checkedResults.push(event.target.name);
-    } else {
-      const index = checkedResults.indexOf(event.target.name);
-      if (index > -1) {
-        checkedResults.splice(index, 1);
-      }
-    }
-  };
 
-  const { universities } = useContext(ListingContext);
+  const {
+    universities,
+    setListingsFilter,
+    universitiesSelected,
+    setUniversitiesSelected,
+  } = useContext(ListingContext);
+
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [selectedUniversity, setSelectedUniversity] = useState("");
+  // const [selectedUniversity, setSelectedUniversity] = useState("");
   const [selectRoomType, setSelectRoomType] = useState("");
   const [firstValue, setFirstValue] = useState(20);
   const [secondValue, setSecondValue] = useState(1000);
@@ -51,15 +47,20 @@ const SearchProperty = () => {
     event.preventDefault();
     setFirstValue(newValue[0]);
     setSecondValue(newValue[1]);
-    console.log(newValue);
+    // console.log(newValue);
   };
 
   const handleUniversityChange = (event) => {
-    setSelectedUniversity(event.target.value);
+    setUniversitiesSelected(event.target.value);
+    // console.log(event.target.value)
+    // localStorage.setItem("selectedUniversity", event.target.value)
     api
       .get(`/listing/universities/${event.target.value}`)
       .then((response) => {
-        navigate("/properties/list");
+        setListingsFilter(response.data);
+        if (location.pathname === "/properties/popular") {
+          navigate("/properties/list");
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -67,50 +68,150 @@ const SearchProperty = () => {
   };
 
   const handleRoomChange = (event) => {
+    // console.log(event.target.value);
     setSelectRoomType(event.target.value);
     api
-      .get(`/listing?room_type=${event.target.value}`)
+      .post(`/listing?room_type=${event.target.value}`)
       .then((response) => {
-        navigate("/properties/list");
-        console.log(response);
+        setListingsFilter(response.data);
+        if (location.pathname === "/properties/popular") {
+          navigate("/properties/list");
+        }
       })
       .catch((error) => {
         console.error(error);
       });
-    console.log(event.target.value);
   };
-  // if(selectedUniversity !=="")
-  // api
-  // .get(`/listing/universities/${selectedUniversity}`)
-  // .then((response) => if {(checkedResults.length > 0 && handleRoomChange !="") api.get(`/listing?room_type=${handleRoomChange.event.target.value}&&min_price=${newValue[0]}&&max_price=${newValue[1]}`&&amenities=[...checkedValues])
-  // else if (checkedResults.length === 0 && handleRoomChange !=""){api.get(`/listing?room_type=${handleRoomChange.event.target.value}&&min_price=${newValue[0]}&&max_price=${newValue[1]}
-  // else if (checkedResults.length > 0 && handleRoomChange =""){api.get(`/listing?min_price=${newValue[0]}&&max_price=${newValue[1]&&amenities=[...checkedValues]}
 
-  // const search = () => {
-  //   let query = "";
-  //   query += `min_price=${firstValue}&max_price=${secondValue}&`;
-  //   if (selectRoomType !== "") {
-  //     query += `room_type=${selectRoomType}&`;
-  //   }
-  //   if (checkedResults.length > 0) {
-  //     query += `amenities=${checkedResults.join()}&`;
-  //   }
-  //   if (selectedUniversity !== "") {
-  //     api.get(`/listing/universities/${selectedUniversity}?${query}`)
-  //       .then((response) => {
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   } else {
-  //     api.get(`/listing?${query}`)
-  //       .then((response) => {
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   }
-  // };
+  let checkedResults = {};
+  // let checkedResults = [];
+  const handleCheckboxChange = (event) => {
+    // console.log(event.target.checked);
+    // if (event.target.checked) {
+    Object.assign(checkedResults, {
+      [event.target.name]: event.target.checked,
+    });
+    // checkedResults.push(event.target.name);
+    // } else {
+    //   const index = checkedResults.indexOf(event.target.name);
+    //   if (index > -1) {
+    //     checkedResults.splice(index, 1);
+    //   }
+    // }
+    // console.log(checkedResults);
+    // console.log(selectedUniversity);
+    if (universitiesSelected !== "") {
+      // api
+      //   .get(`/listing/universities/${selectedUniversity}`)
+      //   .then((response) => {
+      //     let tempData = response.data;
+          if (Object.keys(checkedResults).length > 0) {
+            api
+              .post("/listing", {data:checkedResults, universities:universitiesSelected})
+              .then((response) => {
+                setListingsFilter(response.data);
+                // console.log(response.data);
+                if (location.pathname === "/properties/popular") {
+                  navigate("/properties/list");
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+          }
+        } else {  
+          if (Object.keys(checkedResults).length > 0) {
+          api
+            .post("/listing", {data:checkedResults, universities:null})
+            .then((response) => {
+              setListingsFilter(response.data);
+              // console.log(response.data);
+              if (location.pathname === "/properties/popular") {
+                navigate("/properties/list");
+              }
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        }
+
+        }
+          // if (Object.keys(checkedResults).length > 0) {
+          //   let result=[]
+          //   Object.keys(checkedResults).forEach((key, index)=> {
+          //     if(checkedResults[key]){
+          //       tempData.filter(home => home.amenities.toLowerCase().includes(key.toLowerCase())).map(home =>
+          //         {
+          //           if () {
+          //               Object.assign(checkedResults, {[event.target.name]: event.target.checked});
+          //               checkedResults.push(event.target.name);
+          //             } else {
+          //               const index = checkedResults.indexOf(event.target.name);
+          //               if (index > -1) {
+          //                 checkedResults.splice(index, 1);
+          //               }
+          //             }
+          //         })
+          //     }
+          //   });
+          // console.log(result)
+          // api
+          //   .get(`/listing`, {data:checkedResults})
+          //   .then((response) => {
+          //     console.log(response)
+          //     // tratamento dos dados de ambos os axios
+          //   })
+          //   .catch((error) => {
+          //     console.error(error);
+          //   });
+    //       else {
+    //         console.log("filtrado por distancia a universidade selecionada");
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.error(error);
+    //     });
+    // } else {
+      // api
+      //   .get(`/listing?${checkedResults}`)
+      //   .then((response) => {})
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
+
+    //   if(selectedUniversity !=="")
+    // api
+    // .get(`/listing/universities/${selectedUniversity}`)
+    // .then((response) => if {(checkedResults.length > 0 && handleRoomChange !="") api.get(`/listing?room_type=${handleRoomChange.event.target.value}&&min_price=${newValue[0]}&&max_price=${newValue[1]}`&&amenities=[...checkedValues])
+    // else if (checkedResults.length === 0 && handleRoomChange !=""){api.get(`/listing?room_type=${handleRoomChange.event.target.value}&&min_price=${newValue[0]}&&max_price=${newValue[1]}
+    // else if (checkedResults.length > 0 && handleRoomChange =""){api.get(`/listing?min_price=${newValue[0]}&&max_price=${newValue[1]&&amenities=[...checkedValues]}
+
+    // const search = () => {
+    //   let query = "";
+    //   query += `min_price=${firstValue}&max_price=${secondValue}&`;
+    //   if (selectRoomType !== "") {
+    //     query += `room_type=${selectRoomType}&`;
+    //   }
+    //   if (checkedResults.length > 0) {
+    //     query += `amenities=${checkedResults.join()}&`;
+    //   }
+    //   if (selectedUniversity !== "") {
+    //     api.get(`/listing/universities/${selectedUniversity}?${query}`)
+    //       .then((response) => {
+    //       })
+    //       .catch((error) => {
+    //         console.error(error);
+    //       });
+    //   } else {
+    //     api.get(`/listing?${query}`)
+    //       .then((response) => {
+    //       })
+    //       .catch((error) => {
+    //         console.error(error);
+    //       });
+    //   }
+    // };
+  };
 
   return (
     <>
@@ -122,10 +223,10 @@ const SearchProperty = () => {
             <div className="leftColumn">
               <div className="customSelect">
                 <select
-                  value={selectedUniversity}
+                  value={universitiesSelected}
                   onChange={handleUniversityChange}
                 >
-                  <option disabled hidden value="">
+                  <option hidden value="">
                     Select a University
                   </option>
                   {universities.map((university) => (
@@ -152,36 +253,39 @@ const SearchProperty = () => {
                 min="2018-01-01"
                 max="2024-12-31"
               /> */}
-               <div>
-        {/* <h2 className="filter-title">Date</h2> */}
-        <div className="calendars-container">
-          <DatePicker
-            selected={startDate}
-            className={!startDate ? "with-calendar" : "without-calendar"}
-            placeholderText="Move in"
-            dateFormat="dd-MM-yyyy"
-            closeOnScroll={(e) => e.target === document}
-            onChange={(date) => setStartDate(date)}
-            showYearDropdown
-            scrollableMonthYearDropdown
-            showDisabledMonthNavigation
-          />
-          <div className="arrow-container">
-          <FaArrowRight color="lightgray" />
-          </div>
-          <DatePicker
-            selected={endDate}
-            className={!endDate ? "with-calendar" : "without-calendar"}
-            placeholderText="Move out"
-            dateFormat="dd-MM-yyyy"
-            closeOnScroll={(e) => e.target === document}
-            onChange={(date) => setEndDate(date)}
-            showYearDropdown
-            scrollableMonthYearDropdown
-            showDisabledMonthNavigation
-          />
-        </div>
-      </div>
+              <div>
+                {/* <h2 className="filter-title">Date</h2> */}
+                {console.log(startDate)}
+                <div className="calendars-container">
+                  <DatePicker
+                    selected={startDate}
+                    className={
+                      !startDate ? "with-calendar" : "without-calendar"
+                    }
+                    placeholderText="Move in"
+                    dateFormat="dd-MM-yyyy"
+                    closeOnScroll={(e) => e.target === document}
+                    onChange={(date) => setStartDate(date)}
+                    showYearDropdown
+                    scrollableMonthYearDropdown
+                    showDisabledMonthNavigation
+                  />
+                  <div className="arrow-container">
+                    <FaArrowRight color="lightgray" />
+                  </div>
+                  <DatePicker
+                    selected={endDate}
+                    className={!endDate ? "with-calendar" : "without-calendar"}
+                    placeholderText="Move out"
+                    dateFormat="dd-MM-yyyy"
+                    closeOnScroll={(e) => e.target === document}
+                    onChange={(date) => setEndDate(date)}
+                    showYearDropdown
+                    scrollableMonthYearDropdown
+                    showDisabledMonthNavigation
+                  />
+                </div>
+              </div>
             </div>
 
             {/* <Button className="extrasCheckboxButton" onClick={toggleCheckboxList}>Select Extras</Button> */}

@@ -5,6 +5,11 @@
     border-radius: 10px;
     margin: 10px;
   }
+  .amenity-icon{
+    height: 25px;
+    width: 25px;
+  }
+
 
 .card-listing-title {
     font-size: 24px;
@@ -100,6 +105,34 @@
     content: "\a";
     white-space: pre;
   } */
+
+  .card-listing-rating{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-right: -40px;
+    background-color: #fdfdfd;
+    border-radius: 30px;
+    border: 1px solid black;
+  }
+
+  .heartFull{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .addHeart{
+    width: 20px;
+    height: 20px;
+  }
+
+  .button-disabled{
+    border: 1px solid #dfdfdf;
+    background-color: #e2e2e2;
+  }
 
   .review-score-number {
     font-size: 36px;

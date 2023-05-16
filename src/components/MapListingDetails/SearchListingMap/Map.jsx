@@ -4,10 +4,10 @@ import { useEffect, useRef, useState, useContext } from "react";
 import { createUseStyles } from "react-jss";
 import MapPoint from "./MapPoint";
 import OverlayContainer from "./OverlayContainer";
-import SideCard from "./SideCard";
+// import SideCard from "./SideCard";
 import ListingContext from "../../../context/listingContext";
 import SideCardsList from "./SideCardsList";
-
+import api from "../../../services/api";
 // const markers = [
 //   {
 //     name: "Instituto Superior Técnico",
@@ -108,56 +108,109 @@ const useStyles = createUseStyles({
     // justifyContent: "flex-start",
     height: "750px",
     width: "50%",
-    paddingLeft: "20px"
+    paddingLeft: "20px",
   },
-  sideBar:{
+  sideBar: {
     display: "flex",
     width: "50%",
-    justifyContent:"center",
-    marginRight:"20px",
+    justifyContent: "center",
+    marginRight: "20px",
     overflow: "auto",
-    height:"80vh"
-
-  }
+    height: "80vh",
+    overflowX: "hidden",
+  },
 });
 
 function Map({ center, zoom }) {
-  const { listings } = useContext(ListingContext);
+  const { listings, universities, universitiesSelected } =
+    useContext(ListingContext);
+
+  const classes = useStyles();
 
   const ref = useRef(null);
   const [map, setMap] = useState(null);
-  const classes = useStyles();
   const [card, setCard] = useState();
   const [cardSelected, setCardSelected] = useState();
   const [cards, setCards] = useState();
+  const [universitySelected, setUniversitySelected] = useState();
+  //   localStorage.getItem("selectedUniversity")
+  // );
+
+  // console.log(universitySelected)
 
   const getListingsCloser = () => {
     let results = [];
     // console.log(listings)
-    if (card && listings && listings.length > 0) {
-      console.log(card);
-      // listings.
-    } else {
+    if (listings && listings.length > 0) {
+      // console.log(card);
+      //! don't remember why we need this
       listings &&
         listings.length > 0 &&
         listings
-          .filter((listing, index) => index < 100)
+          .filter((listing, index) => index < 200)
           .map((listing) => results.push(listing));
       setCards(results);
+    }
+    if (
+      !universitySelected &&
+      !universitiesSelected &&
+      universities &&
+      universities.length > 0
+    ) {
+      // console.log(universitySelected);
+      setUniversitySelected(null);
+      listings &&
+      listings.length > 0 &&
+      listings
+        .filter((listing, index) => index < 200)
+        .map((listing) => results.push(listing));
+    setCards(results);
+
+      //! don't remember why we need this
+    } else
+      universities &&
+        universities.length > 0 &&
+        universities
+          .filter(
+            (university) => university.id === Number(universitiesSelected)
+          )
+          .map((university) => {
+            // console.log(university);
+            setUniversitySelected(university);
+          });
+    if (listings && listings.length > 0) {
+      api
+        .get(`/listing/universities/${universitiesSelected}`)
+        .then((response) => {
+          let result = [];
+          response.data
+            .filter((data, index) => index < 200)
+            .map((data) => result.push(data));
+            // console.log(result)
+          setCards(result);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 
   useEffect(() => {
     getListingsCloser();
-  }, [listings]);
+  }, [listings, universitiesSelected]);
 
   useEffect(() => {
-    if (cards && cards.length > 0) {
+    if (cards && cards.length > 0 && universitiesSelected) {
       cards
         .filter((apartment) => apartment.id === cardSelected)
         .map((apartment) => setCard(apartment));
+    } else {
+      cards &&
+        cards
+          .filter((apartment) => apartment.id === cardSelected)
+          .map((apartment) => setCard(apartment));
     }
-  }, [cardSelected, cards]);
+  }, [cardSelected, cards, universitiesSelected]);
 
   useEffect(() => {
     if (ref.current) {
@@ -173,24 +226,36 @@ function Map({ center, zoom }) {
 
   return (
     <div className={classes.root}>
-      {/* <SideCard card={card} /> */}
       <div className={classes.sideBar}>
-      <SideCardsList listings={listings} cards={cards} card={card} />
+        <SideCardsList listings={listings} cards={cards} card={card} />
       </div>
       <div ref={ref} id="map" className={classes.map}>
-        {/* {markers.map((marker, index) => (
-        //   console.log(marker) &&
+        {universitySelected ? (
           <OverlayContainer
             map={map}
             position={{
-              lat: marker.lat,
-              lng: marker.lng,
+              lat: universitySelected.lat,
+              lng: universitySelected.lng,
             }}
-            key={index}
+            key={universitySelected.id}
           >
-            <MapPoint university={true} data={marker} />
+            <MapPoint universityTrue={true} data={universitySelected} />
           </OverlayContainer>
-        ))} */}
+        ) : (
+          universities.map((university) => (
+            <OverlayContainer
+              map={map}
+              position={{
+                lat: university.lat,
+                lng: university.lng,
+              }}
+              key={university.id}
+            >
+              <MapPoint universityTrue={true} data={university} />
+            </OverlayContainer>
+          ))
+        )}
+
         {cards
           ? cards.map((apartment, index) => (
               <OverlayContainer
@@ -204,10 +269,6 @@ function Map({ center, zoom }) {
                 <MapPoint
                   apartment={apartment}
                   setCardSelected={setCardSelected}
-                  //   image={apartment.picture_url}
-                  //   name={apartment.name}
-                  //   description={apartment.description}
-                  //   price_in_eur={apartment.price_in_eur}
                 />
               </OverlayContainer>
             ))
