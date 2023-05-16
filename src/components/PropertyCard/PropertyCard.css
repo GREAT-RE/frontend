@@ -5,9 +5,11 @@
     border-radius: 10px;
     margin: 10px;
   }
-  .extras-images{
-    height: 40px;
+  .amenity-icon{
+    height: 25px;
+    width: 25px;
   }
+
 
 .card-listing-title {
     font-size: 24px;
