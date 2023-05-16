@@ -1,7 +1,9 @@
 body {
   font-family: 'Montserrat', sans-serif !important;
 }
-
+.amenity-icon-individual{
+    padding: 5px;
+}
 .cardI-all {
     display:flex;
     flex-direction: row;
