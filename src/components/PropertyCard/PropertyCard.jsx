@@ -17,6 +17,8 @@ import imagePlaceholder from "../../assets/placeholder-image.png";
 
 import favouriteIcon from "../../assets/favourite.icon.svg";
 
+import imageHeart from "../../assets/heart-full.svg"
+
 import AuthContext from "../../context/AuthContext";
 
 import api from "../../services/api";
@@ -203,11 +205,11 @@ const PropertyCard = ({ listing, minNumber }) => {
           <img
             src={
               interest.find((item) => item.listId === listing_id)
-                ? null
+                ? imageHeart
                 : favouriteIcon
             }
             alt="favourite-icon"
-            style={{ height: "20px", width: "20px" }}
+            className={ interest.find((item) => item.listId === listing_id) ? "heartFull": "addHeart"}
           />
         </button>
         <p className="card-listing-text-price">

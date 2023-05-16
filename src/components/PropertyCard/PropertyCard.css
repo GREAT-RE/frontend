@@ -119,6 +119,16 @@
     border: 1px solid black;
   }
 
+  .heartFull{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .addHeart{
+    width: 20px;
+    height: 20px;
+  }
+
   .button-disabled{
     border: 1px solid #dfdfdf;
     background-color: #e2e2e2;
